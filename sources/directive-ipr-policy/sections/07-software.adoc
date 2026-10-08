@@ -1,0 +1,23 @@
+[[software]]
+== Software
+
+=== General
+
+In situations where software is included in ELF standardization deliverables,
+the following rules must be adhered to.
+
+=== Source code contributions
+
+Software contributions included in a standardization deliverable must have
+its source code made available free of charge and not require implementers to be
+subject to a third-party license that does not meet the software licensing
+requirements set forth in this clause.
+
+The license of a software contribution shall permit use, modification and
+redistribution of the software for any purpose, including in derivative
+works, without discrimination.
+
+The copyright notice and the applicable license of the software shall be
+clearly identified in the deliverable.
+
+NOTE: This is in alignment with <<ITUSoftware>>.

@@ -1,0 +1,110 @@
+[[overview]]
+== Overview
+
+=== General
+
+The EXPRESS mapping language is a formal notation for specifying reference paths
+between entities in EXPRESS schemas.
+
+A reference path describes a sequence of navigation steps that traverse entity
+relationships in the schema, starting from one schema entity and ending at
+another schema entity.
+
+There are two types of reference paths used in EXPRESS mapping:
+
+* Entity reference paths: Define how an entity in one schema relates to an
+  entity in another schema through a series of navigations.
+
+* Attribute reference paths: Define how an attribute of an entity in one schema
+relates to an attribute of an entity in another schema through a series of
+navigations.
+
+
+=== Path structure
+
+A reference path consists of one or more navigation steps, where each step
+represents:
+
+* A subtype or supertype relationship between entities;
+* Forward navigation through an attribute to a referenced entity;
+* Inverse navigation from a referenced entity back through an attribute;
+* Optional constraints on entities or attributes.
+
+=== Basic example
+
+The following simple path shows navigation through subtype relationships:
+
+[source]
+----
+land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition
+----
+
+This path indicates that `land` is a subtype of
+`stratum_feature_template_component`, which is a subtype of
+`laminate_component`, and so on, ultimately reaching `product_definition`.
+
+=== Path with attribute navigation
+
+More complex paths include attribute navigation:
+
+[source]
+----
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+product_definition_relationship.relating_product_definition ->
+product_definition
+----
+
+This path:
+
+. Starts from `product_definition`
+. Navigates inversely through the `related_product_definition` attribute to find
+  `product_definition_relationship` entities
+. Then navigates forward through the `relating_product_definition` attribute
+  back to another `product_definition`
+
+=== Path with constraints
+
+Paths can include constraints to specify required conditions:
+
+[source]
+----
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'definition usage'}
+----
+
+This constrains the path to only `product_definition_relationship` entities
+where the `name` attribute equals `'definition usage'`.
+
+=== Role in ISO 10303 modules
+
+In ISO 10303 application modules, mapping files specify how each ARM entity and
+attribute maps to MIM entities. These mappings appear in YAML files with the
+following structure:
+
+[source,yaml]
+----
+ae:  # Application elements
+  - entity: ARM_Entity_Name
+    aimelt:
+      content: mim_entity_name
+    refpath:
+      content: |-
+        {reference path here}
+    aa:  # Attribute assertions
+      - attribute: attribute_name
+        assertion_to: Target_ARM_Entity
+        refpath:
+          content: |-
+            {attribute reference path here}
+----
+
+The `refpath.content` fields contain reference paths expressed in the mapping
+language specified by this document.

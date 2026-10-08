@@ -1,0 +1,11 @@
+[bibliography]
+== Normative references
+
+* [[[iso-10303-11,ISO 10303-11]]], Industrial automation systems and
+integration — Product data representation and exchange — Part 11: Description
+methods: The EXPRESS language reference manual
+
+* [[[AsciiDoc,AsciiDoc]]], AsciiDoc markup language — https://asciidoc.org
+
+* [[[Metanorma,Metanorma]]], Metanorma framework for standards documents —
+https://www.metanorma.org

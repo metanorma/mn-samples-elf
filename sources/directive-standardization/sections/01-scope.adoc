@@ -1,0 +1,35 @@
+== Scope
+
+This document formalizes the standardization and publication processes
+of ELF.
+
+Specifically, it describes the processes and requirements for the
+standardization and publication of the following document types
+produced by ELF, including:
+
+Directive:: normative document that provides requirements for
+internal ELF processes
+
+Standard:: normative document that provide requirements, specifications or guidelines
+for the public
+
+Guide:: informative internal document for ELF technical committees
+
+Specification:: informative specification for the public
+
+Report:: informative internal or public report
+
+Amendment:: normative document that amend a published ELF document
+
+Technical corrigendum:: document that describes a minor amendment
+of a published ELF document, that does not affect the overall validity
+of the original document
+
+
+This document does not apply to the following types of documents
+produced by ELF, although processes described in this document
+can be optionally used as guidance for rigor:
+
+* policy statements;
+* internal administrative documents; and
+* how-to guides.

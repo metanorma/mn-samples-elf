@@ -1,0 +1,75 @@
+[[document-types]]
+== Document types
+
+All documents must have at least one document type, or category. A
+document may appear in more than one category, if appropriate.
+
+=== Directive
+
+Internal, normative documents approved by the ELF Board of Directors,
+developed by the TCB, that provides requirements for
+internal ELF processes.
+
+
+=== Standard
+
+Normative documents created through the ELF standardization process
+that provide requirements, specifications or guidelines for the public.
+
+Requirements in standards shall be based on objective performance
+rather than based on descriptive characteristics.
+
+
+=== Guide
+
+Informative, internal documents that describe guidelines for the work of
+ELF technical committees.
+
+Often a document discussing problems or issues and making suggestions for
+action.
+
+
+=== Specification
+
+Informative specifications for the public.
+
+It could be an experimental specification intended for research and exploration,
+such as to encourage trial implementations, to determine its usefulness and
+applicability.
+
+A published Specification deemed successful would be candidates for progression
+towards a Standard.
+
+
+=== Amendment
+
+Normative documents that amend a published ELF document, such as a
+Standard.
+
+
+=== Technical corrigendum
+
+Document that describes a minor amendment of a published ELF
+document, that does not affect the overall validity of the original
+document.
+
+Could be a normative or informative document for public or
+internal consumption.
+
+
+=== Reports
+
+Informative document, reporting on an event or presenting findings
+of a study or research effort, which may reach conclusions but does
+not contain suggestions for action, except incidentally.
+
+Intended for internal or public consumption.
+
+[example]
+A report on an ELF conference.
+
+
+=== Administrative
+
+A document type for meeting minutes, proposals to committees, policy
+documents, and other material, generally of an internal nature.

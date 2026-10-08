@@ -1,0 +1,39 @@
+== Introduction
+
+=== General
+
+The EXPRESS mapping language is a domain-specific language designed to express
+reference paths between entities in a set of EXPRESS schemas.
+
+It provides a formal syntax and semantics for specifying how entities in one schema
+relate to entities in another schema through a series of navigations. These paths
+can include subtype and supertype relationships, forward and inverse attribute
+navigations, and constraints on entity attributes.
+
+The operators and syntax to express allow for these navigations to be defined
+precisely and unambiguously.
+
+The mapping language serves several purposes:
+
+Documentation:: Provides a clear, machine-readable specification of how concepts
+of a conceptual model described in EXPRESS maps to an implementation described
+in another EXPRESS schema.
+
+Validation:: Enables automated validation that mapping paths are correct and
+traverse valid relationships in the EXPRESS schema.
+
+Interoperability:: Ensures consistent interpretation of mappings across
+different tools and implementations.
+
+Maintenance:: Facilitates detection of broken mappings when schemas evolve.
+
+=== Historical context
+
+In ISO 10303 (STEP), requirements of the application modules are defined using
+Application Resource Models (ARMs) expressed in EXPRESS.
+
+The implementation of these requirements is defined using Module Interpreted
+Models (MIMs), also expressed in EXPRESS.
+
+The EXPRESS mapping language was developed to formally express the relationships
+between ARM entities and MIM entities.

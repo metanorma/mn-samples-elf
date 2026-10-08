@@ -1,0 +1,19 @@
+---
+metanorma:
+  source:
+    files:
+      - sources/express-pretty/document.adoc
+      - sources/annotated-express/document.adoc
+      - sources/expressdocs-migration/document.adoc
+      - sources/express-schema-manifest/document.adoc
+      - sources/express-changes/document.adoc
+      - sources/express-mapping/document.adoc
+      - sources/directive-standardization/document.adoc
+      - sources/directive-document-requirements/document.adoc
+      - sources/directive-patent-policy/document.adoc
+      - sources/directive-ipr-guidelines/document.adoc
+      - sources/directive-ipr-policy/document.adoc
+
+  collection:
+    organization: "EXPRESS Language Foundation"
+    name: "ELF specifications"

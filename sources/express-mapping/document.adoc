@@ -1,0 +1,47 @@
+= EXPRESS mapping language specification
+:docnumber: 5006
+:edition: 1
+:copyright-year: 2025
+:revdate: 2025-10-19
+:language: en
+:title-main-en: EXPRESS mapping language specification
+:doctype: standard
+:technical-committee: EXPRESS
+:imagesdir: images
+:mn-document-class: elf
+:mn-output-extensions: xml,html,doc,pdf,rxl
+:fullname: Thomas Thurman
+:surname: Thurman
+:givenname: Thomas
+:affiliation: EXPRESS Language Foundation
+:fullname_2: Ronald Tse
+:surname_2: Tse
+:givenname_2: Ronald
+:affiliation_2: EXPRESS Language Foundation
+:docidentifier: ELF 5006:2025
+:data-uri-image:
+:local-cache-only:
+
+include::sections/00-foreword.adoc[]
+
+include::sections/00-introduction.adoc[]
+
+include::sections/01-scope.adoc[]
+
+include::sections/02-normrefs.adoc[]
+
+include::sections/03-terms.adoc[]
+
+include::sections/04-overview.adoc[]
+
+include::sections/05-operators.adoc[]
+
+include::sections/06-navigation.adoc[]
+
+include::sections/07-constraints.adoc[]
+
+include::sections/08-validation.adoc[]
+
+include::sections/aa-examples.adoc[]
+
+include::sections/az-bibliography.adoc[]

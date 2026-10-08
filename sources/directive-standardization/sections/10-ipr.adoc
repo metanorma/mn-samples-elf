@@ -1,0 +1,41 @@
+[[ipr]]
+== Intellectual property rights
+
+=== Free of restrictions
+
+Text of all working documents as well as co-developed/co-published deliverables will remain free of IPR restrictions that would limit their application.
+
+=== Copyright
+
+Copyright of standardization deliverables created under this document
+is vested in ELF.
+
+Copyright of contributions remains with their authors; contributors
+grant ELF the license described under <<member-sourced>> for the
+development and publishing of the deliverables.
+
+
+[[publication-license]]
+=== Publication license
+
+In fulfilment of the commitment that the text of ELF documents remains
+free of restrictions that would limit their application, ELF makes its
+published documents available to the public under the Creative Commons
+Attribution 4.0 International Public License (CC BY 4.0).
+
+
+[[member-sourced]]
+=== Member-sourced documents
+
+Authors of ELF deliverables grant ELF a world-wide,
+non-exclusive, non-sub-licensable license
+(except for the submission and adoption by other standardization bodies),
+to use contents of submitted documents to ELF,
+for the development and publishing of the deliverables.
+
+=== Patented content
+
+Patented content in a standard will be governed by the ELF IPR policy.
+
+Any patents involved knowingly in an ELF deliverable must be made
+transparent prior to the DIS stage.

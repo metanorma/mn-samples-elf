@@ -1,0 +1,10 @@
+[bibliography]
+== Bibliography
+
+* [[[DIR102,ELF 102:2026]]], _ELF Directive: Standard document requirements_
+
+* [[[IETFRFC2026,IETF RFC 2026]]], _IETF RFC 2026: Internet Standards Process_
+
+* [[[ITUMARKS,ITU-T Marks Guidelines 2.0]]], _ITU-T GUIDELINES RELATED TO THE INCLUSION OF MARKS IN ITU-T RECOMMENDATIONS, Issue 2.0_, November 2005.
+
+* [[[ITUSoftware,ITU Software Copyright Guidelines]]], _ITU Software Copyright Guidelines_, 7/12/2011

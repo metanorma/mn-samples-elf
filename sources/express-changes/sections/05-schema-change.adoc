@@ -1,0 +1,257 @@
+
+[[schema-change]]
+== Schema change
+
+=== General
+
+The schema change structure is a record of modifications to the structure and
+semantics of an EXPRESS schema across different versions.
+
+It records additions, modifications, and deletions of schema elements such as
+entities, types, functions, and rules.
+
+The structure is built on the following constructs:
+
+* Version changes: Changes made to the schema in a specific version compared to
+the previous version.
+
+* Item changes: Specific elements that were added, modified, or removed.
+
+Syntax:
+
+[source,yaml]
+----
+schema: String (required)
+  # Name of the EXPRESS schema
+versions:
+  - {version change 1}
+  - {version change 2}
+----
+
+
+=== Version change
+
+Each version change object details changes between two versions of the schema.
+
+Syntax:
+
+[source,yaml]
+----
+version: Integer (required)
+# Version number for this change version
+description: String (optional)
+# Description of changes in this version
+additions:
+  - {addition change 1}
+  - {addition change 2}
+modifications:
+  - {modification change 1}
+  - {modification change 2}
+deletions:
+  - {deletion change 1}
+  - {deletion change 2}
+----
+
+Fields:
+
+`version`:: (required) The version number (integer). Must be positive.
++
+[example]
+`2`, `3`, `6`.
+
+`description`:: (optional) A multi-line string describing the changes made in
+this version. Should provide a comprehensive overview of what changed and why.
+If not provided, a publication may provide its own boilerplate or summary.
+
+`additions`:: (optional) An array of added elements as addition changes.
+
+`modifications`:: (optional) An array of modified elements as modification
+changes.
+
+`deletions`:: (optional) An array of removed elements as deletion changes.
+
+
+=== Item changes
+
+==== General
+
+Item changes represent specific schema elements that were added, modified, or
+removed.
+
+There are three types of item changes:
+
+* Addition change
+* Modification change
+* Deletion change
+
+==== Modification change
+
+Each modification change represents a specific schema element that was added,
+modified, or removed, and when applicable, references to other EXPRESS
+constructs.
+
+Syntax:
+
+[source,yaml]
+----
+# Type of the EXPRESS construct (e.g., ENTITY, TYPE, FUNCTION)
+type: String (required)
+# Name of the EXPRESS construct
+name: String (required)
+# Description of the change
+description: Array (optional)
+- String
+# For USE_FROM or REFERENCE_FROM, list of specific items referenced or used
+interfaced_items: Array (optional)
+- String
+----
+
+Fields:
+
+`type`:: (required) The type of the EXPRESS construct (string). Allowed values
+are:
+
+`ENTITY`::: Entity definitions
+
+`TYPE`::: Type definitions (including SELECT, ENUMERATION)
+
+`FUNCTION`::: Function definitions
+
+`RULE`::: Rule definitions
+
+`PROCEDURE`::: Procedure definitions
+
+`CONSTANT`::: Constant definitions
+
+`SUBTYPE_CONSTRAINT`::: Subtype constraints
+
+`REFERENCE_FROM`::: A reference from another schema, with an additional field
+`interfaced_items` listing the specific items referenced when in `additions`.
+When used in `deletions`, no `interfaced_items` is needed.
+
+`USE_FROM`::: A use from another schema, with an additional field `interfaced_items`
+listing the specific items used when in `additions`. When used in `deletions`, no
+`interfaced_items` is needed.
+
+`name`:: (required) The name of the EXPRESS construct (string).
+
+`description`:: (optional) An array of strings describing the change. Each
+string represents a description for a single change in the named target.
+For instance, if an entity had an attribute removed and a WHERE rule added, the
+description array would have two entries, one for each change.
++
+[example]
+====
+[source,yaml]
+----
+---
+schema: Additive_manufacturing_part_and_build_information_arm
+versions:
+- version: 2
+  modifications:
+  - type: ENTITY
+    name: Additive_manufacturing_build_direction_element
+    description:
+    - Remove Attribute 'identified_item'
+    - Remove DERIVE 'element_name'
+    - Add WHERE 'WR1'
+    - Figure updated
+----
+====
+
+`interfaced_items`:: (optional) For `USE_FROM` or `REFERENCE_FROM`, an array of
+specific items referenced or used. Not needed when in `deletions`.
++
+[example]
+====
+[source,yaml]
+----
+---
+schema: Document_and_version_identification_mim
+versions:
+- version: 2
+  deletions:
+  - type: USE_FROM
+    name: Product_identification_mim
+- version: 3
+  additions:
+  - type: USE_FROM
+    name: product_definition_schema
+    interfaced_items:
+    - product_category
+    - product_related_product_category
+----
+====
+
+==== Addition change
+
+An addition change is a modification change representing an addition to the
+schema.
+
+It uses the same structure as a modification change except it provides an
+additional property for denoting if the addition was due to a move from another
+schema.
+
+Each modification change represents a specific schema element that was added,
+modified, or removed, and when applicable, references to other EXPRESS
+constructs.
+
+Syntax:
+
+[source,yaml]
+----
+{ modification change fields }
+moved_from: (optional)
+  - schema: String (required)
+    version: Integer (optional)
+----
+
+Fields:
+
+`moved_from`:: (optional) If the addition was due to a move from another schema,
+this field specifies the name of that schema.
+
+Fields within `moved_from`:
+
+`schema`:: (required) The name of the source schema from which the item was moved.
+
+`version`:: (optional) The version number in the source schema from which the item was moved.
+
+NOTE: The `moved_from` field is the inverse of `moved_to` of the deletion
+change, allowing for tracking the movement of schema elements between different
+versions and schemas.
+
+
+==== Deletion change
+
+A deletion change is a modification change representing a removal from the
+schema.
+
+It uses the same structure as a modification change except it provides an
+additional property for denoting if the deletion was due to a move to another
+schema.
+
+Syntax:
+
+[source,yaml]
+----
+{ modification change fields }
+moved_to: (optional)
+  - schema: String (required)
+    version: Integer (optional)
+----
+
+Fields:
+
+`moved_to`:: (optional) If the deletion was due to a move to another schema,
+this field specifies the name of that schema.
+
+Fields within `moved_to`:
+
+`schema`:: (required) The name of the target schema to which the item was moved.
+
+`version`:: (optional) The version number in the target schema to which the item was moved.
+
+NOTE: The `moved_from` field accommodates semantics of the `moved-to-resource`
+and `moved-to-module` attributes used internally in the STEPmod Resource
+Library's XML files.

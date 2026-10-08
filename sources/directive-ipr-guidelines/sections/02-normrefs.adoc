@@ -1,0 +1,8 @@
+[bibliography]
+== Normative References
+
+* [[[DIR101,ELF 101:2026]]], _ELF Directive: Standardization and publication_
+
+* [[[DIR102,ELF 102:2026]]], _ELF Directive: Standard document requirements_
+
+* [[[DIR103,ELF 103:2026]]], _ELF Directive: Patent policy_

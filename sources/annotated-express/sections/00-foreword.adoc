@@ -1,0 +1,27 @@
+.Foreword
+The EXPRESS Language Foundation ("`ELF`") is a registered public charity in the
+US that facilitates the education, standardization, research, promotion,
+definition, and usage of information modelling and programming languages, with a
+focus on the EXPRESS language family.
+
+ELF works with international partners and experts across the globe, reflecting
+the international nature of its mission. More information about ELF is available
+on the official website (https://www.expresslang.org).
+
+The procedures used to develop this document and those intended for its further
+maintenance are described in the ELF Directives.
+
+In particular, the different approval criteria needed for the different types of
+ELF documents should be noted. This document was drafted in accordance with the
+editorial rules of the ELF Directives.
+
+Attention is drawn to the possibility that some of the elements of this document
+may be the subject of patent rights. ELF shall not be held responsible for
+identifying any or all such patent rights. Details of any patent rights
+identified during the development of the document will be provided in the
+Introduction.
+
+Any trade name used in this document is information given for the convenience of
+users and does not constitute an endorsement.
+
+This document was prepared by Technical Committee _{technical-committee}_.

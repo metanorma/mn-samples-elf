@@ -1,0 +1,119 @@
+[[contributions]]
+== Contributions
+
+
+=== No confidential material
+
+Participants in ELF standardization activities must avoid providing contributions containing confidential material, regardless whether provided in person or via electronic means.
+
+
+=== Mandatory disclosure of intellectual property rights
+
+Contributions which contain intellectual property of an organization must be disclosed and are subject to the rules and guidance provided in this document.
+
+Such contributions shall be avoided unless such material can be shown to be, in the judgment of the participants in the activity and the ELF Board of Directors, essential to the work.
+
+No material which is subject to any terms of confidentiality or restriction of dissemination on the part of its contributor or the contributor's organization can be accepted for such use.
+
+Individuals participating in the activities of ELF are responsible for determining that material which they contribute is made available by their organizations in accordance with this provision.
+
+
+=== Copyright provisions
+
+If any part of a contribution is or may be subject to copyright, the contributor and his or her organization, and any other owners of any proprietary rights in the contribution, grant ELF a world-wide, non-exclusive, non-sub-licensable license (except for the submission and adoption by other standardization bodies), to use contents of submitted documents to ELF, for the development and publishing of the deliverables.
+
+////
+Previous:
+grant an unlimited perpetual, non-exclusive, royalty-free, world-wide right and license to The Calendaring and Scheduling Consortium under any copyrights in the contribution.
+////
+
+This license includes the right to copy, publish and distribute the contribution in any way, and to prepare derivative works that are based on or incorporate all or part of the contribution, the license to such derivative works to be of the same scope as the license of the original contribution.
+
+NOTE: This is in alignment with <<IETFRFC2026,clause="10.3.1.1">>.
+
+////
+IETF RFC 2026 10.3.1.1
+
+ 1. Some works (e.g. works of the U.S. Government) are not subject to
+    copyright.  However, to the extent that the submission is or may be
+    subject to copyright, the contributor, the organization he
+    represents (if any) and the owners of any proprietary rights in the
+    contribution, grant an unlimited perpetual, non-exclusive,
+    royalty-free, world-wide right and license to the ISOC and the
+    IETF under any copyrights in the contribution.  This license
+    includes the right to copy, publish and distribute the
+    contribution in any way, and to prepare derivative works that are
+    based on or incorporate all or part of the contribution, the
+    license to such derivative works to be of the same scope as the
+    license of the original contribution.
+////
+
+=== Admission and usage
+
+ELF has no duty to admit, publish or otherwise use or disseminate any contribution.
+
+NOTE: This is in alignment with <<IETFRFC2026,clause="10.3.1.2">>.
+
+
+=== Reference
+
+The contributor grants permission to reference the names and
+addresses of contributors of a contribution and of the organizations he or she
+represents (if any).
+
+NOTE: This is in alignment with <<IETFRFC2026,clause="10.3.1.3">>.
+
+
+=== Source disclosure
+
+A contribution must properly acknowledge all major contributors of that contribution.
+
+NOTE: This is in alignment with <<IETFRFC2026,clause="10.3.1.4">>.
+
+
+
+=== IPR disclosure
+
+The contributor when submitting a contribution, represents
+that he or she has disclosed the existence of
+any proprietary or intellectual property rights in the
+contribution that are reasonably and personally known to the
+contributor.
+
+The contributor does not represent that he or she
+personally knows of all potentially pertinent proprietary and
+intellectual property rights owned or claimed by the organization
+he represents (if any) or third parties.
+
+For patents, please refer to the ELF Patent Policy at <<DIR103>>.
+
+
+NOTE: This is in alignment with <<IETFRFC2026,clause="10.3.1.5">> and <<IETFRFC2026,clause="10.3.1.6">>.
+
+
+=== Warranty
+
+The contributor is deemed to agree to the terms and conditions
+set in this document when submitting a contribution.
+
+The contributor represents that there are no limits to the
+contributor's ability to make the grants acknowledgments and
+agreements detailed in this document that are reasonably and personally known to the
+contributor.
+
+This agreement is made on his or her own behalf, on behalf of the organization (if any),
+or on behalf of the owners of any propriety rights in the
+contribution.
+
+Where a contribution identifies contributors in
+addition to the contributor(s) who provided it, the
+submitter(s) represent that each other named contributor was
+made aware of and agreed to accept the same terms and conditions on
+his own behalf, on behalf of any organization he may represent and
+any known owner of any proprietary rights in the contribution.
+
+This warrant is perpetual and will not be revoked by ELF or its
+successors or assigns.
+
+
+NOTE: This is in alignment with <<IETFRFC2026,clause="10.3.1">>.

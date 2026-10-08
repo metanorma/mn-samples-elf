@@ -1,0 +1,26 @@
+== Scope
+
+This document specifies rules for the presentation format (pretty printing) of
+EXPRESS language schemas. It provides a standardized approach to formatting
+various elements of the EXPRESS language, including declarations, expressions,
+and statements.
+
+The rules specified in this document apply to all EXPRESS schemas, regardless
+of their application domain. The standardized pretty printing format enhances
+readability, improves maintainability, and ensures consistency across EXPRESS
+implementations.
+
+This document provides test cases and examples to illustrate the formatting rules
+and their application to different EXPRESS constructs, and can be used
+by a EXPRESS pretty printer to claim conformance to this standard.
+
+This document is intended for:
+
+* EXPRESS schema authors who wish to format their schemas in a consistent,
+readable manner
+* Tool developers implementing pretty printing capabilities for EXPRESS schemas
+* Reviewers and users of EXPRESS schemas who benefit from consistently formatted
+schemas
+
+The pretty printing rules specified here complement the syntax and semantics of
+the EXPRESS language as defined in ISO 10303-11.

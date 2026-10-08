@@ -1,0 +1,51 @@
+[appendix,obligation=informative]
+== Schemas
+
+=== General
+
+This annex provides the YAML Schema definitions for the EXPRESS Changes YAML
+formats defined in this document.
+
+These schemas can be used to validate EXPRESS Changes YAML files and to
+generate documentation or tooling for working with EXPRESS change records.
+
+The schemas are defined in YAML Schema format that follows the JSON Schema
+format (draft-07).
+
+
+=== Schema change schema
+
+The schema change schema defines the structure for recording modifications to
+EXPRESS schema structure across versions, as described in <<schema-change>>.
+
+[source,yaml]
+----
+include::../schemas/schema_changes.yaml[]
+----
+
+This schema can be used for validation by inserting the following comment line
+at the beginning of the EXPRESS changes YAML file.
+
+[source,yaml]
+----
+# yaml-language-server: $schema=https://www.expresslang.org/schemas/changes/v1/schema_changes.yaml
+----
+
+=== Mapping change schema
+
+The mapping change schema defines the structure for recording modifications to
+EXPRESS schema mappings across versions, as described in <<mapping-change>>.
+
+[source,yaml]
+----
+include::../schemas/mapping_changes.yaml[]
+----
+
+This schema can be used for validation by inserting the following comment line
+at the beginning of the EXPRESS changes YAML file.
+
+[source,yaml]
+----
+# yaml-language-server: $schema=https://www.expresslang.org/schemas/changes/v1/mapping_changes.yaml
+----
+

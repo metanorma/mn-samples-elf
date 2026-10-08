@@ -1,0 +1,6 @@
+[bibliography]
+== Bibliography
+
+* [[[EXPRESS-Engine,EXPRESS-Engine]]], _Express Engine_, Craig Lanning, Thomas Thurman, et al.
+
+* [[[EE-Pretty-Print,EE-Pretty-Print]]], _Express Engine Pretty Printer Documentation_, Craig Lanning, Thomas Thurman.

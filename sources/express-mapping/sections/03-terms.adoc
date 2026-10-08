@@ -1,0 +1,70 @@
+== Terms and definitions
+
+=== application resource model
+preferred:[ARM]
+
+conceptual model that represents application domain concepts in a neutral,
+implementation-independent manner
+
+[.source]
+<<ISO10303-2>>
+
+=== module interpreted model
+preferred:[MIM]
+
+implementation model that maps ARM concepts to EXPRESS constructs using entities
+and relationships from integrated resources
+
+[.source]
+<<ISO10303-2>>
+
+=== reference path
+
+sequence of navigation steps through EXPRESS schema entity relationships,
+expressing how an entity in one schema relates to an entity in another schema
+
+=== subtype relationship
+
+relationship where one entity inherits all attributes and constraints from
+another entity, expressed in EXPRESS with the SUBTYPE OF construct
+
+=== supertype relationship
+
+relationship where an entity serves as a base type for one or more subtypes,
+providing attributes and constraints inherited by those subtypes
+
+=== forward attribute navigation
+
+navigation that follows an attribute from an entity to the entity it references
+
+[example]
+Navigating from `product_definition` through attribute `formation` to
+`product_definition_formation`.
+
+=== inverse attribute navigation
+
+navigation that finds entities referencing the current entity through a specific
+attribute
+
+[example]
+Finding all `product_definition_relationship` entities that reference a
+`product_definition` through their `related_product_definition` attribute.
+
+=== constraint block
+
+expression that specifies conditions that entities or attributes must satisfy
+during path navigation
+
+[example]
+`{product_definition_relationship.name = 'definition usage'}` requires the
+`name` attribute to equal the specified string value.
+
+=== navigation step
+
+single element in a reference path representing one traversal operation
+(subtype, supertype, forward navigation, or inverse navigation)
+
+=== path expression
+
+complete reference path from one schema entity to another schema entity,
+composed of at least one navigation step

@@ -1,0 +1,26 @@
+== Introduction
+
+=== General
+
+The EXPRESS Schema Manifest specification provides a standardized format for
+listing and referencing multiple EXPRESS schemas within a project or system.
+This specification addresses the need for a consistent way to organize and
+reference EXPRESS schemas, particularly in the context of the EXPRESSdocs
+framework.
+
+EXPRESS schemas are fundamental components in data modeling for product data
+representation and exchange. As projects grow in complexity, they often
+incorporate multiple schemas that need to be referenced and managed
+collectively. The EXPRESS Schema Manifest specification offers a solution to
+this challenge by providing a structured format for schema listings.
+
+=== Historical context
+
+In STEPmod (developed by ISO/TC 184/SC 4), the `repository_index.xml` file
+served the purpose of defining the SMRL (STEP Module Repository Library)
+collection of EXPRESS schemas. This specification builds upon that concept,
+providing a more flexible and modern approach using YAML syntax.
+
+The current specification reflects the `schemas.yaml` file structure that is
+used in EXPRESSdocs, offering a clear and maintainable way to reference multiple
+EXPRESS schemas and their locations.

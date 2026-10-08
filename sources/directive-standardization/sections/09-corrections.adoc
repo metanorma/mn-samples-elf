@@ -1,0 +1,9 @@
+
+[[corrections]]
+== Corrections and amendments
+
+Corrections and amendments to standardization documents are
+considered projects themselves, and should be handled
+as described in <<process>>.
+
+// TODO: perhaps some fast tracking possible.

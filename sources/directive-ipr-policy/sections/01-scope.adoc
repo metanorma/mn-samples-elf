@@ -1,0 +1,6 @@
+== Scope
+
+This document provides the ELF intellectual property rights
+policy, which governs all standardization activities at ELF.
+
+The ELF patent policy is described in <<DIR103>>.

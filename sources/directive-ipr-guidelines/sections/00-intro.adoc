@@ -1,0 +1,44 @@
+== Introduction
+
+=== General
+
+ELF is committed to expanding the realm of standards for information
+modelling and programming languages, with a focus on the EXPRESS
+language family and interoperability across the globe and communities
+of practice.
+
+As a proponent of open standards, ELF has adopted a patent policy
+in <<DIR103>> to align IPR practice with major international
+standardization bodies including ISO, IEC and ITU.
+
+=== Purpose
+
+This document describes guidelines for the implementation of the
+ELF patent policy specified in <<DIR103>>
+in the standardization and publication processes described
+in <<DIR101>>.
+
+The intent of this document is to:
+
+* encourage the early disclosure and identification of patents during the
+standardization and publication processes;
+
+* resolve potential patent concerns and rights problems relevant to
+the standardization and publication processes.
+
+
+////
+
+
+ITU, in its Telecommunication Standardization Sector (ITU-T) and its Radiocommunication Sector (ITU-R), ISO and IEC have had patent policies for many years, the purpose being to provide in simple words practical guidance to the participants in their Technical Bodies in case patent rights matters arise.
+
+Considering that the technical experts are normally not familiar with the complex issue of patent law, the Common Patent Policy for ITU-T/ITU-R/ISO/IEC (hereafter referred to as the "Patent Policy") was drafted in its operative part as a checklist, covering the three different cases which may arise if a Recommendation | Deliverable requires licences for Patents to be practiced or implemented, fully or partly.
+
+The Guidelines for Implementation of the Common Patent Policy for ITU-T/ITU-R/ISO/IEC (hereafter referred to as the "Guidelines") are intended to clarify and facilitate implementation of the Patent Policy, a copy of which can be found in Annex 1 and also on the web site of each Organization.
+
+The Patent Policy encourages the early disclosure and identification of Patents that may relate to Recommendations | Deliverables under development. In doing so, greater efficiency in standards development is possible and potential patent rights problems can be avoided.
+
+The Organizations should not be involved in evaluating patent relevance or essentiality with regards to Recommendations | Deliverables, interfere with licensing negotiations, or engage in settling disputes on Patents; this should be left - as in the past - to the parties concerned.
+
+Organization-specific provisions are contained in Part II of this document. However, it is understood that those Organization-specific provisions shall contradict neither the Patent Policy nor the Guidelines.
+////

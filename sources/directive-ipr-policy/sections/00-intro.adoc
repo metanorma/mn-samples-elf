@@ -1,0 +1,43 @@
+== Introduction
+
+=== General
+
+ELF is committed to expanding the realm of standards for information
+modelling and programming languages, with a focus on the EXPRESS
+language family and interoperability across the globe and communities
+of practice.
+
+In the ELF standardization process described in <<DIR101>>,
+contributions are received from various forms and parties.
+As a proponent of open standards, ELF is required to
+address any intellectual property rights in such contributions
+to be able to publish standardization deliverables.
+
+This document details the IPR policy of ELF covering
+all ELF standardization activities, covering
+generally the following categories:
+
+* Copyright
+* Trademarks
+* Patents
+
+
+
+
+=== Purpose
+
+This document describes the intellectual property rights policy of
+ELF that aims to be simple and straightforward.
+
+ELF deliverables are drawn up by technical, not IPR, experts,
+who may not be fully aware of all nuances in the complex
+international legal situation of intellectual property rights.
+
+ELF deliverables are non-binding -- their objective is to ensure
+compatibility of technologies and systems on a worldwide basis.
+
+To ensure the applicability and accessibility of ELF
+deliverables, the implementation and continued usage of content within
+the deliverables must be possible to the worldwide audience without
+discrimination, including any intellectual property rights embodiment
+in such deliverables.

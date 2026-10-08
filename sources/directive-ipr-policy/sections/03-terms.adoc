@@ -1,0 +1,16 @@
+[source="DIR101"]
+
+[[terms]]
+== Terms and definitions
+
+[[term-contribution]]
+=== contribution
+
+material provided as input to an ELF standardization activity
+
+NOTE: a contribution can be provided by a member of ELF or an external party
+
+
+=== contributor
+
+party that provides a _contribution_ (<<term-contribution>>)

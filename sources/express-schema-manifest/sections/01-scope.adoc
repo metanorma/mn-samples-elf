@@ -1,0 +1,16 @@
+== Scope
+
+This document specifies the EXPRESS Schema Manifest format, a standardized
+approach for listing and referencing multiple EXPRESS schemas within a project
+or system.
+
+The EXPRESS Schema Manifest specification provides a structured format for
+defining collections of EXPRESS schemas, their locations, and relationships,
+particularly in the context of the EXPRESSdocs framework.
+
+This document:
+
+* defines the structure and syntax of the EXPRESS Schema Manifest;
+* specifies rules for referencing EXPRESS schemas and their locations;
+* provides methods for organizing collections of EXPRESS schemas; and
+* includes examples of proper EXPRESS Schema Manifest usage.

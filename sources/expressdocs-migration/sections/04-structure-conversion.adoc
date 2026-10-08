@@ -1,0 +1,126 @@
+== Structure conversion
+
+=== General
+
+In the current ISO documents, the role of Metanorma is reversed with EXPRESS.
+
+Text is handled in the blocks like this:
+
+[source,adoc]
+----
+{document content}
+*)
+
+{EXPRESS schema content}
+
+(*
+{document content continued}
+----
+
+Notice that this is in the syntax of an EXPRESS comment. The intention here
+is to reverse the structure, where the `{document content}` exists as
+Annotated EXPRESS objects within the EXPRESS schema.
+
+Let's reverse this so that we have:
+
+[source,adoc]
+----
+{EXPRESS schema content}
+
+(*
+{document content}
+*)
+
+{EXPRESS schema content continued}
+----
+
+Now, anything outside the remarks is in plain EXPRESS.
+
+=== Example
+
+We take ISO 10303-49, Clause 4 as an example.
+
+This file `sections/04-method_definition.adoc` contains this content
+(partial copy):
+
+[source]
+----
+[[method_definition]]
+== Method definition
+
+The following EXPRESS declaration begins the *method_definition_schema* and
+identifies the necessary external references.
+
+EXPRESS specification:
+
+[%unnumbered]
+[source,html]
+----
+*)
+SCHEMA method_definition_schema;
+
+REFERENCE FROM action_schema
+    (action_method,
+     action_method_relationship,
+     action_relationship);
+
+...
+(*
+----
+
+[NOTE]
+====
+The schemas referenced above can be found in the following parts of ISO 10303:
+
+action_schema:: <<iso10303-41>>
+document_schema:: <<iso10303-41>>
+...
+====
+
+NOTE: See <<annexD>>, <<figD1>>, for a graphical presentation of this schema.
+
+=== Introduction
+
+The subject of the ...
+
+=== Fundamental concepts and assumptions
+
+The *method_definition_schema* provides ...
+----
+
+Given this input, we want to reverse the roles to obtain a new file:
+`method_definition_schema.exp`.
+
+The resulting file looks like this (`method_definition_schema.exp`):
+
+[source]
+----
+SCHEMA method_definition_schema;
+
+REFERENCE FROM action_schema
+    (action_method,
+     action_method_relationship,
+     action_relationship);
+
+...
+
+(*"method_definition_schema.__note
+The schemas referenced above can be found in the following parts of ISO 10303:
+
+action_schema:: <<iso10303-41>>
+document_schema:: <<iso10303-41>>
+...
+*)
+
+(*"method_definition_schema.__note
+See <<annexD>>, <<figD1>>, for a graphical presentation of this schema.
+*)
+
+(*"method_definition_schema"
+The subject of ...
+*)
+
+(*"method_definition_schema.__fund_cons"
+The *method_definition_schema* provides...
+*)
+----

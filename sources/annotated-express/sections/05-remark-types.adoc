@@ -1,0 +1,41 @@
+== Types of remarks
+
+=== Basic objects
+
+In Annotated EXPRESS, there are a few types of named remarks:
+
+* `(*"{TAG}" ... *)` refers to the description of EXPRESS object `{TAG}`
+
+* `(*"{TAG}.__note" ... *)` refers to a note that applies to EXPRESS object
+`{TAG}`
+
+* `(*"{TAG}.__example" ... *)` refers to a usage example that applies to the
+EXPRESS object `{TAG}`
+
+* `(*"{TAG}.__figure" ... *)` refers to a figure that applies to the EXPRESS
+object `{TAG}`, which can be re-used within its notes or examples.
+
+* `(*"{TAG}.__table" ... *)` refers to a table that applies to the EXPRESS
+object `{TAG}`, which can be re-used within its notes or examples.
+
+These different types of remarks can be in multiple instances, for example,
+multiple `(*"{TAG}" ... *)` remarks can be made in an EXPRESS file to describe
+the particular object.
+
+These named remarks are not bound to any particular location in an EXPRESS file.
+For example, they can be made immediately after the declaration of the EXPRESS
+object, or collected at the top or bottom of the EXPRESS file.
+
+=== STEPmod remarks
+
+In STEPmod, which is the STEP modules library, two additional types of
+named remarks are used.
+
+* `(*"{SCHEMA_TAG}.__fund_cons" ... *)` describes the
+"Fundamental concepts and assumptions" of a schema. It is a ISO 10303 convention
+to describe the concepts and assumptions of the schema. The tag must reference
+an EXPRESS schema.
+
+* `(*"{SCHEMA_TAG}.__expressg" ... *)` provides EXPRESS-G diagrams relevant
+to the EXPRESS schema. These diagrams can describe an architecture view that
+involves the named schema. The tag must reference an EXPRESS schema.

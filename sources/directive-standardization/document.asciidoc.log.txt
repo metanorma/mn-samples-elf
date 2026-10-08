@@ -1,0 +1,1137 @@
+= ELF Directive: Standardization and publication
+:title-main-en: ELF Directive: Standardization and publication
+:boilerplate-authority: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/copyright.adoc
+:publisher_logo: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/logo.svg
+:i18nyaml: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/i18n.yaml
+:pdf-stylesheet-override: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/elf.xsl
+:publisher: EXPRESS Language Foundation
+:publisher_abbr: ELF
+:presentation-metadata-color-secondary: #3f65a2
+:presentation-metadata-backcover-text: expresslang.org
+:fonts: Source Sans 3
+:output-extensions: xml,html,pdf,doc,presentation
+:presentation-metadata-doctype-alias: standard
+:docnumber: 101
+:edition: 1
+:copyright-year: 2026
+:revdate: 2026-08-30
+:language: en
+:doctype: international-standard
+:technical-committee: TCB
+:imagesdir: images
+:mn-document-class: elf
+:mn-output-extensions: xml,html,doc,pdf,rxl
+:docidentifier: ELF 101:2026
+:data-uri-image:
+:local-cache-only:
+
+.Foreword
+The EXPRESS Language Foundation ("`ELF`") is a registered public charity in the
+US that facilitates the education, standardization, research, promotion,
+definition, and usage of information modelling and programming languages, with a
+focus on the EXPRESS language family.
+
+ELF works with international partners and experts across the globe, reflecting
+the international nature of its mission. More information about ELF is available
+on the official website (link:++https://www.expresslang.org++[]).
+
+The procedures used to develop this document and those intended for its further
+maintenance are described in the ELF Directives.
+
+In particular the different approval criteria needed for the different types of
+ELF documents should be noted. This document was drafted in accordance with the
+editorial rules of the ELF Directives.
+
+Attention is drawn to the possibility that some of the elements of this
+document may be the subject of patent rights. ELF shall not be held responsible
+for identifying any or all such patent rights. Details of any patent rights
+identified during the development of the document will be provided in the
+Introduction.
+
+Any trade name used in this document is information given for the convenience of
+users and does not constitute an endorsement.
+
+This document was prepared by the Technical Coordination Board (TCB).
+
+== Introduction
+
+ELF is committed to expanding the realm of open standards for information
+modelling and programming languages across the globe and across communities
+of practice.
+
+To facilitate its mission, the ELF Board of Directors has decided
+to align standardization and publication processes with international
+best practices, such as the ISO standardization process, and the
+<<WTOTBTP>>.
+This document aims to achieve the said intention.
+
+The document describes the ELF standardization process, from
+conception, IPR policy, technical committee establishment, collaboration
+policies (liaisons), to the publishing of work items.
+
+Processes described in this document contain parts that relate
+to all ELF technical committees and the TCB, which
+carries responsibility of implementing these processes.
+
+== Scope
+
+This document formalizes the standardization and publication processes
+of ELF.
+
+Specifically, it describes the processes and requirements for the
+standardization and publication of the following document types
+produced by ELF, including:
+
+Directive:: normative document that provides requirements for
+internal ELF processes
+
+Standard:: normative document that provide requirements, specifications or guidelines
+for the public
+
+Guide:: informative internal document for ELF technical committees
+
+Specification:: informative specification for the public
+
+Report:: informative internal or public report
+
+Amendment:: normative document that amend a published ELF document
+
+Technical corrigendum:: document that describes a minor amendment
+of a published ELF document, that does not affect the overall validity
+of the original document
+
+
+This document does not apply to the following types of documents
+produced by ELF, although processes described in this document
+can be optionally used as guidance for rigor:
+
+* policy statements;
+* internal administrative documents; and
+* how-to guides.
+
+[bibliography]
+== Normative References
+
+* [[[WTOTBTP,WTO TBT Principles]]], _,Annex 2: Decision of the Committee on Principles for the Development of International Standards, Guides and Recommendations with relation to Articles 2, 5 and Annex 3 of the Agreement; Decisions and recommendations adopted by the TBT Committee since 1 January 1995: Annexes to Part 1; _WTO Agreements Series: Technical Barriers to Trade_, World Trade Organization
+//[source="ISODIR1,ISODIR1C,ISODIR2"]
+
+[[terms]]
+== Terms, definitions and abbreviations
+
+=== Terms and definitions
+
+[[term-std-project]]
+==== standardization project
+
+an organized process with one or more _standardization work items_ (<<term-std-work-item>>)
+that contributes towards a defined scope of work
+
+[[term-std-work-item]]
+==== standardization work item
+
+publishable _document_ (<<term-document>>) that relates to standardization
+
+[[term-project-owner]]
+==== project owner
+
+entity with authority in charge of a _standardization project_
+(<<term-std-project>>)
+
+[[term-document]]
+==== document
+
+written output
+
+[[term-cc-deliverable]]
+==== ELF deliverable
+
+_document_ (<<term-document>>) that could be an ELF Standard,
+Guide, Specification, Report
+
+[[term-iso-deliverable]]
+==== ISO TC deliverable
+
+_document_ (<<term-document>>) of an ISO TC as described in <<ISODIR1>>
+
+NOTE: According to <<ISODIR1>>, ISO TC deliverables include the following types: International Standards, Technical Specifications, Publicly Available Specifications and Technical Reports.
+
+[[term-cc-tc]]
+==== ELF technical committee
+alt:[ELF TC]
+
+internal committee of ELF tasked with a scope of work it
+is responsible for
+
+==== document stage
+
+stage of document as specified in the ISO harmonized stages (as defined in <<ISODIR1C>>)
+
+[[term-std-project-output]]
+==== standardization project output
+
+output of a _standardization project_ (<<term-std-project>>)
+
+NOTE: In this document, it explicitly means any documents and IP rights
+produced by the standardization project.
+
+[[term-sdo]]
+==== standardization body
+alt:[standards-developing organization]
+alt:[SDO]
+
+entity that publishes _standardization work items_ (<<term-std-work-item>>)
+
+
+[[term-std-proposal]]
+==== proposal for standardization
+
+proposal for a new work item for standardization
+
+[[term-co-develop]]
+==== co-develop
+alt:[collaborative development]
+
+act of developing a work item by multiple parties from the proposal stage
+
+[[term-co-publish]]
+==== co-publish
+alt:[collaborative publishing]
+
+act of publishing _documents_ (<<term-document>>) of identical content
+by multiple parties
+
+==== joint work item
+
+work item _co-developed_ (<<term-co-develop>>) by both parties
+
+
+==== joint publication
+
+publication that is _co-published_ (<<term-co-publish>>) by ELF with
+an external _standardization body_ (<<term-sdo>>)
+
+NOTE: Both parties may jointly hold copyright of the joint publication.
+
+[[term-board]]
+==== ELF Board of Directors
+
+persons serving as a Board Director for and with a statutory obligation
+to ELF
+
+[[term-repo]]
+==== ELF Document Repository
+
+designated repository used to store ELF documents
+
+
+=== Abbreviations
+
+IPR:: Intellectual Property Rights
+
+TCB:: Technical Coordination Board
+[[authority]]
+== Authority
+
+=== General
+
+The TCB is responsible for developing the corresponding processes
+and tools, and for their employment.
+
+[[authority-tcb]]
+=== Technical Coordination Board
+
+The TCB is responsible for:
+
+* policy development: providing recommendations to the Board of
+  Directors on the ELF standardization and publication processes;
+
+* policy establishment: developing and supporting process
+  documents, including:
+
+** this document; and
+** ELF publication requirements; and
+
+* maintenance: periodic review and perform amendments necessary
+  to support the processes and requirements established in this
+  document;
+
+* execution: faithful execution and maintenance of the ELF
+  standardization process;
+
+* enforcement: enforcing ELF publication requirements on the publication
+  of ELF deliverables;
+
+* mediation: raising issues and problems encountered concerning the processes
+  and procedures described in this document to the Board of Directors for
+  further consideration; and
+
+* coordination: supporting liaisons between ELF technical committees and
+  project teams with corresponding parties of external standardization
+  bodies.
+[[document-types]]
+== Document types
+
+All documents must have at least one document type, or category. A
+document may appear in more than one category, if appropriate.
+
+=== Directive
+
+Internal, normative documents approved by the ELF Board of Directors,
+developed by the TCB, that provides requirements for
+internal ELF processes.
+
+
+=== Standard
+
+Normative documents created through the ELF standardization process
+that provide requirements, specifications or guidelines for the public.
+
+Requirements in standards shall be based on objective performance
+rather than based on descriptive characteristics.
+
+
+=== Guide
+
+Informative, internal documents that describe guidelines for the work of
+ELF technical committees.
+
+Often a document discussing problems or issues and making suggestions for
+action.
+
+
+=== Specification
+
+Informative specifications for the public.
+
+It could be an experimental specification intended for research and exploration,
+such as to encourage trial implementations, to determine its usefulness and
+applicability.
+
+A published Specification deemed successful would be candidates for progression
+towards a Standard.
+
+
+=== Amendment
+
+Normative documents that amend a published ELF document, such as a
+Standard.
+
+
+=== Technical corrigendum
+
+Document that describes a minor amendment of a published ELF
+document, that does not affect the overall validity of the original
+document.
+
+Could be a normative or informative document for public or
+internal consumption.
+
+
+=== Reports
+
+Informative document, reporting on an event or presenting findings
+of a study or research effort, which may reach conclusions but does
+not contain suggestions for action, except incidentally.
+
+Intended for internal or public consumption.
+
+[example]
+A report on an ELF conference.
+
+
+=== Administrative
+
+A document type for meeting minutes, proposals to committees, policy
+documents, and other material, generally of an internal nature.
+
+[[process]]
+== Standardization process
+
+=== General
+
+Every ELF deliverable starts as a project.
+
+An ELF project goes through the following processes:
+
+* starts with a proposal;
+* the proposal is given to the approving entity for enactment;
+* assigns a committee as project owner once the project is approved;
+* the committee creates one or more working drafts from the proposal;
+* the committee decides to endorse a committee draft;
+* the approved committee draft becomes a standards draft
+* the draft standard is given to the approving entity for endorsement;
+* the draft standard is approved for publication as a standard.
+
+//NOTE: TODO: joint publishing
+
+=== Project stages
+
+The following table provides a mapping between ELF project stages and
+ISO project stages. This document identifies stages
+according to the ELF project stage names.
+
+[cols="1,1,1,1,1",options="header"]
+.Alignment between ISO and ELF project stages
+|===
+|Stage identifier
+|ELF stage
+|ISO harmonized stage (<<ISODIR1>>)
+|ELF deliverable
+|ISO deliverable
+
+|*Preliminary*
+|00 Preliminary
+|00 Preliminary
+|PWI
+|PWI
+
+|*Proposal*
+|10 Proposal
+|10 Proposal
+|NWIP
+|NWIP
+
+|*Preparatory*
+|20 Preparatory
+|20 Preparatory
+|WD
+|WD
+
+|*Committee*
+|30 Committee
+|30 Committee
+|CD
+|CD
+
+|*Enquiry*
+|40 Enquiry
+|40 Enquiry
+|DS
+|DIS
+
+|*Approval*
+|50 Approval
+|50 Approval
+|FDS
+|FDIS
+
+|*Publication*
+|60 Publication
+|60 Publication
+|ES
+|IS
+
+|*Review*
+|90 Review
+|90 Review
+|
+|
+
+|*Withdrawal*
+|95 Withdrawal
+|95 Withdrawal
+|
+|
+
+|===
+
+
+=== Project track
+
+There is only one project track in ELF as considered by the TCB.
+
+
+=== Project ownership
+
+==== General
+
+All ELF non-administrative documents must be owned by a single
+Technical Committee (the "`owning`" Technical Committee) even if two
+or more TCs participate in the work of developing the document.
+
+
+==== Transition of ownership on TC retirement
+
+When a TC completes its scope of work and is shut down, the ownership
+of its documents moves to the TCB.
+
+TCB may retain ownership of a document once assigned to it, or
+it may assign the document to a different or new Technical Committee,
+generally if follow-on work or maintenance is required on the document.
+
+
+=== Project membership
+
+==== General
+
+The owning TC is responsible for maintaining expert membership of a
+project group.
+
+ELF members are allowed to nominate experts to the project group
+with approval of the owning TC.
+
+At least one person, at most two, serves as project leader, as decided
+by the owning TC.
+
+The project leader(s) shall assume project editorship unless that
+activity is specifically assigned to another individual.
+
+
+==== External members
+
+Individuals who are not members of ELF are only allowed to participate in
+a project if specifically authorized by the project owning TC, in consultation
+with the project leader, and approved by the TCB.
+
+
+=== Project stages
+
+
+==== Preliminary stage
+
+===== Initiation methods
+
+A standardization project can be initiated in one of the following ways:
+
+. a project defined as part of the charter process of a TC;
+
+. a TC decides to create a new project as an addition to its program of work;
+
+. the TCB or the Board of Directors decides that a project should
+be initiated and assigns it to a Technical Committee.
+
+
+===== Initiation requirements
+
+When a project is initiated, the following items must be defined
+by the proposer as part of the proposal to the TCB:
+
+. scope
+
+. target audience
+
+. relevant regulatory or market needs (as feasible and appropriate)
+  (this satisfies <<WTOTBTP,clause=4.a>>)
+
+. current scientific and technological developments
+  (this satisfies <<WTOTBTP,clause=4.a>>)
+
+. schedule for development and publication
+
+. proposer, project leader
+
+All documents other than administrative documents must have an editor
+or editors who are members of the Technical Committee(s) developing the
+document.
+
+
+
+===== Confirmation
+
+Once a project is confirmed initiation:
+
+. the project shall be assigned a project number as decided by the TCB;
+
+. the project's name and stage shall be listed in the project registry
+  (this satisfies <<WTOTBTP,clause=1.a>>); and
+
+. the project will be announced by the TCB to all members with a
+  brief description of its scope (including objective and rationale)
+  at an early enough stage that facilitates amendments and comments
+  (this satisfies <<WTOTBTP,clause=1.b>>).
+
+NOTE: This document supports the creation of a project registry.
+
+
+===== First draft
+
+A first draft of the standardization deliverable may be created
+for proposal submission, or may be created in the Committee stage.
+
+Disclaimers and necessary statements such as relating to IPR and
+copyright shall be placed in an obvious place in the draft.
+
+
+==== Proposal stage
+
+When the TCB determines interest within ELF to develop the
+proposed project, the project initiator should submit a proposal
+to the TCB for ballot indicating its wish to develop the proposed project.
+
+If accepted, the project shall be adopted by an ELF TC.
+Members of the project group shall be represented by experts.
+This project shall then be listed in the TCB register of projects.
+
+If rejected, its output may still be developed by one or more members
+of ELF if appropriate, and the resulting output may still be
+proposed to the TCB for development in later stages.
+
+
+A "`Report`" document type shall be published upon a successful ballot
+of two-thirds approval at this stage.
+
+
+==== Preparatory stage
+
+This is an optional stage.
+
+The goal of the preparatory stage is to create a "`working draft`"
+of the deliverable approved by the project group within the TC.
+
+Once the project team decides the working draft has advanced
+to being a "`committee draft`" or a "`draft standard`", this
+stage ends.
+
+There is no ballot at this stage.
+
+
+==== Committee stage
+
+This is an optional stage.
+
+The goal of the committee stage is to create a "`committee draft`"
+of the deliverable approved by the TC.
+
+The owning TC distributes the committee draft and may select a 8-week or 10-week
+comment period for TC members to comment.
+
+Within 4 weeks of completion of the comment period, the owning TC shall distribute
+all formal comments received during ballot to TC members.
+
+Given the results of comments, the Chair of the TC, considering TC consensus,
+in consultation with the project leader (if necessary),
+shall decide on the below outcomes:
+
+. to prepare and circulate a revised committee draft for consideration; or
+
+. to register the committee draft for the enquiry stage.
+
+In case TC consensus is unclear from the results, a ballot (<<process-balloting>>) can be launched
+to determine consensus for stage advancement.
+
+A "`Specification`" document type shall be published upon advancement
+to the enquiry stage.
+
+
+[[stage-enquiry]]
+==== Enquiry stage
+
+The goal of the enquiry stage is to create a "`draft standard`"
+of the deliverable approved by the TC.
+
+The public review period (<<public-review>>) shall be started within
+4 weeks of entering this stage.
+
+Once the owning TC deems a document under development to be
+ready for publication, the Chair of the owning TC shall arrange
+for an official ballot (<<process-balloting>>) amongst TC members.
+"`No`" votes must be accompanied with technical reasons.
+
+If no "`No`" votes were registered in the DIS ballot,
+the project is deemed to have unanimous support. It shall be fast-tracked
+towards the Approval stage for TCB ballot.
+
+If the ballot was successful but at least one "`No`" vote has been received,
+the project is advanced to Approval stage.
+
+If the ballot failed, the Chair of the owning TC, in consultation
+with the project leader to decide whether to prepare and circulate a revised
+draft standard for re-balloting.
+
+
+==== Approval stage
+
+The goal of the approval stage is to create a "`final draft standard`"
+of the deliverable approved by the ELF membership.
+
+The public review period (<<public-review>>) shall be started within
+4 weeks of entering this stage, unless the document has already
+been reviewed publicly at the Enquiry stage (<<stage-enquiry>>).
+
+A "`last call`" for formal comments shall be issued by the Chair of
+the owning TC to both the TCB and to the full ELF membership
+of 8 weeks.
+
+The formal commenting process is described in detail at <<comments-formal>>.
+
+After the close of the commenting period, the Chair of TCB shall
+distribute the comments to the ELF membership within
+4 weeks of the close, and conduct a 8-week ballot (<<process-balloting>>)
+of TCB members for a vote to approve publication.
+
+All TCB members are required to vote in this ballot. A TCB member
+that did not vote in the TCB poll is considered to have violated
+membership terms of the TCB, and has a 3-week period to rectify.
+
+"`No`" votes from a TCB member must be accompanied with constructive
+comments.
+
+If the ballot was successful, the project is deemed to be ready for
+publication and is advanced to the publication stage.
+
+If the ballot failed, the Chair of the owning TC, in consultation
+with the project leader to decide whether to prepare and circulate a revised
+final draft standard for re-balloting.
+
+
+[[draft-stages]]
+==== Draft development stages (Preparatory, Committee and Enquiry stages)
+
+. Each new draft version of the document as it is developed shall be
+posted by the editor(s) on the ELF Document Repository. A
+version is defined as a checkpoint where the developers want review
+from individuals other than active contributors, typically at the
+end of a development stage when the draft is a candidate for ballot.
+
+. The availability of each new draft version shall be announced
+to all TCs and as appropriately, to external liaison or partner
+working groups (this satisfies <<WTOTBTP,clause=1.c>>).
+
+. A draft version may be announced to the ELF membership
+if ELF-wide comment is requested
+(this satisfies <<WTOTBTP,clause=1.c>>).
+
+. A draft version may be posted for external review and
+comments upon approval by TCB (see <<public-review>>).
+This is normally be done at the Enquiry and Approval stages,
+where the draft is considered more mature for appropriate
+external input.
+
+. Once initial approval is given by TCB, a draft may be posted
+for external review and comment multiple times.
+
+In every of the development stages, resolution of all outstanding
+comments is required to proceed towards ballot.
+
+
+
+
+
+[[pre-publication]]
+==== Pre-publication stages (Enquiry and Approval stages)
+
+Once a "`draft standard`" or a "`final draft standard`" is approved
+towards publication, a public review period ensues.
+
+The public review process is described in <<public-review>>.
+
+
+
+==== Publication stage
+
+// TODO:
+
+===== Distribution
+
+Once TCB approves a document for publication, the Chair of the
+owning TC shall forward the final draft standard to the
+Executive Director of ELF for publication.
+
+A standard designated for public access will be distributed
+on the ELF document register (this satisfies <<WTOTBTP,clause=1.e>>).
+
+Internal documents are made available only to members of ELF
+via the members area of the ELF website, and are registered in
+the ELF Internal Document Register.
+
+[[dual-logo]]
+===== Dual-logo documents
+
+A dual-logo document is a deliverable co-published by ELF and an
+external standardization body under the marks of both parties.
+
+For a dual-logo document, after the collaborating standardization
+body accepts a joint work item for publication, the joint work item
+will be published by ELF under the corresponding document type.
+
+
+===== Statement changes
+
+The "`boilerplate`" statements of IP, appropriate usage and
+disclaimer will be changed to the external (public) statement.
+
+
+===== Registration at the public document register
+
+The name, category, version and project number of the deliverable
+shall be registered in the ELF Public Document Register.
+
+
+
+=== Abandonment
+
+==== Abandonment of joint work items
+
+A joint work item may be abandoned by one of the two parties if it sees
+it being inappropriate or is no longer interested or able to contribute
+to the joint work item. Each party is allowed to abandon the joint
+work, which at that point will become sole work of the other party.
+
+A notice of such must be sent by the abandoning party to the other party and
+distributed by both parties to its members.
+
+The abandoning party, if the abandoned work is carried on by the other
+party, is required to explicitly agree that the copyright of such work
+is to be waived to the other party to allow publication of the document.
+
+If the abandoning party wishes to rejoin an abandoned work item, it is
+allowed, given a notice is filed with the TCB, unless in exceptional
+circumstances.
+
+
+
+
+[[process-balloting]]
+=== Balloting
+
+A ballot is launched upon gauging consensus within a group
+(TC, TCB or amongst all members).
+
+In each ballot, a member is allocated three options:
+
+* Yes
+* No
+* Abstain
+
+A "`No`" vote must be accompanied by constructive comments. "`Abstain`" votes
+are not counted against the outcome.
+
+Consensus is considered to have been reached when there are two-thirds of "`Yes`" votes.
+
+
+
+[[appeals]]
+=== Appeals
+
+An appeal may be raised by any affected party against a procedural
+decision taken in the ELF standardization process, including decisions
+taken by a technical committee or the TCB.
+
+An appeal shall be submitted in writing to the Executive Director
+within 30 days of the decision being announced to the ELF membership
+or published in the corresponding ELF document repository, stating
+the decision appealed against and the grounds for the appeal.
+
+The Executive Director shall present the appeal to the Board of
+Directors, which considers the appeal and decides upon it.
+
+Members of the Board of Directors who took part in the contested
+decision shall not take part in deciding the appeal.
+
+The decision of the Board of Directors on an appeal is final.
+
+
+=== Availability of working documents
+
+Drafts and working documents are available according to
+each party's normal practices.
+
+
+
+=== Promotional activities in co-developed projects
+
+Promotional programs will be shared between the collaborating
+parties for the purpose of coordinating marketing activities.
+
+
+
+=== External progression
+
+In some cases, ELF deliverables are sent to be progressed
+at another standards body:
+
+* upon completion of the Approval stage, an ELF document may be sent
+  immediately to an external standardization body for progression
+  to become a standard; and
+
+* if a published ELF document is subsequently decided to
+  be forwarded to another standards body for progression.
+
+In these situations, the ELF document shall be accompanied by a
+link at the ELF website, that provides the document at the target standards
+body, completely with document number, title, etc. given by that
+standards body.
+
+It is anticipated that such documents will be progressed and modified
+according to the processes of the recipient standards body. ELF
+shall attempt to ensure that the link remains valid, and if
+possible for the most current version of the document.
+
+
+[[liaisons]]
+=== Liaisons and collaborative development
+
+ELF may co-develop and co-publish documents with external
+standardization bodies.
+
+Such collaboration is governed by a collaboration agreement between
+ELF and the collaborating party, which shall be approved by the
+Board of Directors.
+
+For projects under a collaboration agreement, ELF agrees to adopt a
+developmental track not slower than a corresponding track selected
+by the external standardization body to ensure synchronicity between
+development outcome and publication.
+
+The project stages of the collaborating parties shall be synchronized
+correspondingly: if a deliverable is advanced or rejected at the
+external standardization body, the ELF project stage shall be advanced
+or retained accordingly.
+
+
+=== Document requirements
+
+Requirements of an ELF document are stated in <<DIR102>>.
+
+[[public-review]]
+== Public review process
+
+
+=== General
+
+A public review period of 60 days is required for compliance to
+<<WTOTBTP,clause=1.d>>, which ELF adheres to.
+
+
+=== Timing
+
+A 60-day public review shall be held in the DIS or FDIS stages
+of the standardization deliverable.
+
+Under co-development, the public review shall be held on
+the first instance of reaching the DIS stage:
+
+* Comments to ELF shall be performed through ELF's public review procedure.
+* Comments to an ISO TC shall be performed according to <<ISODIR1>> and <<ISODIR1C>>.
+* Comments to an external standardization body shall be according to their own procedures.
+
+The co-development parties shall agree to synchronization of the dates
+of review periods for the maximum benefit to the joint work item.
+
+
+=== Informal comments
+
+Informal comments can be solicited from and posted to ELF
+communication channels, such as the ELF mailing lists.
+
+While all participants are free to contribute
+suggestions and comments, the actual process of development and
+revision of any ELF document must be made by the technical
+committees developing the document, and by members of ELF.
+
+Participants may offer comments not only upon documents currently
+posted for review and comment, but upon
+published documents of ELF.
+
+The TCB has overall control of the public review process
+including what documents may be posted, the duration of
+postings, etc.
+
+For details of handling informal comments, see <<comments-informal>>.
+
+
+=== Formal comments via the document repository
+
+Formal comments have to be submitted via the issue tracker of the
+corresponding ELF document repository.
+
+In a public review process where formal comments are received:
+
+* the full list of formal comments is published in the issue tracker
+of the corresponding ELF document repository;
+
+* formal comments from non-ELF members should be addressed
+and communicated to the commenter individually.
+
+For details of handling formal comments, see <<comments-formal>>.
+
+
+
+[[announcement-channels]]
+=== Announcement channels
+
+When a draft document is made available for public review, it shall be
+announced:
+
+* on the public review page of the ELF website (link:++https://www.expresslang.org);++[] and
+* on the issue tracker of the corresponding ELF document repository.
+
+
+==== Eligibility
+
+. At the request of the Chair of the owning TC and
+upon approval of the TCB, any draft intended for
+publication is eligible for posting to the <<announcement-channels>>.
+
+. A document or section of a document may be posted for public review
+and comment at any point within its development but generally it should be
+well-formed and close to final draft before such posting.
+
+. If a section of a larger document is posted to the public review
+page, the context of the section must be made clear so that relevant
+comments can be made.
+
+. When a document previously posted for public review is finally
+published, a notification of the fact will be posted to the public
+review page along with any title changes.
+
+
+==== TC responsibilities
+
+. Since posting a document for public review and comment invites non-ELF
+individuals to participate, the owning TC is responsible
+for monitoring comments on the public review process and acting upon
+them as appropriate.
+
+. Since any participant in the public review process may comment upon any
+published document at any time, the TCB will monitor
+the comments on such documents and bring those comments to the
+attention of the owning TC.
+[[comments]]
+== Comments
+
+=== General
+
+The commenting process is managed by the TCB. The TCB is
+responsible for operating the issue tracker of the corresponding
+ELF document repository and the distribution of formal comments.
+
+
+[[comments-formal]]
+=== Formal comments
+
+Formal comments are binding comments where the project team
+whose work is being commented on must respond to.
+
+These comments received are considered "`open comments`", meaning
+that these comments will be published to the ELF membership.
+
+Formal comments shall be submitted via the issue tracker of the
+corresponding ELF document repository.
+
+Formal comments on a standardization deliverable shall be shared
+with the owning TC within 2 weeks of receiving them.
+
+
+[[comments-informal]]
+=== Informal comments
+
+These comments do not require a response from the project team
+whose work is being commented on.
+
+
+[[comments-resolution]]
+=== Resolution of comments
+
+Comments and feedback on standardization work items
+shall be considered impartially and judged purely according
+to their technical contributions to the work item.
+
+[[corrections]]
+== Corrections and amendments
+
+Corrections and amendments to standardization documents are
+considered projects themselves, and should be handled
+as described in <<process>>.
+
+// TODO: perhaps some fast tracking possible.
+[[ipr]]
+== Intellectual property rights
+
+=== Free of restrictions
+
+Text of all working documents as well as co-developed/co-published deliverables will remain free of IPR restrictions that would limit their application.
+
+=== Copyright
+
+Copyright of standardization deliverables created under this document
+is vested in ELF.
+
+Copyright of contributions remains with their authors; contributors
+grant ELF the license described under <<member-sourced>> for the
+development and publishing of the deliverables.
+
+
+[[publication-license]]
+=== Publication license
+
+In fulfilment of the commitment that the text of ELF documents remains
+free of restrictions that would limit their application, ELF makes its
+published documents available to the public under the Creative Commons
+Attribution 4.0 International Public License (CC BY 4.0).
+
+
+[[member-sourced]]
+=== Member-sourced documents
+
+Authors of ELF deliverables grant ELF a world-wide,
+non-exclusive, non-sub-licensable license
+(except for the submission and adoption by other standardization bodies),
+to use contents of submitted documents to ELF,
+for the development and publishing of the deliverables.
+
+=== Patented content
+
+Patented content in a standard will be governed by the ELF IPR policy.
+
+Any patents involved knowingly in an ELF deliverable must be made
+transparent prior to the DIS stage.
+[[maintenance]]
+== Maintenance of deliverables
+
+=== Review period
+
+The review period of a standardization deliverable is 5 years.
+
+The review shall be performed by the owning TC, if it has been
+disbanded, the TCB.
+
+=== Updates
+
+When a document is deemed to be updated, the owning TC shall
+take action to either begin the review period in order to
+update the document, or begin a new project to produce an amendment.
+
+When a document is revised, any changes (as opposed to editorial
+corrections) should result in the document going through the same
+review process originally used for its publication.
+
+A summary of changes from the previous edition should be
+provided at the end of the Foreword.
+
+
+=== New versions
+
+A document once published may undergo revision and become a new
+version or dot release (i.e. V1-V2 or V2.0-V2.1) under several
+circumstances.
+
+
+=== Withdrawal
+
+When a review determines that a published item should be
+withdrawn, it should be withdrawn from the list of published
+standards.
+[[agency]]
+== Maintenance agency and registration authority
+
+=== General
+
+ELF recognizes that a maintenance agency or
+registration authority is required for the successful implementation of
+certain standardization deliverables.
+
+=== Default volunteer role
+
+The TCB shall serve as the maintenance agency or registration authority
+for ELF standardization deliverables as necessary.
+[bibliography]
+== Bibliography
+
+* [[[WTOTBT,WTO Technical Barriers To Trade Agreements]]], World Trade Organization, _The WTO Agreements Series Technical Barriers to Trade_
+
+* [[[DIR102,ELF 102:2026]]], _ELF Directive: Standard document requirements_
+
+* [[[ISODIR1,ISO/IEC Directives, Part 1]]], _ISO/IEC Directives, Part 1, Procedures for the technical work_
+
+* [[[ISODIR1C,ISO/IEC Directives, Part 1, Consolidated ISO Supplement]]], _ISO/IEC Directives, Part 1, Consolidated ISO Supplement, Procedures specific to ISO_

@@ -1,0 +1,23 @@
+== Terms and definitions
+
+For the purposes of this document, the following terms and definitions apply.
+
+=== EXPRESS
+data modeling language defined in ISO 10303-11 that provides a formal way to
+specify data structures and constraints
+
+[.source]
+<<iso-10303-11>>
+
+=== remark tag
+syntax in EXPRESS using `(* ... *)` notation to indicate documentation content
+
+[.source]
+<<iso-10303-11>>
+
+=== named remark tag
+remark tag that includes a specific name to reference an EXPRESS object
+
+=== tag reference
+string identifier that uniquely identifies an EXPRESS object in the form of
+`schema_name.entity_name.property_name`

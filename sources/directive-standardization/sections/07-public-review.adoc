@@ -1,0 +1,104 @@
+[[public-review]]
+== Public review process
+
+
+=== General
+
+A public review period of 60 days is required for compliance to
+<<WTOTBTP,clause=1.d>>, which ELF adheres to.
+
+
+=== Timing
+
+A 60-day public review shall be held in the DIS or FDIS stages
+of the standardization deliverable.
+
+Under co-development, the public review shall be held on
+the first instance of reaching the DIS stage:
+
+* Comments to ELF shall be performed through ELF's public review procedure.
+* Comments to an ISO TC shall be performed according to <<ISODIR1>> and <<ISODIR1C>>.
+* Comments to an external standardization body shall be according to their own procedures.
+
+The co-development parties shall agree to synchronization of the dates
+of review periods for the maximum benefit to the joint work item.
+
+
+=== Informal comments
+
+Informal comments can be solicited from and posted to ELF
+communication channels, such as the ELF mailing lists.
+
+While all participants are free to contribute
+suggestions and comments, the actual process of development and
+revision of any ELF document must be made by the technical
+committees developing the document, and by members of ELF.
+
+Participants may offer comments not only upon documents currently
+posted for review and comment, but upon
+published documents of ELF.
+
+The TCB has overall control of the public review process
+including what documents may be posted, the duration of
+postings, etc.
+
+For details of handling informal comments, see <<comments-informal>>.
+
+
+=== Formal comments via the document repository
+
+Formal comments have to be submitted via the issue tracker of the
+corresponding ELF document repository.
+
+In a public review process where formal comments are received:
+
+* the full list of formal comments is published in the issue tracker
+of the corresponding ELF document repository;
+
+* formal comments from non-ELF members should be addressed
+and communicated to the commenter individually.
+
+For details of handling formal comments, see <<comments-formal>>.
+
+
+
+[[announcement-channels]]
+=== Announcement channels
+
+When a draft document is made available for public review, it shall be
+announced:
+
+* on the public review page of the ELF website (https://www.expresslang.org); and
+* on the issue tracker of the corresponding ELF document repository.
+
+
+==== Eligibility
+
+. At the request of the Chair of the owning TC and
+upon approval of the TCB, any draft intended for
+publication is eligible for posting to the <<announcement-channels>>.
+
+. A document or section of a document may be posted for public review
+and comment at any point within its development but generally it should be
+well-formed and close to final draft before such posting.
+
+. If a section of a larger document is posted to the public review
+page, the context of the section must be made clear so that relevant
+comments can be made.
+
+. When a document previously posted for public review is finally
+published, a notification of the fact will be posted to the public
+review page along with any title changes.
+
+
+==== TC responsibilities
+
+. Since posting a document for public review and comment invites non-ELF
+individuals to participate, the owning TC is responsible
+for monitoring comments on the public review process and acting upon
+them as appropriate.
+
+. Since any participant in the public review process may comment upon any
+published document at any time, the TCB will monitor
+the comments on such documents and bring those comments to the
+attention of the owning TC.

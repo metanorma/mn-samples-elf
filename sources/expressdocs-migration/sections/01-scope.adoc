@@ -1,0 +1,20 @@
+== Scope
+
+This document specifies the methods and procedures for converting traditional
+EXPRESS documentation into the Annotated EXPRESS format.
+
+The document:
+
+* defines the structure conversion process from Metanorma documents containing
+EXPRESS to Metanorma documents with Annotated EXPRESS;
+
+* specifies content conversion rules for various EXPRESS components including
+schemas, entities, types, and rules;
+
+* provides guidelines for converting attributes, formal propositions, and
+informal propositions;
+
+* outlines approaches for handling notes, examples, figures, and tables in the
+conversion process; and
+
+* includes practical examples illustrating the conversion process.

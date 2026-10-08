@@ -1,0 +1,642 @@
+== Expressions
+
+=== General
+
+Expressions are the basic building blocks of the EXPRESS language. They
+are used to represent values, perform calculations, and define logical
+relationships.
+
+NOTE: <<SC4dir>> does not provide guidance for how to
+layout the various expressions in EXPRESS. This clause establishes rules that
+are consistent with <<SC4dir>> where possible.
+
+The basic formatting rules for expressions are as follows:
+
+. If an expression fits on one line, it should be formatted that way.
+
+. If it does not fit on one line, it will be written to multiple lines with each
+line aligned with the expression's start point on the first line and written
+with as many of the elements as possible on each line.
+
+=== Unary MINUS expression
+
+Write a hyphen ('-') followed by either a parenthetical expression, a literal
+value, or a qualifiable factor. There is no space between the hyphen and the
+following item.
+
+[example]
+====
+[source,express]
+----
+-42
+-(42 * 5 / 3)
+----
+====
+
+=== NOT expression
+
+Write the `NOT` keyword, followed by either a parenthetical expression, a
+literal value, or a qualifiable factor. There is no space between the keyword
+and the following item.
+
+[example]
+====
+[source,express]
+----
+NOT(x + 5)
+NOT y
+----
+====
+
+=== Parenthetical expression
+
+Write a left parenthesis, followed by the expression, followed by a right
+parenthesis. If the expression spans multiple lines, then each subsequent line
+is aligned so that its first non-white space character is in the column
+immediately following the left parenthesis that began the Parenthetical
+Expression.
+
+[example]
+====
+[source,express]
+----
+(5+3)
+
+(42 DIV 5 * 64 *
+ 23 + 15)
+----
+====
+
+=== Unary PLUS expression
+
+Write a plus sign ('+') followed by either a parenthetical expression, a
+literal value, or a qualifiable factor. There is no space between the plus
+sign and the following item.
+
+[example]
+====
+[source,express]
+----
++42
++(12 / 3)
+----
+====
+
+=== Equal expression
+
+Write an expression followed by an equal sign ('=') followed by an expression.
+There will be at least one space before and after the equal sign.
+
+[example]
+====
+[source,express]
+----
+x = y + 15
+----
+====
+
+=== Exponent expression
+
+Write an expression followed by a double asterisk ('**') followed by an
+expression. There will be no space before or after the double asterisk symbol.
+
+[example]
+====
+[source,express]
+----
+x**2
+----
+====
+
+=== Greater than expression
+
+Write an expression followed by a greater than symbol ('>') followed by an
+expression. There will be at least one space before and after the greater than
+symbol.
+
+[example]
+====
+[source,express]
+----
+x > y
+----
+====
+
+=== Greater than equal expression
+
+Write an expression followed by a greater than or equal symbol ('>=') followed
+by an expression. There will be at least one space before and after the
+greater than or equal symbol.
+
+[example]
+====
+[source,express]
+----
+x >= y
+----
+====
+
+=== IN expression
+
+Write an expression followed by the `IN` keyword followed by an expression.
+There will be at least one space before and after the `IN` keyword.
+
+[example]
+====
+[source,express]
+----
+'this' IN ['some', 'that', 'this', 'other']
+----
+====
+
+=== Instance equal expression
+
+Write an expression followed by the instance equal symbol (':=:') followed by
+an expression. There will be at least one space before and after the instance
+equal symbol.
+
+[example]
+====
+[source,express]
+----
+x :=: y
+----
+====
+
+=== Less than expression
+
+Write an expression followed by the less than symbol ('<') followed by an
+expression. There will be at least one space before and after the less than
+symbol.
+
+[example]
+====
+[source,express]
+----
+x < y
+----
+====
+
+=== Less than or equal expression
+
+Write an expression followed by the less than or equal symbol ('<=') followed
+by an expression. There will be at least one space before and after the less
+than or equal symbol.
+
+[example]
+====
+[source,express]
+----
+x <= y
+----
+====
+
+=== LIKE expression
+
+Write an expression followed by the `LIKE` keyword followed by an expression.
+There will be at least one space before and after the `LIKE` keyword.
+
+[example]
+====
+[source,express]
+----
+x LIKE y
+----
+====
+
+=== Not equal expression
+
+Write an expression followed by the not equal symbol ('<>') followed by an
+expression. There will be at least one space before and after the not equal
+symbol.
+
+[example]
+====
+[source,express]
+----
+x <> y
+----
+====
+
+=== Not instance equal expression
+
+Write an expression followed by the not instance equal symbol (':<>:')
+followed by an expression. There will be at least one space before and after
+the not instance equal symbol.
+
+[example]
+====
+[source,express]
+----
+x :<>: y
+----
+====
+
+=== Multiply expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the multiply symbol ('*'). There will be at
+least one space before and after the multiply symbol.
+
+If all of the elements can't fit on one line then as many lines as necessary
+are used. Each line contains as many elements as possible with line breaks
+occurring just after the multiply symbol and the subsequent lines aligned with
+the first expression element on the line above.
+
+[example]
+====
+[source,express]
+----
+x * y * z
+
+x * y *
+z * q
+----
+====
+
+=== Addition expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the addition symbol ('+'). There will be at
+least one space before and after the addition symbol.
+
+If all of the elements can't fit on one line then as many lines as necessary
+are used. Each line contains as many elements as possible with line breaks
+occurring just after the addition symbol and the subsequent lines aligned with
+the first expression element on the line above.
+
+[example]
+====
+[source,express]
+----
+x + y + z
+
+x + y +
+z + q
+----
+====
+
+=== Subtraction expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the subtraction symbol ('-'). There will be
+at least one space before and after the subtraction symbol.
+
+If all of the elements can't fit on one line then as many lines as necessary
+are used. Each line contains as many elements as possible with line breaks
+occurring just after the subtraction symbol and the subsequent lines aligned
+with the first expression element on the line above.
+
+[example]
+====
+[source,express]
+----
+x - y - z
+
+x - y -
+z - q
+----
+====
+
+=== Division expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the division symbol ('/'). There will be at
+least one space before and after the division symbol.
+
+If all of the elements can't fit on one line then as many lines as necessary
+are used. Each line contains as many elements as possible with line breaks
+occurring just after the division symbol and the subsequent lines aligned with
+the first expression element on the line above.
+
+[example]
+====
+[source,express]
+----
+x / y / z
+
+x / y /
+z / q
+----
+====
+
+=== AND expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the `AND` keyword. There will be at least
+one space before and after the `AND` keyword.
+
+If all of the elements can't fit on one line then as many lines as necessary
+are used. Each line contains as many elements as possible with line breaks
+occurring just after the `AND` keyword and the subsequent lines aligned with
+the first expression element on the line above.
+
+[example]
+====
+[source,express]
+----
+x AND y AND z
+
+x AND y AND
+z AND q
+----
+====
+
+=== Compose expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the compose symbol ('||'). There will be at
+least one space before and after the compose symbol.
+
+If all of the elements can't fit on one line then as many lines as necessary
+are used. Each line contains as many elements as possible with line breaks
+occurring just after the compose symbol and the subsequent lines aligned with
+the first expression element on the line above.
+
+[example]
+====
+[source,express]
+----
+x || y || z
+
+x || y ||
+z || q
+----
+====
+
+=== DIV expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the `DIV` keyword. There will be at least
+one space before and after the `DIV` keyword.
+
+If all of the elements can't fit on one line then as many lines as necessary
+are used. Each line contains as many elements as possible with line breaks
+occurring just after the `DIV` keyword and the subsequent lines aligned with
+the first expression element on the line above.
+
+[example]
+====
+[source,express]
+----
+x DIV y DIV z
+
+x DIV y DIV
+z DIV q
+----
+====
+
+=== MOD expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the `MOD` keyword. There will be at least
+one space before and after the `MOD` keyword.
+
+If all of the elements can't fit on one line then as many lines as necessary
+are used. Each line contains as many elements as possible with line breaks
+occurring just after the `MOD` keyword and the subsequent lines aligned with
+the first expression element on the line above.
+
+[example]
+====
+[source,express]
+----
+x MOD y MOD z
+
+x MOD y MOD
+z MOD q
+----
+====
+
+=== OR expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the `OR` keyword. There will be at least
+one space before and after the `OR` keyword.
+
+If all of the elements can't fit on one line then as many lines as necessary
+are used. Each line contains as many elements as possible with line breaks
+occurring just after the `OR` keyword and the subsequent lines aligned with
+the first expression element on the line above.
+
+[example]
+====
+[source,express]
+----
+x OR y OR z
+
+x OR y OR
+z OR q
+----
+====
+
+=== XOR expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the `XOR` keyword. There will be at least
+one space before and after the `XOR` keyword.
+
+If all of the elements can't fit on one line then as many lines as necessary
+are used. Each line contains as many elements as possible with line breaks
+occurring just after the `XOR` keyword and the subsequent lines aligned with
+the first expression element on the line above.
+
+[example]
+====
+[source,express]
+----
+x XOR y XOR z
+
+x XOR y XOR
+z XOR q
+----
+====
+
+=== Aggregate initializer expression
+
+This is a sequence of expressions each separated by a comma and enclosed in
+square brackets.
+
+Each expression is written with a comma separating any two adjacent
+expressions. At least one space is written after the comma with no space
+before the comma. The first expression starts just after the left square
+bracket and the right square bracket occurs just after the last expression.
+
+If the aggregate initializer expression can't fit on one line then line breaks
+are placed just after the comma. Each element is written to a separate line
+aligned with the expression above it.
+
+[example]
+====
+[source,express]
+----
+[42, x + y, 'this', .that.]
+
+[15,
+ a + very + long + expression,
+ 'this string',
+ .enum_val.]
+----
+====
+
+=== Call function expression
+
+Write the name of the FUNCTION. If there are any parameters to the function,
+then the parameter expressions are enclosed in parentheses and separated by
+commas.
+
+If there are parameters then the left parenthesis is written just after the
+function name with no space separating it from the function name. Each
+expression is written with a comma separating any two adjacent expressions.
+There will be at least one space after the comma and no space before the
+comma.
+
+If more than one line is needed then the expressions are written one to a line
+with the line break occurring just after the comma. Each expression is aligned
+with the expression above it. The first expression starts just after the left
+parenthesis and the right parenthesis is written just after the final
+expression.
+
+[example]
+====
+[source,express]
+----
+fun1(42, .t., 'this')
+
+fun1(42,
+     .t.,
+     'this')
+----
+====
+
+=== ENTITY constructor expression
+
+Write the name of the ENTITY to be constructed.
+
+If there are values needed to initialize any attributes, then the list of
+expressions is written just after the entity name and enclosed in parentheses
+and separated by commas.
+
+This list begins with a left parenthesis just after the ENTITY name with no
+space between the parenthesis and the entity name. Each expression is written
+with a comma separating them. There is at least one space after the comma and
+no space before the comma. The right parenthesis follows immediately after the
+last expression.
+
+If all of the expressions won't fit on one line then each expression is placed
+on its own line with line breaks occurring just after the comma. The first
+expression occurs just after the left parenthesis and on the same line. Each
+subsequent expression is aligned with the one above it.
+
+[example]
+====
+[source,express]
+----
+entity1('this', 42, (1,2,4,6), .enum_val1.)
+
+entity1('this',
+        42,
+        (1,2,4,6),
+        .enum_val1.)
+----
+====
+
+=== Enumeration reference expression
+
+If the name of the TYPE declaration is provided, write the name of the TYPE
+declaration followed by a period ('.').
+
+Write the enumeration value.
+
+[example]
+====
+[source,express]
+----
+enum1
+
+type1.enum2
+----
+====
+
+=== Interval expression
+
+Write an open curly brace {. Write the low value expression. Write the first
+operator. Write the item value expression. Write the second operator. Write
+the hi value expression. Write a close curly brace }.
+
+If the expression can't fit on one line, then write the low value expression
+on the line with the left curly brace followed by the first operator. Write
+the item value expression on the next line followed by the second operator.
+The item value expression will be aligned with the low value expression on the
+line above. Finally, on the next line write the hi value expression followed
+by the right curly brace. The hi value expression will be aligned with the
+item value expression on the line above.
+
+[example]
+====
+[source,express]
+----
+{1 < x < 10}
+
+{1 <
+ x <
+ 10}
+----
+====
+
+=== Qualifiable factor expression
+
+This qualifiable-factor object contains both the factor and the qualifiers.
+
+Write the factor. For each qualifier, write the qualifier.
+
+If they need more than one line, put as many qualified on each line as
+possible and align each subsequent line with the first qualifier on the line
+above.
+
+[example]
+====
+[source,express]
+----
+var1\ENTITY1.attr1[23]
+
+var1\ENTITY1
+    .attr1[23]
+----
+====
+
+=== QUERY expression
+
+Write the `QUERY` keyword followed by an open parenthesis.
+
+Next write the query variable id followed by the `<*` symbol.
+
+Next write the source expression followed by the `|` symbol.
+
+Next write the query expression followed by the close parenthesis.
+
+If the query expression can't fit on one line then put line breaks just after
+the `<*` and `|` symbols. The source expression will be aligned with the query
+variable id. The query expression will be aligned with the source expression.
+
+[example]
+====
+[source,express]
+----
+QUERY(var1 <* [1,2,3,4,5] | var1 < 3)
+
+QUERY(var1 <*
+      [1,2,3,4,5] |
+      var1 < 3)
+----
+====

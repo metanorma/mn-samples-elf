@@ -1,0 +1,526 @@
+== Declarations
+
+=== General
+
+This clause describes the layout of each declaration: FILE header, SCHEMA,
+interface, CONSTANT, TYPE, ENTITY, SUBTYPE_CONSTRAINT, FUNCTION, RULE, and
+PROCEDURE.
+
+=== Preamble
+
+The preamble is printed as follows:
+
+. Remark items, delimited by the open and close remark symbols (`(*` and `*)`)
+that form the initial lines in the input file, starting with the first line and
+ending with the line immediately before the line with the SCHEMA keyword, are
+printed individiually separated by new lines, flush to the left.
+
+. One blank line is printed after the last remark item, if any.
+
+. Provenance information is printed as a remark item, starting with the `(*`
+symbol and ending with the `*)` symbol. Provenance information includes the name
+of the pretty printer, the version of the pretty printer, and the parameters
+used to execute the pretty printer.
+
+NOTE: This clause is intended to comply with SC4 and ISO agreements for
+managing headers for EXPRESS schemas that are publicly available, as well as
+provide provenance information for downstream applications.
+
+.Pretty printing of the preamble
+[example]
+====
+[source,express]
+----
+(* This is a comment 1 *)
+(* This is a multi-line comment
+     2 *)
+(*
+This is a multi-line comment 3
+
+*)
+
+(* {pretty-printer} version: {version}
+   Format parameters: {format-parameters}
+*)
+----
+====
+
+
+=== SCHEMA
+
+NOTE: This clause reflects <<SC4dir,clause=6.1.6>>, "Layout of schema".
+
+The SCHEMA element is printed as follows:
+
+. The SCHEMA and END_SCHEMA keywords shall be flush with the left margin.
+
+. The SCHEMA keyword shall be on a line immediately after the preamble.
+
+. Contained objects shall also have the begin and end keywords flush with the
+left margin.
+
+. Interface clauses begin flush with the left margin.
+
+[example]
+====
+[source,express]
+----
+SCHEMA schema_name;
+
+USE FROM schema2;
+
+TYPE type1;
+END_TYPE;
+
+ENTITY entity1;
+END_ENTITY;
+
+END_SCHEMA;
+----
+====
+
+=== Interfaces
+
+NOTE: This clause reflects <<SC4dir,clause=6.1.7>>, "Layout of interface statements".
+
+`USE FROM` or `REFERENCE FROM` statements are used to specify the
+interface between schemas.
+
+Interfaces are printed as follows:
+
+. An interface begins with the `USE FROM` or `REFERENCE FROM` keywords at the
+left margin. Followed by the name of the SCHEMA being interfaced.
+
+. Optionally, there can be a list of object names that are interfaced from the
+specified schema. If this list is present, it will begin on the following line
+with the open parenthesis positioned two characters to the right of the left
+margin.  Each item in the list is written to a line by itself with the first
+one being written just after the open parenthesis. The items are separated by
+a comma. Each subsequent item will be aligned with the one above it. The final
+item will have the close parenthesis following immediately after it.
+
+. Finally, the interface specification is terminated by a semicolon.
+
+. The source document for the interface shall be provided as a trailing comment
+immediately after the name of the interfaced schema. If the version of the
+schema is available in the source document, it shall be provided in the
+output.
+
+[example]
+====
+[source,express]
+----
+SCHEMA schema3 '{iso standard 10303 part(nn) version(yy) object(1)
+geometric_model_schema(3)}';
+USE FROM schema1  -- ISO 10303-42 schema1 version 10
+  (entity1,
+   entity2,
+   entity3);
+USE FROM schema2  -- ISO 10303-41 schema2 version 16
+  (entity1,
+   entity2,
+   entity3,
+   entity4);
+USE FROM schema3; -- ISO 10303-43 schema3 version 5
+...
+END_SCHEMA; -- schema3
+----
+====
+
+=== CONSTANT
+
+NOTE: This clause reflects <<SC4dir,clause=6.1.8>>, "Layout of constant declaration".
+
+A constant declaration is printed as follows:
+
+. The `CONSTANT` keyword is on a line by itself and flush with the left margin
+of the enclosing declaration.
+
+. On each following line is a constant specification. Indented two characters to
+the right of the start of the `CONSTANT` keyword is the name of the constant
+followed by a colon (:) followed by the declared type of the constant followed
+by an assignment operator (:=) followed by an expression which calculates the
+value for the constant followed by a semicolon (;) to terminate the constant
+definition.
+
+. All of the colons separating the constant name from the constant type should
+be aligned. There should be at least one space before and after this colon.
+
+. All of the colons that are part of the assignment operator which separates the
+constant type from the initialization expression should be aligned. There
+should be at least one space before and after the assignment operator.
+
+[example]
+====
+[source,express]
+----
+CONSTANT
+  schema_prefix         : STRING       := 'MATH_FUNCTIONS_SCHEMA.';
+  the_integers          : e_space      := mk_e_space(es_integers);
+  the_reals             : e_space      := mk_e_space(es_reals);
+  the_numbers           : e_space      := mk_e_space(es_numbers);
+  the_logicals          : e_space      := mk_e_space(es_logicals);
+  the_booleans          : e_space      := mk_e_space(es_booleans);
+  the_strings           : e_space      := mk_e_space(es_strings);
+  the_binarys           : e_space      := mk_e_space(es_binarys);
+  the_maths_spaces      : e_space      := mk_e_space(es_maths_spaces);
+  the_generics          : e_space      := mk_e_space(es_generics);
+  the_empty_space       : finite_space := mk_finite_space([]);
+  the_nonnegative_reals : real_interval_from_min
+                                       := make_real_interval_from_min(0.0, closed);
+  the_zero_one_interval : finite_real_interval
+                                       := make_finite_real_interval(0.0, closed, 1.0, closed);
+  the_zero_pi_interval  : finite_real_interval
+                                       := make_finite_real_interval(0.0, closed, pi, closed);
+  the_neg1_one_interval : finite_real_interval
+                                       := make_finite_real_interval(-1.0, closed, 1.0, closed);
+END_CONSTANT;
+----
+====
+
+=== TYPE
+
+NOTE: This clause reflects <<SC4dir,clause=6.1.9>>, "TYPE Layout".
+
+A type declaration is printed as follows:
+
+. The `TYPE` and `END_TYPE` keywords are flush with the left margin and each on
+its own line.
+
+. Immediately after the `TYPE` keyword is the name of the type, an equal sign
+('=') and the underlying type. If the underlying type is either an ENUMERATION
+or a SELECT and all of the values will not fit on one line, then the list
+begins on the next line indented two characters and each value will be written
+on its own line.
+
+. If present, the `WHERE` keyword is flush with the left margin. The individual
+where rules are indented two characters to the right.
+
+NOTE: This specification of the WHERE clause is not specified in <<SC4dir>>, but is
+consistent with the specification of WHERE clauses in the ENTITY declaration.
+
+[example]
+====
+[source,express]
+----
+TYPE type1 = STRING;
+WHERE
+  WR1: <expression>;
+END_TYPE; -- type1
+
+TYPE enum_type1 = ENUMERATION OF (on, off, whatever);
+END_TYPE; -- enum_type1
+
+TYPE enum_type2 = ENUMERATION OF
+  (val1,
+   val2,
+   val3,
+   val4);
+END_TYPE; -- enum_type2
+
+TYPE sel_type1 = SELECT (ent1, ent2, ent3);
+END_TYPE; -- sel_type1
+
+TYPE sel_type2 = SELECT
+  (entity1,
+   entity2,
+   entity3,
+   type4,
+   entity5);
+END_TYPE; -- sel_type2
+----
+====
+
+=== ENTITY
+
+NOTE: This clause reflects <<SC4dir,clause=6.1.11>>, "Entity data type declaration layout".
+
+An entity declaration is printed as follows:
+
+. The `ENTITY` and `END_ENTITY` keywords are flush with the left margin and each
+on its own line.
+
+. Immediately after the `ENTITY` keyword is the name of the entity. If there is
+a supertype specification it is specified next beginning on the next line,
+indented two characters to the right of the left margin.
+
+. If there is a subtype specification, it is specified next beginning on the
+next line, indented two characters to the right of the left margin.
+
+. Next is a semicolon to mark the end of the entity header.
+
+. The attributes are next with each one on a line by itself, indented two
+characters to the right of the left margin. The colons that separate the
+attribute name from the attribute type should be aligned with at least one
+space before and after the colon.
+
+. If there are any derived attributes, they are written next. The `DERIVE`
+keyword is written on a line by itself flush with the left margin. Each
+attribute is written on a line by itself indented two characters to the right
+of the left margin. The colons that separate the attribute name from the
+attribute type should be aligned and have at least one space before and after.
+The colons in the assignment operator should be aligned with at least one
+space before and after the assignment operator. Each attribute should end with
+a semicolon.
+
+. If there are any inverse attributes, they are written next. The `INVERSE`
+keyword is written on a line by itself, flush with the left margin. Each
+attribute is written on a line by itself, indented two characters to the right
+of the left margin.
+
+. An inverse attribute has a name followed by a colon and the type of the
+attribute. The attribute type has an optional `SET` or `BAG` aggregate
+specification which consists of either the `SET` or `BAG` keyword followed by
+an optional bounds specification, followed by the `OF` keyword and then the
+name of an `ENTITY`, followed by the `FOR` keyword and the specification of
+the attribute being inverted. The colons between the attribute name and type
+should be aligned and have at least one space before and after.
++
+NOTE: The specification of the `INVERSE` keyword and block is not specifically
+called out in the Directives, but the specification is consistent with the
+specification of the `DERIVE`, `UNIQUE`, and `WHERE` keywords and blocks.
+
+. If there are any unique rules, they are written next. The `UNIQUE` keyword is
+written on a line by itself, flush with the left margin. Each unique rule is
+written on a line by itself, indented two characters to the right of the left
+margin.
+
+. If there are any where rules, they are written next. The `WHERE` keyword is
+written on a line by itself, flush with the left margin. Each where rule is
+written on a line by itself, indented two characters to the right of the left
+margin.
+
+
+[example]
+====
+[source,express]
+----
+ENTITY entity1
+  SUPERTYPE OF (entity2 ANDOR entity3)
+  SUBTYPE OF (entity5);
+  attr1 : type1;
+  attr2 : type2;
+DERIVE
+  der1 : type1 := <expression>;
+INVERSE
+  inv1 : entity1 FOR attr3;
+  inv2 : BAG OF entity2 FOR attr4;
+  inv3 : BAG [1:4] OF entity3 FOR entity2.attr3;
+UNIQUE
+  UR1: attr1;
+  UR2: attr1, attr2;
+WHERE
+  WR1: <expression>;
+  WR2: <expression>;
+END_ENTITY;
+----
+====
+
+=== SUBTYPE_CONSTRAINT
+
+A subtype constraint declaration is printed as follows:
+
+. Write the `SUBTYPE_CONSTRAINT` keyword followed by a space and the name of the
+subtype constraint declaration, followed by the `FOR` keyword, a space, the
+name of the ENTITY that this declaration applies to, and a semicolon.
+
+NOTE: The layout of SUBTYPE_CONSTRAINT is not specified in SC4 Supplementary
+Directives.
+
+. If this is an abstract declaration then on a new line, indented two characters
+to the right of the left margin, write the `ABSTRACT` keyword followed by the
+`SUPERTYPE` keyword, followed by a semicolon.
+
+. If there is a SUPERTYPE OF specification, it is written next, starting on a
+new line and indented two characters to the right of the left margin. After it
+is finished a semicolon is written.
+
+. If there is a total over then on a new line, indented two characters to the
+right of the left margin, write the `TOTAL_OVER` keyword followed by an open
+parenthesis which marks the beginning of the list of entities to total over.
+
+. If the list of entities will fit on one line then it is done that way,
+otherwise, each entity is placed on its own line aligned with the one above
+it. The first entity is written just after the open parenthesis with no space
+between it and the parenthesis. Between each entity is a comma and a space
+after the comma. A close parenthesis follows immediately after the last
+entity. Finally, a semicolon end the total over clause.
+
+. On a new line, flush with the left margin, write the `END_SUBTYPE_CONSTRAINT`
+keyword, followed by a semicolon.
+
+
+[example]
+====
+[source,express]
+----
+SUBTYPE_CONSTRAINT entity1_sub_con FOR entity1;
+  ABSTRACT SUPERTYPE;
+  TOTAL_OVER (entity3, entity4, entity5);
+  ONEOF(entity3, entity4, entity5);
+END_SUBTYPE_CONSTRAINT;
+----
+====
+
+=== FUNCTION
+
+NOTE: This clause reflects <<SC4dir,clause=6.1.10>>, "Algorithm layout".
+
+A function declaration is printed as follows:
+
+. The `FUNCTION` and `END_FUNCTION` keywords are on separate lines and aligned
+with the left margin. Immediately, following the `FUNCTION` keyword is a space
+followed by the name of the function.
+
+. Immediately after the function name, without a space, is the open parenthesis
+that marks the beginning of the formal parameters. Each parameter is written
+on a line by itself with the first one being written on the same line as the
+open parenthesis with no space between it and the parenthesis.
+
+. A semicolon separates each of the formal parameters and is flush against the
+parameter that it comes after.
+
+. After the final formal parameter, is a close parenthesis followed by a colon
+and then the type for the value that is returned from the function. The colon
+should have at least one space before and after it. After the return type is a
+semicolon which marks the end of the function header.
+
+. If there are any local ENTITY, SUBTYPE_CONSTRAINT, FUNCTION, RULE, PROCEDURE,
+or TYPE declarations, they are written next, indented two characters to the
+right of the left margin.
+
+. If there are any CONSTANT declarations, they are written next. The `CONSTANT`
+and `END_CONSTANT` keywords are written on separate lines, flush with the left
+margin. Each constant is written on a separate line indented two characters to
+the right of the left margin.
+
+. If there are any LOCAL declarations, they are written next. The `LOCAL` and
+`END_LOCAL` keywords are written on separate lines, flush with the left
+margin. Each local is written on a separate line indented two characters to
+the right of the left margin.
+
+. Finally, we write any statements that are included in the FUNCTION, indented
+two characters to the right of the left margin.
+
+[example]
+====
+[source,express]
+----
+FUNCTION fun_name (a : INTEGER;
+                   b : STRING;
+                   c : REAL) : STRING;
+  ENTITY fun_sub_ent;
+    name : STRING;
+  END_ENTITY;
+
+  CONSTANT
+    ...
+  END_CONSTANT;
+
+  LOCAL
+    inst : fun_sub_ent;
+  END_LOCAL;
+  inst := fun_sub_ent(b);
+END_FUNCTION;
+----
+====
+
+=== RULE
+
+NOTE: This clause reflects <<SC4dir,clause=6.1.10>>, "Algorithm layout".
+
+. It starts with the `RULE` keyword written on a new line flush with the left
+margin. Immediately following the `RULE` keyword is a space followed by the
+name of the rule, followed by the `FOR` keyword.
+
+. Immediately after the `FOR` keyword is an open parenthesis that marks the
+beginning of the list of entities that this rule applies to. Each entity name
+is placed on a line by itself with the first one being written on the same
+line as the open parenthesis with no space between it and the parenthesis.
+
+. A comma separates each entity name and is positioned flush against the entity
+name it follows.
+
+. After the final entity name is a close parenthesis followed by a semicolon.
+
+. If there are any local ENTITY, SUBTYPE_CONSTRAINT, FUNCTION, RULE, PROCEDURE,
+or TYPE declarations, they are written next, indented two characters to the
+right of the left margin.
+
+. If there are any CONSTANT declarations, they are written next. The `CONSTANT`
+and `END_CONSTANT` keywords are written on separate lines, flush with the left
+margin. Each constant is written on a separate line indented two characters to
+the right of the left margin.
+
+. If there are any LOCAL declarations, they are written next. The `LOCAL` and
+`END_LOCAL` keywords are written on separate lines, flush with the left
+margin. Each local is written on a separate line indented two characters to
+the right of the left margin.
+
+. The statements that make up the body of the RULE are written next, with each
+one on a separate line and indented two characters to the right of the left
+margin.
+
+. If there are any where rules, they come next. The `WHERE` keyword is written
+on a separate line, flush with the left margin. Each where is written on its
+own line, indented two characters to the right of the left margin.
+
+. Finally comes the `END_RULE` keyword on its own line, flush with the left
+margin, followed by a semicolon.
+
+[example]
+====
+[source,express]
+----
+RULE rule_id FOR (entity_ref,
+                  entity_ref);
+  ENTITY rule_sub_ent;
+    name : STRING;
+  END_ENTITY;
+
+  CONSTANT
+    my_pi : REAL := 3.1415926;
+  END_CONSTANT;
+  LOCAL
+    my_ent: rule_sub_ent;
+  END_LOCAL;
+  inst := rule_sub_ent('what');
+WHERE
+  WR1: expression;
+  ...
+END_RULE;
+----
+====
+
+=== PROCEDURE
+
+NOTE: This clause reflects <<SC4dir,clause=6.1.10>>, "Algorithm layout".
+
+A procedure declaration is printed as follows:
+
+. It starts with the `PROCEDURE` keyword written on a new line flush with the
+left margin. Immediately following the `PROCEDURE` keyword is a space followed
+by the name of the procedure, followed by no space and an open parenthesis
+that marks the beginning of the formal parameters.
+
+. Each formal parameter is written on its own line, aligned with the one above
+it. The first formal parameter is written immediately after the open
+parenthesis with no space between it and the parenthesis.
+
+[example]
+====
+[source,express]
+----
+PROCEDURE proc_id (formal_parameter;
+                   formal_parameter);
+  declarations
+  CONSTANT
+    my_pi : REAL := 3.1415926;
+  END_CONSTANT;
+  LOCAL
+    my_inst : proc_sub_ent;
+  END_LOCAL;
+  my_inst := proc_sub_ent(23.0)
+END_PROCEDURE;
+----
+====

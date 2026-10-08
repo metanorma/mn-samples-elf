@@ -1,0 +1,8 @@
+[bibliography]
+== Normative references
+
+* [[[ISO10303-11,ISO 10303-11:2004]]],
+_Industrial automation systems and integration — Product data representation and exchange — Part 11: Description methods: The EXPRESS language reference manual_
+
+* [[[SC4dir,ISO/TC 184/SC 4 N2412]]],
+_ISO/TC 184/SC 4 Supplementary Directives_

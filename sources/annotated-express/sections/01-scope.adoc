@@ -1,0 +1,14 @@
+== Scope
+
+This document specifies Annotated EXPRESS, a set of rules that build on top of
+the EXPRESS remark tag syntax for documentation and description of EXPRESS code.
+
+Annotated EXPRESS provides standardized methods for documenting EXPRESS schemas,
+entities, properties, functions, and rules using a structured comment syntax.
+
+This document:
+
+* defines the structure and syntax of Annotated EXPRESS;
+* specifies rules for different types of remarks that can be used in EXPRESS code;
+* outlines methods for cross-referencing EXPRESS objects; and
+* provides examples of proper Annotated EXPRESS usage.

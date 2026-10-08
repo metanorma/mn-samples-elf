@@ -1,0 +1,94 @@
+
+[source="DIR101,DIR102,DIR103"]
+
+[[terms]]
+== Terms and definitions
+
+
+=== declaration form
+
+"`Patent Statement and Licensing Declaration Form`" as stated in <<patent-form>>
+
+
+[[term-contribution]]
+=== contribution
+
+content submitted to ELF for consideration as part of a ELF
+standardization deliverable
+
+////
+Contribution:: Any document submitted for consideration by a Technical Body.
+////
+
+[[term-free-of-charge]]
+=== free of charge
+
+_patent holder_ (<<term-patent-holder>>) will not seek any monetary compensation as part of the licensing arrangement (whether such compensation is called a royalty, a one-time licensing fee, etc.); patent holder is still entitled to require that the implementer of the relevant ELF standardization deliverable sign a license agreement that contains other reasonable terms and conditions (such as those relating to governing law, field of use, warranties, etc.); does not indicate that the patent holder is waiving all of its rights with respect to a patent, but only on the issue of monetary compensation
+
+////
+Free of Charge:: The words "Free of Charge" do not mean that the Patent Holder is waiving all of its rights with respect to the Patent. Rather, "Free of Charge" refers to the issue of monetary compensation; i.e., that the Patent Holder will not seek any monetary compensation as part of the licensing arrangement (whether such compensation is called a royalty, a one-time licensing fee, etc.). However, while the Patent Holder in this situation is committing to not charging any monetary amount, the Patent Holder is still entitled to require that the implementer of the relevant deliverable sign a license agreement that contains other reasonable terms and conditions such as those relating to governing law, field of use, warranties, etc.
+////
+
+
+[[term-patent]]
+=== patent
+
+claims contained in and identified by patents, utility models and other similar statutory rights based on inventions (including applications for any of these) solely to the extent that any such claims are essential to the implementation of an ELF standardization deliverable
+
+[[term-essential-patent]]
+=== essential patent
+
+_patent_ (<<term-patent>>) is essential to implement a specific ELF standardization deliverable
+
+////
+Patent:: The word "Patent" means those claims contained in and identified by patents, utility models and other similar statutory rights based on inventions (including applications for any of these) solely to the extent that any such claims are essential to the implementation of a deliverable. Essential patents are patents that would be required to implement a specific deliverable.
+////
+
+[[term-patent-holder]]
+=== patent holder
+
+person or entity that owns, controls and/or has the ability to license _patents_ (<<term-patent>>)
+
+////
+Patent Holder:: Person or entity that owns, controls and/or has the ability to license Patents.
+////
+
+
+[[term-reciprocity]]
+=== reciprocity
+
+_patent holder_ (<<term-patent-holder>>) shall only be required to license any prospective licensee if such prospective licensee will commit to license its patent(s) for implementation of the same relevant ELF standardization deliverable _free of charge_ (<<term-free-of-charge>>) or under reasonable terms and conditions
+
+////
+Reciprocity:: The word "Reciprocity" means that the Patent Holder shall only be required to license any prospective licensee if such prospective licensee will commit to license its Patent(s) for implementation of the same relevant deliverable Free of Charge or under reasonable terms and conditions.
+////
+
+[[term-declaration]]
+=== patent declaration
+
+notice or acknowledgement that a patent may cover the use of an ELF standardization deliverable
+
+NOTE: The patent statement and licensing declaration form provided in <<patent-form>> shall be used for all patent declarations for an ELF standardization deliverable (see <<patent-statement>>).
+
+
+[[term-patent-information-database]]
+=== patent information database
+
+database containing patent information relating to
+ELF standardization deliverables
+based on information provided to ELF in the patent statement and licensing declaration
+
+////
+TODO: define licensee
+TODO: define reasonable terms and conditions
+////
+
+[[term-technical-body]]
+=== technical body
+
+technical committees and any other groups that manage
+development of ELF standardization deliverables
+
+////
+Technical Bodies:: Study Groups, any subordinate groups and other groups of ITU-T and ITU-R and technical committees, subcommittees and working groups in ISO and IEC.
+////

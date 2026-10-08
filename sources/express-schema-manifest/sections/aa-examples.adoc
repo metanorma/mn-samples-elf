@@ -1,0 +1,12 @@
+[appendix,obligation=informative]
+== Examples
+
+This annex provides examples of the EXPRESS Schema Manifest format.
+
+This example shows a schema manifest that defines a selection of schemas from
+the SRL (STEP Resource Library).
+
+[source,yaml]
+----
+include::../examples/schemas-srl.yaml[]
+----

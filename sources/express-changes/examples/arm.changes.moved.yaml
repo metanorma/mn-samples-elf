@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=https://www.expresslang.org/schemas/changes/v1/schema_changes.yaml
+---
+schema: Extended_basic_geometry_arm
+versions:
+- version: 2
+  modifications:
+  - type: SUBTYPE_CONSTRAINT
+    name: alternate_extended_geometry_item
+  deletions:
+  - type: SUBTYPE_CONSTRAINT
+    name: axis_placement_subtype
+  - type: ENTITY
+    name: Axis_placement_2d
+    moved_to:
+      schema: Elemental_geometric_shape_arm
+  - type: ENTITY
+    name: Axis_placement_3d
+    moved_to:
+      schema: Elemental_geometric_shape_arm
+- version: 3
+  additions:
+  - type: USE_FROM
+    name: Geometric_model_relationship_arm
+  modifications:
+  - type: REFERENCE_FROM
+    name: alternate_extended_geometry_item
+  deletions:
+  - type: SUBTYPE_CONSTRAINT
+    name: Characterizable_object_arm
+    interfaced_items:
+    - bag_to_set
+  - type: ENTITY
+    name: Definitional_representation_relationship
+    moved_to:
+      schema: Geometric_model_relationship_arm
+  - type: ENTITY
+    name: Geometric_model_relationship
+    moved_to:
+      schema: Geometric_model_relationship
+  - type: FUNCTION
+    name: acyclic_representation_relationship
+    moved_to:
+      schema: Geometric_model_relationship
+- version: 4
+  modifications:
+  - type: SUBTYPE_CONSTRAINT
+    name: alternate_extended_geometry_item

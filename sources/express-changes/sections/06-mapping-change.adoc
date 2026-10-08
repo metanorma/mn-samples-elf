@@ -1,0 +1,97 @@
+[[mapping-change]]
+== Mapping change
+
+=== General
+
+
+A mapping change records modifications to the mapping of an EXPRESS schema to
+another schema or representation.
+
+The structure is built on the following constructs:
+
+* Version changes: Details changes made to this version of the mapping specification
+against the previous version.
+
+* Item changes: Specific elements in the mappings that were changed in this version.
+
+Syntax:
+
+[source,yaml]
+----
+schema: String (required)
+  # Name of the EXPRESS schema
+versions:
+  - {version change 1}
+  - {version change 2}
+----
+
+=== Version change
+
+Each version change represents a changes made to the mapping specification in a
+specific version compared to the previous version.
+
+Syntax:
+
+[source,yaml]
+----
+version: String (required)
+# Version number for this change version
+description: String (optional)
+# Description of changes in this version
+mappings:
+  - {item change 1}
+  - {item change 2}
+----
+
+Fields:
+
+`version`:: (required) The version number (integer). Must be positive.
++
+[example]
+`2`, `3`, `6`.
+
+`description`:: (optional) A multi-line string describing the changes made in
+this version. Should provide a comprehensive overview of what changed and why.
+If not provided, a publication may provide its own boilerplate or summary.
+
+`mappings`:: (optional) An array of mapping changes.
+
+
+=== Mapping change
+
+Each mapping change represents a specific element whose mapping has changed in an
+version.
+
+Syntax:
+
+[source,yaml]
+----
+name: String (optional)
+# Name of the EXPRESS construct whose mapping changed
+description: String (optional)
+# Description of the mapping change
+----
+
+Fields:
+
+`name`:: (optional) The name of the EXPRESS construct whose mapping changed (string).
+
+`description`:: (optional) A description of the mapping change (string).
+
+.Mapping change file from ISO 10303 SRL module product_as_individual_assembly_and_test
+[example]
+====
+[source,yaml]
+----
+---
+schema: product_as_individual_assembly_and_test
+versions:
+- version: '2'
+  mappings:
+  - description: Applied_activity_assignment mapping updated
+  - description: Applied_process_operation_occurrence mapping updated
+  - description: Applied_test_activity mapping updated
+- version: '5'
+  description: Mapping specifications updated.
+----
+====

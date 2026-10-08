@@ -1,0 +1,155 @@
+[[syntax]]
+== Syntax
+
+=== General
+
+The EXPRESS Schema Manifest is defined using YAML syntax. This section specifies
+the structure and components of the manifest file.
+
+=== General structure
+
+The manifest file consists of two main components:
+
+. An optional root path that serves as the base directory for all schemas
+. A mandatory schema listings section that enumerates all EXPRESS schemas
+
+The general structure of the manifest file is as follows.
+
+[source,yaml]
+----
+---
+path: ~/src/iso-10303-srl <1>
+schemas: <2>
+  # listing of EXPRESS schema names
+  action_schema: <3>
+    # `path`: per-schema relative path to the root path
+    path: schemas/resources/action_schema/action_schema.exp <4>
+  aic_associative_draughting_elements:
+    path: schemas/resources/aic_associative_draughting_elements/aic_associative_draughting_elements.exp
+  # ...
+----
+<1> (optional) Root path
+<2> (mandatory) Schema listings
+<3> (mandatory) Individual EXPRESS schema names
+<4> (optional) Individual schema path
+
+
+=== Components
+
+==== Root path
+
+The root path is an optional component that specifies the base directory for all
+schemas listed in the manifest file.
+
+* If not set, the current working directory is used as the root path.
+* The root path can be an absolute path or a path that includes shell
+  expansions like `~` for the home directory.
+
+[example]
+====
+[source,yaml]
+----
+path: ~/src/iso-10303-srl
+----
+====
+
+==== Schema listings
+
+The schema listings section is a mandatory component that enumerates all EXPRESS
+schemas included in the manifest.
+
+* Each schema is represented by a key-value pair where the key is the name of
+  the EXPRESS schema.
+* Each schema entry may include an optional path that specifies the location of
+  the schema file relative to the root path.
+
+[example]
+====
+[source,yaml]
+----
+schemas:
+  action_schema:
+    path: schemas/resources/action_schema/action_schema.exp
+  aic_associative_draughting_elements:
+    path: schemas/resources/aic_associative_draughting_elements/aic_associative_draughting_elements.exp
+----
+====
+
+==== Individual schema path
+
+The individual schema path is an optional component that specifies the location
+of a specific schema file.
+
+* If not set, the schema is assumed to be located at
+  `{root_path}/{schema_name}.exp` or `{current directory}/{schema_name}.exp` if
+  no root path is specified.
+* The path is relative to the root path if one is specified, or to the current
+  working directory otherwise.
+
+=== Usage patterns
+
+==== When root path is current directory
+
+When the root path is the current directory, individual schema paths must be
+specified if they differ from the default pattern of `{schema_name}.exp`.
+
+[example]
+====
+[source,yaml]
+----
+schemas:
+  action_schema:
+    path: schemas/resources/action_schema/action_schema.exp
+  aic_associative_draughting_elements:
+    path: schemas/resources/aic_associative_draughting_elements/aic_associative_draughting_elements.exp
+  # ...
+----
+====
+
+==== When root path is specified
+
+When a root path is specified and schemas are located at
+`{root_path}/{schema_name}.exp`, individual schema paths can be omitted or set
+to `nil`.
+
+[example]
+====
+[source,yaml]
+----
+path: ~/src/iso-10303-srl
+schemas:
+  action_schema: nil
+  aic_associative_draughting_elements: nil
+  # ...
+----
+====
+
+==== When schema names do not match file names
+
+When schema names do not match their file names, individual schema paths must be
+specified.
+
+[example]
+====
+[source,yaml]
+----
+---
+schemas:
+  Event_arm:
+    path: ../../schemas/modules/event/arm.exp
+  Event_mim:
+    path: ../../schemas/modules/event/mim.exp
+  # ...
+----
+====
+
+=== Example implementation
+
+An example implementation of the EXPRESS Schema Manifest is provided in the
+EXPRESSdocs framework.
+
+[example]
+====
+The `schemas-srl.yml` file in the EXPRESSdocs repository provides a complete
+example of an EXPRESS Schema Manifest.
+====

@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=https://www.expresslang.org/schemas/changes/v1/schema_changes.yaml
+---
+schema: Associative_draughting_elements_mim
+versions:
+- version: 3
+  additions:
+  - type: TYPE
+    name: draughting_model_item_definition
+  modifications:
+  - type: ENTITY
+    name: draughting_model_item_association
+- version: 4
+  additions:
+  - type: USE_FROM
+    name: geometric_model_schema
+    interfaced_items:
+    - geometric_set
+  - type: USE_FROM
+    name: draughting_element_schema
+    interfaced_items:
+    - annotation_plane
+  - type: USE_FROM
+    name: draughting_element_schema
+    interfaced_items:
+    - des_annotation_representation_select
+  - type: USE_FROM
+    name: draughting_element_schema
+    interfaced_items:
+    - draughting_model_item_association
+  - type: USE_FROM
+    name: draughting_element_schema
+    interfaced_items:
+    - draughting_model_item_definition
+  - type: USE_FROM
+    name: draughting_element_schema
+    interfaced_items:
+    - tessellated_annotation_occurence
+  - type: USE_FROM
+    name: presentation_definition_schema
+    interfaced_items:
+    - annotation_curve_occurrence
+  - type: USE_FROM
+    name: presentation_definition_schema
+    interfaced_items:
+    - annotation_fill_area_occurrence
+  - type: USE_FROM
+    name: presentation_definition_schema
+    interfaced_items:
+    - annotation_point_occurrence
+  - type: USE_FROM
+    name: presentation_definition_schema
+    interfaced_items:
+    - annotation_symbol_occurrence
+  - type: USE_FROM
+    name: presentation_definition_schema
+    interfaced_items:
+    - annotation_text_occurrence
+  - type: USE_FROM
+    name: product_property_definitin_schema
+    interfaced_items:
+    - product_definition_shape
+  - type: USE_FROM
+    name: product_property_definitin_schema
+    interfaced_items:
+    - property_definition
+  - type: USE_FROM
+    name: product_property_definitin_schema
+    interfaced_items:
+    - shape_aspect
+  - type: USE_FROM
+    name: product_property_definitin_schema
+    interfaced_items:
+    - shape_aspect_relationship
+  deletions:
+  - type: TYPE
+    name: draughting_model_item_association_select
+    moved_to:
+      schema: draughting_element_schema
+  - type: TYPE
+    name: draughting_model_item_definition
+    moved_to:
+      schema: draughting_element_schema
+  - type: ENTITY
+    name: draughting_model_item_assocation
+    moved_to:
+      schema: draughting_element_schema

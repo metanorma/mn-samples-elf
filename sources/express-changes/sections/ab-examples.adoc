@@ -1,0 +1,58 @@
+[appendix,obligation=informative]
+== Examples
+
+=== General
+
+This annex provides examples of the EXPRESS Changes YAML format.
+
+=== Schema change
+
+This example shows schema changes made to the `support_resource_schema`, a
+resource schema.
+
+[source,yaml]
+----
+include::../examples/support_resource_schema.changes.yaml[]
+----
+
+This example shows schema changes made to the ARM
+`Document_and_version_identification_arm` schema.
+
+[source,yaml]
+----
+include::../examples/arm.changes.yaml[]
+----
+
+This example shows schema changes made to the ARM `Extended_basic_geometry_arm`
+schema, where an ENTITY is moved to another ARM schema.
+
+[source,yaml]
+----
+include::../examples/arm.changes.moved.yaml[]
+----
+
+This example shows schema changes made to the MIM
+`Document_and_version_identification_mim` schema.
+
+[source,yaml]
+----
+include::../examples/mim.changes.yaml[]
+----
+
+This example shows schema changes made to the MIM
+`Associative_draughting_elements_mim` schema, where an TYPE is moved to
+another resource schema.
+
+[source,yaml]
+----
+include::../examples/mim.changes.moved.yaml[]
+----
+
+=== Mapping change
+
+This example shows mapping changes made to the `dimension_tolerance` mapping.
+
+[source,yaml]
+----
+include::../examples/mapping.changes.yaml[]
+----

@@ -1,0 +1,13 @@
+[[agency]]
+== Maintenance agency and registration authority
+
+=== General
+
+ELF recognizes that a maintenance agency or
+registration authority is required for the successful implementation of
+certain standardization deliverables.
+
+=== Default volunteer role
+
+The TCB shall serve as the maintenance agency or registration authority
+for ELF standardization deliverables as necessary.

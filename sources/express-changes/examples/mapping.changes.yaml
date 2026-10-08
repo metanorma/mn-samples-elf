@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://www.expresslang.org/schemas/changes/v1/mapping_changes.yaml
+---
+schema: dimension_tolerance
+versions:
+- version: 6
+  mappings:
+  - description: Geometric_dimension entity and attributes mapping has been updated
+  - description: Angle_plus_minus_bounds and Length_plus_minus_bounds mappings was
+      added
+- version: 7
+  mappings:
+  - description: Angle_plus_minus_bounds mapping has been updated
+  - description: Length_plus_minus_bounds mapping has been updated
+  - description: Applied_activity_assignment ENTITY mapped
+- version: 8
+  mappings:
+  - description: Geometric_dimension entity and attributes mapping has been updated

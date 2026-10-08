@@ -1,0 +1,43 @@
+== Terms and definitions
+
+=== pretty printing
+
+systematic formatting of source code according to predefined rules to enhance
+readability, maintainability, and consistency
+
+=== pretty printer
+
+software tool or library that applies pretty printing rules to source code,
+transforming it into a more readable and consistent format
+
+=== declaration
+
+EXPRESS language construct that defines schemas, entities, types, functions,
+rules, and other structural elements of a data model
+
+[.source]
+<<ISO10303-11>>
+
+=== expression
+
+combination of operands and operators that computes a value
+
+[.source]
+<<ISO10303-11>>
+
+=== statement
+
+executable instruction in the EXPRESS language that performs an action such as
+assignment, procedure call, or control flow operations
+
+[.source]
+<<ISO10303-11>>
+
+=== SC4 Supplementary Directives
+
+document published by ISO/TC 184/SC 4 that provides additional guidance for
+the development and presentation of standards, including formatting rules for
+EXPRESS schemas
+
+[.source]
+<<SC4dir>>

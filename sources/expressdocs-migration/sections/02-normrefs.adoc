@@ -1,0 +1,12 @@
+[bibliography]
+== Normative references
+
+* [[[iso-10303-11,ISO 10303-11]]], Industrial automation systems and
+integration — Product data representation and exchange — Part 11: Description
+methods: The EXPRESS language reference manual
+
+* [[[Metanorma,Metanorma]]], Metanorma framework for standards documents —
+https://www.metanorma.org
+
+* [[[AnnotatedEXPRESS,Annotated EXPRESS]]], EXPRESS Language Foundation: Annotated
+EXPRESS Specification

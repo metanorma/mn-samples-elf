@@ -1,0 +1,619 @@
+= ELF Directive: Guidelines for the implementation of the ELF patent policy
+:title-main-en: ELF Directive: Guidelines for the implementation of the ELF patent policy
+:boilerplate-authority: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/copyright.adoc
+:publisher_logo: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/logo.svg
+:i18nyaml: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/i18n.yaml
+:pdf-stylesheet-override: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/elf.xsl
+:publisher: EXPRESS Language Foundation
+:publisher_abbr: ELF
+:presentation-metadata-color-secondary: #3f65a2
+:presentation-metadata-backcover-text: expresslang.org
+:fonts: Source Sans 3
+:output-extensions: xml,html,pdf,doc,presentation
+:presentation-metadata-doctype-alias: standard
+:docnumber: 104
+:edition: 1
+:copyright-year: 2026
+:revdate: 2026-08-30
+:language: en
+:doctype: international-standard
+:technical-committee: TCB
+:imagesdir: images
+:mn-document-class: elf
+:mn-output-extensions: xml,html,doc,pdf,rxl
+:docidentifier: ELF 104:2026
+:data-uri-image:
+:local-cache-only:
+
+.Foreword
+The EXPRESS Language Foundation ("`ELF`") is a registered public charity in the
+US that facilitates the education, standardization, research, promotion,
+definition, and usage of information modelling and programming languages, with a
+focus on the EXPRESS language family.
+
+ELF works with international partners and experts across the globe, reflecting
+the international nature of its mission. More information about ELF is available
+on the official website (link:++https://www.expresslang.org++[]).
+
+The procedures used to develop this document and those intended for its further
+maintenance are described in the ELF Directives.
+
+In particular the different approval criteria needed for the different types of
+ELF documents should be noted. This document was drafted in accordance with the
+editorial rules of the ELF Directives.
+
+Attention is drawn to the possibility that some of the elements of this
+document may be the subject of patent rights. ELF shall not be held responsible
+for identifying any or all such patent rights. Details of any patent rights
+identified during the development of the document will be provided in the
+Introduction.
+
+Any trade name used in this document is information given for the convenience of
+users and does not constitute an endorsement.
+
+This document was prepared by the Technical Coordination Board (TCB).
+
+This document provides guidance on the implementation of the
+ELF patent policy (<<DIR103>>) as applicable
+to internal process and procedures, especially in relation
+to the standardization and publication processes described in
+<<DIR101>>.
+
+== Introduction
+
+=== General
+
+ELF is committed to expanding the realm of standards for information
+modelling and programming languages, with a focus on the EXPRESS
+language family and interoperability across the globe and communities
+of practice.
+
+As a proponent of open standards, ELF has adopted a patent policy
+in <<DIR103>> to align IPR practice with major international
+standardization bodies including ISO, IEC and ITU.
+
+=== Purpose
+
+This document describes guidelines for the implementation of the
+ELF patent policy specified in <<DIR103>>
+in the standardization and publication processes described
+in <<DIR101>>.
+
+The intent of this document is to:
+
+* encourage the early disclosure and identification of patents during the
+standardization and publication processes;
+
+* resolve potential patent concerns and rights problems relevant to
+the standardization and publication processes.
+
+
+////
+
+
+ITU, in its Telecommunication Standardization Sector (ITU-T) and its Radiocommunication Sector (ITU-R), ISO and IEC have had patent policies for many years, the purpose being to provide in simple words practical guidance to the participants in their Technical Bodies in case patent rights matters arise.
+
+Considering that the technical experts are normally not familiar with the complex issue of patent law, the Common Patent Policy for ITU-T/ITU-R/ISO/IEC (hereafter referred to as the "Patent Policy") was drafted in its operative part as a checklist, covering the three different cases which may arise if a Recommendation | Deliverable requires licences for Patents to be practiced or implemented, fully or partly.
+
+The Guidelines for Implementation of the Common Patent Policy for ITU-T/ITU-R/ISO/IEC (hereafter referred to as the "Guidelines") are intended to clarify and facilitate implementation of the Patent Policy, a copy of which can be found in Annex 1 and also on the web site of each Organization.
+
+The Patent Policy encourages the early disclosure and identification of Patents that may relate to Recommendations | Deliverables under development. In doing so, greater efficiency in standards development is possible and potential patent rights problems can be avoided.
+
+The Organizations should not be involved in evaluating patent relevance or essentiality with regards to Recommendations | Deliverables, interfere with licensing negotiations, or engage in settling disputes on Patents; this should be left - as in the past - to the parties concerned.
+
+Organization-specific provisions are contained in Part II of this document. However, it is understood that those Organization-specific provisions shall contradict neither the Patent Policy nor the Guidelines.
+////
+
+== Scope
+
+This document provides guidelines on the application of
+the ELF patent policy (<<DIR103>>) towards the following
+areas of ELF:
+
+* standardization and publication process (described in <<DIR101>>);
+* document requirements (described in <<DIR102>>).
+
+This document does not cover the implementation of requirements
+in ELF standards which involve intellectual property rights
+(such as patents).
+[bibliography]
+== Normative References
+
+* [[[DIR101,ELF 101:2026]]], _ELF Directive: Standardization and publication_
+
+* [[[DIR102,ELF 102:2026]]], _ELF Directive: Standard document requirements_
+
+* [[[DIR103,ELF 103:2026]]], _ELF Directive: Patent policy_
+
+[source="DIR101,DIR102,DIR103"]
+
+[[terms]]
+== Terms and definitions
+
+
+=== declaration form
+
+"`Patent Statement and Licensing Declaration Form`" as stated in <<patent-form>>
+
+
+[[term-contribution]]
+=== contribution
+
+content submitted to ELF for consideration as part of a ELF
+standardization deliverable
+
+////
+Contribution:: Any document submitted for consideration by a Technical Body.
+////
+
+[[term-free-of-charge]]
+=== free of charge
+
+_patent holder_ (<<term-patent-holder>>) will not seek any monetary compensation as part of the licensing arrangement (whether such compensation is called a royalty, a one-time licensing fee, etc.); patent holder is still entitled to require that the implementer of the relevant ELF standardization deliverable sign a license agreement that contains other reasonable terms and conditions (such as those relating to governing law, field of use, warranties, etc.); does not indicate that the patent holder is waiving all of its rights with respect to a patent, but only on the issue of monetary compensation
+
+////
+Free of Charge:: The words "Free of Charge" do not mean that the Patent Holder is waiving all of its rights with respect to the Patent. Rather, "Free of Charge" refers to the issue of monetary compensation; i.e., that the Patent Holder will not seek any monetary compensation as part of the licensing arrangement (whether such compensation is called a royalty, a one-time licensing fee, etc.). However, while the Patent Holder in this situation is committing to not charging any monetary amount, the Patent Holder is still entitled to require that the implementer of the relevant deliverable sign a license agreement that contains other reasonable terms and conditions such as those relating to governing law, field of use, warranties, etc.
+////
+
+
+[[term-patent]]
+=== patent
+
+claims contained in and identified by patents, utility models and other similar statutory rights based on inventions (including applications for any of these) solely to the extent that any such claims are essential to the implementation of an ELF standardization deliverable
+
+[[term-essential-patent]]
+=== essential patent
+
+_patent_ (<<term-patent>>) is essential to implement a specific ELF standardization deliverable
+
+////
+Patent:: The word "Patent" means those claims contained in and identified by patents, utility models and other similar statutory rights based on inventions (including applications for any of these) solely to the extent that any such claims are essential to the implementation of a deliverable. Essential patents are patents that would be required to implement a specific deliverable.
+////
+
+[[term-patent-holder]]
+=== patent holder
+
+person or entity that owns, controls and/or has the ability to license _patents_ (<<term-patent>>)
+
+////
+Patent Holder:: Person or entity that owns, controls and/or has the ability to license Patents.
+////
+
+
+[[term-reciprocity]]
+=== reciprocity
+
+_patent holder_ (<<term-patent-holder>>) shall only be required to license any prospective licensee if such prospective licensee will commit to license its patent(s) for implementation of the same relevant ELF standardization deliverable _free of charge_ (<<term-free-of-charge>>) or under reasonable terms and conditions
+
+////
+Reciprocity:: The word "Reciprocity" means that the Patent Holder shall only be required to license any prospective licensee if such prospective licensee will commit to license its Patent(s) for implementation of the same relevant deliverable Free of Charge or under reasonable terms and conditions.
+////
+
+[[term-declaration]]
+=== patent declaration
+
+notice or acknowledgement that a patent may cover the use of an ELF standardization deliverable
+
+NOTE: The patent statement and licensing declaration form provided in <<patent-form>> shall be used for all patent declarations for an ELF standardization deliverable (see <<patent-statement>>).
+
+
+[[term-patent-information-database]]
+=== patent information database
+
+database containing patent information relating to
+ELF standardization deliverables
+based on information provided to ELF in the patent statement and licensing declaration
+
+////
+TODO: define licensee
+TODO: define reasonable terms and conditions
+////
+
+[[term-technical-body]]
+=== technical body
+
+technical committees and any other groups that manage
+development of ELF standardization deliverables
+
+////
+Technical Bodies:: Study Groups, any subordinate groups and other groups of ITU-T and ITU-R and technical committees, subcommittees and working groups in ISO and IEC.
+////
+
+[[patent-disclosure]]
+== Patent disclosure
+
+
+=== General
+
+This clause describes the principles of disclosure of patents
+that may affect ELF standardization deliverables produced
+by ELF.
+
+This clause applies to any patent disclosed or drawn
+to the attention of ELF during the development
+of and subsequent to the approval of deliverables.
+
+=== Requirements
+
+==== Participation obligation
+
+All parties participating in the standardization activities of ELF
+are obligated to inform ELF of
+any known patent or to any known pending patent application,
+either its own or that of other entities,
+as mandated by <<DIR103,clause=4>>,
+where such parties include recipients of a draft ELF standardization deliverable at any stage.
+
+==== Early disclosure
+
+Patent information should be disclosed as early as possible during the development of the deliverable.
+
+Such patent information should be provided in good faith and on a best effort basis. There is no requirement for patent searches.
+At times, this might not be possible when the first draft text appears, for example, because the text might be still too vague.
+
+////
+Lore Unt (Apple):
+I suggest generally not breaking out the text from the ITU guidelines as “NOTES,” since the status of the notes is somewhat confusing.  The deleted text of note 1 could be kept in the text, or ideally could be modified as follows “At times, this might not be possible when the first draft text appears, for example, because the text might be still too vague.”
+
+NOTE: This might not be possible when the first draft text appears since at this time, the text might be still too vague or subject to subsequent major modifications.
+////
+
+==== External-originating disclosure
+
+Parties not participating in the standardization activities of ELF may also inform ELF to any known patent, either their own and/or of any third-party, that may cover an ELF deliverable.
+
+
+=== Method of disclosure
+
+==== Declaration form
+
+When disclosing their own patents, patent holders shall fill in the "`Patent Statement and Licensing Declaration Form`" (referred to as the "`declaration form`") as stated in <<patent-form>>.
+
+==== Third-party patent disclosure
+
+Any communication drawing the attention to any third-party patent
+should be addressed to ELF in writing.
+
+The Executive Director of ELF will then request the potential
+patent holder to submit a declaration form, if applicable.
+
+
+=== Resolution to unwillingness to license
+
+Whether the identification of the patent took place before or after
+the approval of a deliverable,
+if a patent holder is unwilling to license under <<DIR103,clause=5.2>> or <<DIR103,clause=5.3>>, ELF will promptly advise the project owner(s) responsible for the affected deliverable so that appropriate action can be taken.
+
+Such action shall include, but may not be limited to:
+
+* a review of the ELF standardization deliverable or its draft in order to remove the potential conflict; or
+
+* to further examine and clarify the technical considerations causing the conflict.
+
+These guidelines also apply to any Patent disclosed or drawn to the attention of ELF subsequent to the approval of a deliverable.
+
+[[patent-statement]]
+== Patent statement and licensing declaration form
+
+=== Purpose
+
+The patent statement and licensing declaration form (see <<patent-form>>) is provided
+for entities with information on how essential patents affect
+ELF deliverables (such as, patent holders)
+to provide consistent, accurate information in the ELF patent
+information database.
+
+=== Procedure
+
+Entities shall report patent information to ELF
+using the ELF patent declaration form, which is
+available on the ELF website (see <<patent-form>>).
+
+The completed declaration form should be directly submitted
+to the designated contact provided on the form.
+
+The declaration form also allows patent holders to make a licensing declaration relative to rights in patents required for implementation of a specific deliverable.
+
+
+=== Declaration of patent license
+
+Specifically, by submitting this declaration form, the submitting party declares, in accordance with the ELF patent policy, patents held by it and whose licence would be required to practice or implement part(s) or all of a specific deliverable:
+
+. its willingness to license (by selecting option 1 or 2 on the Form); or
+. its unwillingness to license (by selecting option 3 on the Form).
+
+
+=== Additional information required due to unwillingness to license
+
+If a patent holder has selected the licensing option 3 on the declaration form, then, for the referenced relevant ELF deliverable, ELF requires the patent holder to provide certain additional information permitting patent identification.
+
+Multiple declaration forms are appropriate if the patent holder wishes to identify several patents and classifies them in different options of the declaration form for the same deliverable or if the patent holder classifies different claims of a complex patent in different options of the declaration form.
+
+Information contained in a declaration form may be corrected in case of obvious errors, such as a typographical mistake in a standard or patent reference number.
+
+=== Superseding license declarations
+
+The licensing declaration contained in the declaration form remains in force unless it is superseded by another declaration form containing more favorable licensing terms and conditions from a licensee's perspective reflecting:
+
+. a change in commitment from option 3 to either option 1 or option 2;
+. a change in commitment from option 2 to option 1; or
+. un-checking one or more sub-options contained within option 1 or 2.
+
+==== Contact information
+
+In completing the declaration form, attention should be given to supplying contact information that will remain valid over time:
+
+* "`Name`", "`Department`" and "`E-mail addresses`" should be generic.
+
+* A single point of contact for a particular submitting party is preferred if multiple declaration forms are submitted (particularly for multinational organizations).
+
+For maintaining the currency of information in the ELF patent information database, the patent declarer is urged to directly contact ELF on any change or corrections to declaration forms submitted,
+especially on the change of contact points.
+
+=== Conduct of meetings
+
+Early disclosure of patents contributes to the efficiency of the process by which deliverables are established.
+
+Therefore, each technical body, in the course of the development of a proposed deliverable, will request the disclosure of any known patents essential to the proposed deliverable.
+
+The leadership of technical body will, ask at an appropriate time in each meeting, whether anyone has knowledge of patents, the use of which may be required to practice or implement the deliverable being considered. The fact that the question was asked shall be recorded in the meeting report, along with any affirmative responses.
+
+As long as ELF has received no indication of a patent holder selecting <<DIR103,clause=5.4>>, the deliverable may be approved with normal procedure. It is expected that discussions in technical bodies will include consideration of including patented material in a deliverable, however the technical bodies may not take position regarding the essentiality, scope, validity or specific licensing terms of any claimed patents.
+
+=== Patent information database
+
+In order to facilitate both the standards-making process and the application of deliverables, ELF makes available to the public a patent information database composed of information that was communicated to ELF by the means of declaration forms.
+
+The patent information databases may contain information on specific patents, or may contain no such information but rather a statement about compliance with the patent policy for a particular deliverable.
+
+The patent information databases are not certified to be either accurate or complete, but only reflect the information that has been communicated to ELF.
+
+As such, the patent information databases may be viewed as simply raising a flag to alert users that they may wish to contact the entities who have communicated declaration forms to ELF in order to determine if patent licenses must be obtained for use or implementation of a particular deliverable.
+
+=== Assignment or transfer of patent rights
+
+The rules governing the assignment or transfer of patent rights are contained in the patent statement and licensing declaration forms (see <<patent-form>>).
+
+By complying with these rules, the patent holder has discharged in full all of its obligations and liability with regards to the licensing commitments after the transfer or assignment.
+
+These rules are not intended to place any duty on the patent holder to compel compliance with the licensing commitment by the assignee or transferee after the transfer occurs.
+
+[[requirements]]
+== Requirements on deliverables
+
+=== Draft deliverables
+
+All drafts submitted for comment shall include on the cover page the following text:
+
+____
+Recipients of this draft are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.
+____
+
+=== Notification
+
+A published document for which no patent rights are identified during the preparation thereof shall contain the following notice in the foreword:
+
+____
+Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. ELF [and ISO] [and IEC] shall not be held responsible for identifying any or all such patent rights.
+____
+
+
+A published document for which patent rights have been identified during the preparation thereof shall include the following notice in the introduction:
+
+____
+The EXPRESS Language Foundation (ELF) [and The International Organization for Standardization (ISO)] [and The International Electrotechnical Commission (IEC)] draws attention to the fact that it is claimed that compliance with this document may involve the use of a patent concerning (... subject matter ...) given in (... subclause ...).
+
+ELF [and ISO] [and IEC] take[s] no position concerning the evidence, validity and scope of this patent right.
+
+The holder of this patent right has assured ELF [and ISO] [and IEC] that he/she is willing to negotiate licences under reasonable and non-discriminatory terms and conditions with applicants throughout the world. In this respect, the statement of the holder of this patent right is registered with ELF [and ISO] [and IEC]. Information may be obtained from:
+
+name of holder of patent right ...
+
+address ...
+
+Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights other than those identified above. ELF [and ISO] [and IEC] shall not be held responsible for identifying any or all such patent rights.
+____
+
+=== Collaborative developed deliverables
+
+Patent declarations in joint deliverables between ELF and other organizations apply only to the specific documents indicated in the declaration forms. Declarations do not apply to documents that are altered (such as through adoption).
+
+////
+However, implementations that conform to identical national and regional adoptions and the respective ISO and/or IEC Deliverables, may rely on declarations submitted to ISO and/or IEC for such Deliverables.
+////
+
+[[patent-form]]
+[appendix,obligation="normative"]
+== Patent statement and licensing declaration for ELF deliverables
+
+_This declaration does not represent an actual grant of a license._
+
+_Definitions of terms used in this declaration are in accordance with ELF {docnumber}._
+
+Please submit this form to:
+
+Executive Director +
+EXPRESS Language Foundation +
+2093 Philadelphia Pike Ste 3311 +
+Claymont, Delaware 19703 +
+United States of America +
+Email: patents@expresslang.org
+
+=== Terms and definitions
+
+free of charge::
+patent holder will not seek any monetary compensation as part of the licensing arrangement (whether such compensation is called a royalty, a one-time licensing fee, etc.); patent holder is still entitled to require that the implementer of the relevant ELF standardization deliverable sign a license agreement that contains other reasonable terms and conditions (such as those relating to governing law, field of use, warranties, etc.); does not indicate that the patent holder is waiving all of its rights with respect to a patent, but only on the issue of monetary compensation
+
+patent::
+claims contained in and identified by patents, utility models and other similar statutory rights based on inventions (including applications for any of these) solely to the extent that any such claims are essential to the implementation of an ELF standardization deliverable
+
+essential patent::
+patent is essential to implement a specific ELF standardization deliverable
+
+patent holder::
+person or entity that owns, controls and/or has the ability to license patents
+
+reciprocity::
+patent holder shall only be required to license any prospective licensee if such prospective licensee will commit to license its patent(s) for implementation of the same relevant ELF standardization deliverable free of charge or under reasonable terms and conditions
+
+assignment/transfer of patent rights::
+licensing declarations made pursuant to
+<<DIR103,clause="5.2">> or <<DIR103,clause="5.3">>
+shall be interpreted as encumbrances that bind all
+successors-in-interest as to the transferred patents.
+Recognizing that this interpretation may not apply in all
+jurisdictions, any patent holder who has submitted a licensing
+declaration according to <<DIR103>> --
+be it selected as <<option-1,a)>> or <<option-2,b)>> on the
+"`Patent statement and licensing declaration for ELF deliverables`" --
+who transfers ownership of a patent that is subject to
+such licensing declaration shall include appropriate
+provisions in the relevant transfer documents to ensure
+that, as to such transferred patent, the licensing
+declaration is binding on the transferee and that the
+transferee will similarly include appropriate provisions
+in the event of future transfers with the goal of binding
+all successors-in-interest
+
+
+////
+Lore Unt (Apple):
+
+Highly suggest adding definitions from the ITU form to this form, since the form is the operative legal document.
+////
+
+=== Patent Holder
+
+Legal Name::
+pass-format:metanorma[++__________________________++]
+
+
+=== Contact for license application
+
+Name & Department::
+pass-format:metanorma[++__________________________++]
+
+Address::
+pass-format:metanorma[++__________________________++]
+
+Tel.::
+pass-format:metanorma[++__________________________++]
+
+Fax::
+pass-format:metanorma[++__________________________++]
+
+E-mail::
+pass-format:metanorma[++__________________________++]
+
+URL (optional)::
+pass-format:metanorma[++__________________________++]
+
+
+=== Document type
+
+. [ ] ELF Standardization Deliverable
+
+. [ ] ELF co-published Standardization Deliverable
+(please return this form to ELF and the appropriate
+form to the co-publishing parties)
+
+
+=== Patent information
+
+Number::
+pass-format:metanorma[++__________________________++]
+
+Title::
+pass-format:metanorma[++__________________________++]
+
+
+
+=== Licensing declaration
+
+The patent holder believes that it holds granted and/or pending applications for patents, the use of which would be required to implement the above document and hereby declares, in accordance with the ELF patent policy (see <<DIR103>>), that (check one option only):
+
+. [[option-1]] [ ] The patent holder is prepared to grant a free of charge license to an unrestricted number of applicants on a worldwide, non-discriminatory basis and under other reasonable terms and conditions to make, use, and sell implementations of the above document.
+
+.. [[option-1a]] [ ] Also mark here -- if the patent holder's willingness to license is conditioned on reciprocity for the above document.
+
+.. [[option-1b]] [ ] Also mark here -- if the patent holder reserves the right to license on reasonable terms and conditions (but not free of charge) to applicants who are only willing to license their patent, whose use would be required to implement the above document, on reasonable terms and conditions (but not free of charge).
+
+
+. [[option-2]] [ ] The patent holder is prepared to grant a license to an unrestricted number of applicants on a worldwide, non-discriminatory basis and on reasonable terms and conditions to make, use and sell implementations of the above document.
+
+.. [[option-2a]] [ ] Also mark here -- if the patent holder's willingness to license is conditioned on reciprocity for the above document.
+
+
+. [[option-3]] [ ] The patent holder is unwilling to grant licenses in accordance with provisions of either options <<option-1>> or <<option-2>> above.
++
+In this case, the following information must be provided to ELF as part of this declaration: +
++
+--
+* granted patent number or patent application number (if pending);
+* an indication of which portions of the above document are affected;
+* a description of the patents covering the above document.
+--
+////
+Lore Unt (Apple):
+
+Suggest that the “licensing negotiations” text below be as it is in the ITU guidelines, rather than in the form.
+////
+
+////
+Free of Charge:: The words "Free of Charge" do not mean that the Patent Holder is waiving all of its rights with respect to the Patent. Rather, "Free of Charge" refers to the issue of monetary compensation; i.e., that the Patent Holder will not seek any monetary compensation as part of the licensing arrangement (whether such compensation is called a royalty, a one-time licensing fee, etc.). However, while the Patent Holder in this situation is committing to not charging any monetary amount, the Patent Holder is still entitled to require that the implementer of the same above document sign a license agreement that contains other reasonable terms and conditions such as those relating to governing law, field of use, warranties, etc.
+
+Reciprocity:: The word "Reciprocity" means that the Patent Holder shall only be required to license any prospective licensee if such prospective licensee will commit to license its Patent(s) for implementation of the same above document Free of Charge or under reasonable terms and conditions.
+
+Patent:: The word "Patent" means those claims contained in and identified by patents, utility models and other similar statutory rights based on inventions (including applications for any of these) solely to the extent that any such claims are essential to the implementation of the same above document. Essential patents are patents that would be required to implement a specific deliverable.
+
+Assignment/transfer of Patent rights:: Licensing declarations made pursuant to Clause 2.1 or 2.2 of the Common Patent Policy for ITU-T/ITU-R/ISO/IEC shall be interpreted as encumbrances that bind all successors-in-interest as to the transferred Patents. Recognizing that this interpretation may not apply in all jurisdictions, any Patent Holder who has submitted a licensing declaration according to the Common Patent Policy - be it selected as option 1 or 2 on the Patent Declaration form - who transfers ownership of a Patent that is subject to such licensing declaration shall include appropriate provisions in the relevant transfer documents to ensure that, as to such transferred Patent, the licensing declaration is binding on the transferee and that the transferee will similarly include appropriate provisions in the event of future transfers with the goal of binding all successors-in-interest.
+////
+
+=== Patent Information
+
+Preferred but not required for options <<option-1,a)>> and <<option-2,b)>>. Required for <<option-3,c)>>.
+
+.Patent information form
+[cols="1,1,1,1,1",options="header"]
+|===
+|No.
+|Status [granted/ pending]
+|Country
+|Granted patent number or application number (if pending)
+|Title
+
+|1||||
+|2||||
+|3||||
+|4||||
+|5||||
+|6||||
+|7||||
+|8||||
+|9||||
+|10||||
+
+|===
+
+[ ] Check here if additional patent information is provided on additional pages.
+
+NOTE: For option <<option-3,c)>>, the additional minimum information that shall also be provided is listed in that option.
+
+=== Signature (include on final page only)
+
+Patent Holder::
+pass-format:metanorma[++__________________________++]
+
+Name of authorized person::
+pass-format:metanorma[++__________________________++]
+
+Title of authorized person::
+pass-format:metanorma[++__________________________++]
+
+Signature, Place, Date::
+pass-format:metanorma[++__________________________++]
+
+
+
+[bibliography]
+== Bibliography

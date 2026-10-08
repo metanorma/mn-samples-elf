@@ -1,0 +1,5 @@
+== Scope
+
+This document describes the EXPRESS mapping language used to express reference
+paths amongst a set of EXPRESS schemas.
+

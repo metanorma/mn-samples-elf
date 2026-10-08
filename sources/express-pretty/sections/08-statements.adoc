@@ -1,0 +1,308 @@
+== Statements
+
+=== General
+
+Statements are the executable parts of an EXPRESS schema. They are instructions
+that perform actions, control flow, and manipulate data. The statements are
+typically used within procedures, functions, and other control structures to
+define the behavior of the schema.
+
+NOTE: <<SC4dir>> does not provide guidance for how to
+layout statements in EXPRESS. This clause establishes rules that
+are consistent with <<SC4dir>> where possible.
+
+The basic formatting rules for statements are as follows:
+
+. If a statement fits on one line, it should be formatted that way.
+
+. If it does not fit on one line, it will use as many lines as necessary and
+will be formatted appropriately for the specific statement.
+
+=== ALIAS statement
+
+Write the keyword `ALIAS` followed by the variable id followed by the keyword
+`FOR` followed by a general reference and set of qualifiers for the thing
+being aliased. Finish up with a ';' (semicolon) to end it.
+
+[example]
+====
+[source,express]
+----
+ALIAS var_id FOR ent1\attr1;
+----
+====
+
+=== Assignment statement
+
+Write a pretty version of the general_ref followed by the assignment keyword
+':=' followed by a pretty version of the expression followed by a ';'
+(semicolon). At least one space should be included before and after the
+assignment keyword ':='.
+
+Multiple lines will be used depending on the expression itself.
+
+[example]
+====
+[source,express]
+----
+i := 23 * 42 + x;
+----
+====
+
+=== Call PROCEDURE statement
+
+Write the name of the procedure.
+
+If there are parameters to be passed to the procedure then write an open
+parenthesis followed by a list of the parameter expressions each separated by
+a comma. Finally write a close parenthesis.
+
+Finish up with a semicolon.
+
+If the expressions won't fit on a single line then place line breaks just
+after the comma. Each expression will be placed on its own line aligned with
+the expression on the line above. The first expression is placed on the line
+with the left parenthesis and just after the parenthesis.
+
+[example]
+====
+[source,express]
+----
+proc_name(42,'this',.T.,.THAT.);
+
+proc_name(42,
+          'this',
+          .T.,
+          .THAT.);
+----
+====
+
+=== CASE statement
+
+Write the keyword `CASE` followed by the expression that is the <selector>
+followed by the keyword `OF`.
+
+Write each of the case actions starting on a separate line indented two
+characters to the right from the left edge of the `CASE` keyword.
+
+After the CASE Actions, if there is an otherwise clause, write the keyword
+`OTHERWISE` on a separate line, indented two characters to the right of the
+left edge of the `CASE` keyword. Follow the `OTHERWISE` keyword with a colon
+and the statement that is the otherwise clause. The colon should be right next
+to the `OTHERWISE` keyword with one or more spaces after the colon.
+
+Finally, on a new line write the keyword `END_CASE` aligned with the `CASE`
+keyword. Follow the `END_CASE` keyword with a semicolon.
+
+[example]
+====
+[source,express]
+----
+CASE <selector> OF
+  label1: <stmt>
+  label2, label3:
+    <stmt>
+  OTHERWISE: <stmt>
+END_CASE;
+----
+====
+
+==== CASE action
+
+Each CASE Action begins on its own line, indented two characters to the right
+of the left edge of the `CASE` keyword.
+
+Write each specified label separated by a comma.
+
+Next write a colon next to the last label. The colon should have at least one
+space after it.
+
+Next pretty print the statement that is the body. If the statement can't fit
+on the line with the label(s), then start it on the next line indented two
+characters to the right of the left edge of the first label.
+
+[example]
+====
+[source,express]
+----
+label1, label2: <stmt>
+
+label3, label4, label5:
+  <stmt>
+----
+====
+
+=== Compound statement
+
+The compound statement begins with the `BEGIN` keyword and ends with the `END`
+keyword. Each of these keywords should be on its own line and aligned with
+each other. Following the `END` keyword there should be a semicolon.
+
+Each of the enclosed statements should be written on a separate line indented
+two characters to the right of the left edge of the `BEGIN` keyword.
+
+[example]
+====
+[source,express]
+----
+BEGIN
+  a := 42 * i;
+  RETURN(a);
+END;
+----
+====
+
+=== ESCAPE statement
+
+The ESCAPE statement is self contained and consists of just the `ESCAPE`
+keyword followed by a semicolon.
+
+[example]
+====
+[source,express]
+----
+ESCAPE;
+----
+====
+
+=== IF statement
+
+The `IF` statement consists of the keyword `IF` followed by the expression
+that is the condition. Next follows the `THEN` keyword and the statements that
+constitute the then portion. If there is an else part of the if then the
+`ELSE` keyword is written followed by the else statements. The `THEN` and
+`ELSE` keywords each have their own line and are aligned with the `IF`
+keyword. The `THEN` and `ELSE` statements are indented two characters to the
+right of the left edge of the associated keyword.
+
+Finally, on a new line, aligned with the `IF` keyword we write the `END_IF`
+keyword followed by a semicolon.
+
+[example]
+====
+[source,express]
+----
+IF <condition>
+THEN
+  a := 42 * i;
+  RETURN(a);
+ELSE
+  a := x / 15;
+  RETURN(a);
+END_IF;
+----
+====
+
+=== NULL statement
+
+The NULL statement is self contained and consists of only a semicolon.
+
+[example]
+====
+[source,express]
+----
+;
+----
+====
+
+=== REPEAT statement
+
+The REPEAT Statement consists of the `REPEAT` keyword followed by the
+Increment Controls, followed by any While Controls, followed by any Until
+Controls, followed by a semicolon, followed by the statements that should be
+executed during each loop. Finally, there is a `END_REPEAT` keyword written on
+its own line aligned with the `REPEAT` keyword and followed by a semicolon.
+
+The Increment Controls, While Controls, and Until Controls should be indented
+four characters to the right of the left edge of the `REPEAT` keyword.
+
+NOTE: The SC4 Supplementary Directives require the Increment Controls to be on
+a separate line after the REPEAT keyword but SC4 practice is to include the
+Increment Controls on the same line as the REPEAT keyword and separated from
+the REPEAT keyword by a single space.
+
+[example]
+====
+[source,express]
+----
+REPEAT i := 0 TO 15 BY 1
+    WHILE x > 20
+    UNTIL y < 50;
+  a := 42 * x / y;
+  b := x * i DIV y;
+END_REPEAT;
+----
+====
+
+==== Increment control
+
+An Increment Control consists of a variable id followed by an assignment
+operator followed by an expression that calculates the initial value of the
+variable followed by the `TO` keyword, followed by an expression that
+calculates the end value of the variable, optionally, followed by the `BY`
+keyword and an expression the calculates the increment value.
+
+[example]
+====
+[source,express]
+----
+a := 1 TO 5
+a := 1 TO 5 BY 0.5
+----
+====
+
+==== While control
+
+A While Control consists of the keyword `WHILE` followed by an expression that
+returns false when the `REPEAT` should stop.
+
+[example]
+====
+[source,express]
+----
+WHILE a < 5
+----
+====
+
+==== Until control
+
+An Until Control consists of the keyword `UNTIL` followed by an expression
+that returns true when the `REPEAT` should stop.
+
+[example]
+====
+[source,express]
+----
+UNTIL x > 50
+----
+====
+
+=== RETURN statement
+
+The RETURN statement is fairly simple and consists of the keyword `RETURN`
+optionally followed by an open parenthesis, an expression which calculates the
+value to be returned, a close parenthesis.
+
+Finally, it is terminated with a semicolon.
+
+[example]
+====
+[source,express]
+----
+RETURN;
+RETURN(42);
+----
+====
+
+=== SKIP statement
+
+The SKIP statement is self contained and consists of the keyword `SKIP`
+followed by a semicolon.
+
+[example]
+====
+[source,express]
+----
+SKIP;
+----
+====

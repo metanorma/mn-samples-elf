@@ -1,0 +1,36 @@
+[[maintenance]]
+== Maintenance of deliverables
+
+=== Review period
+
+The review period of a standardization deliverable is 5 years.
+
+The review shall be performed by the owning TC, if it has been
+disbanded, the TCB.
+
+=== Updates
+
+When a document is deemed to be updated, the owning TC shall
+take action to either begin the review period in order to
+update the document, or begin a new project to produce an amendment.
+
+When a document is revised, any changes (as opposed to editorial
+corrections) should result in the document going through the same
+review process originally used for its publication.
+
+A summary of changes from the previous edition should be
+provided at the end of the Foreword.
+
+
+=== New versions
+
+A document once published may undergo revision and become a new
+version or dot release (i.e. V1-V2 or V2.0-V2.1) under several
+circumstances.
+
+
+=== Withdrawal
+
+When a review determines that a published item should be
+withdrawn, it should be withdrawn from the list of published
+standards.

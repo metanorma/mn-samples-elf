@@ -1,0 +1,40 @@
+== Structure
+
+An EXPRESS Changes document is a YAML file that records changes made to an
+EXPRESS schema across different versions or versions.
+
+There are two kinds of changes:
+
+* Schema changes
+* Mapping changes
+
+The top-level structure of an EXPRESS Changes document has the following
+specification.
+
+[source,yaml]
+----
+schema: String (required)
+  # Name of the EXPRESS schema
+versions:
+  - version: Integer (required)
+    # Version number for this change version
+    description: String (optional)
+    # Description of changes in this version
+    {type_of_change}:
+      - description: String (required)
+        # Description of the change
+        # ... additional fields depending on type_of_change
+----
+
+Fields:
+
+`schema`:: The name of the EXPRESS schema (string) (required).
++
+[example]
+`support_resource_schema`
+
+`versions`:: An array of version change objects (required).
+
+`type_of_change`:: One of `additions`, `modifications`, `deletions`, or
+`mappings`.
+

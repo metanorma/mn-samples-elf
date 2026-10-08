@@ -1,0 +1,32 @@
+== Introduction
+
+=== General
+
+ELF is committed to expanding the realm of standards for information
+modelling and programming languages, with a focus on the EXPRESS
+language family and interoperability across the globe and communities
+of practice.
+
+As a proponent of open standards, ELF does not endorse
+mandatory usage of patents within ELF Standards.
+The ELF Board of Directors has decided to align
+IPR practice with major international standardization bodies
+including ISO, IEC and ITU.
+
+=== Purpose
+
+This document describes the policy of ELF with regards to patent
+usage within ELF deliverables and provides a
+"`code of practice`" that is simple and straightforward.
+
+ELF deliverables are drawn up by technical, not patent, experts,
+who may not be fully aware of all nuances in the complex
+international legal situation of intellectual property rights.
+
+ELF deliverables are non-binding -- their objective is to ensure
+compatibility of technologies and systems on a worldwide basis.
+
+To ensure the applicability and accessibility of ELF
+deliverables, the implementation and continued usage of content within
+the deliverables must be possible to the worldwide audience without
+discrimination, including any patent embodiment in such deliverables.

@@ -1,0 +1,126 @@
+$schema: http://json-schema.org/draft-04/schema#
+title: EXPRESS Schema Changes
+description: Records modifications to EXPRESS schema structure across versions
+type: object
+required:
+  - schema
+  - versions
+additionalProperties: false
+properties:
+  schema:
+    type: string
+    description: Name of the EXPRESS schema
+  versions:
+    type: array
+    description: Array of version changes
+    items:
+      $ref: '#/definitions/version_change'
+definitions:
+  version_change:
+    type: object
+    description: Changes made to the schema in a specific version
+    required:
+      - version
+    additionalProperties: false
+    properties:
+      version:
+        type: integer
+        description: Version number for this change version
+      description:
+        type: string
+        description: >-
+          Multi-line string describing the changes made in this version.
+          Provides comprehensive overview of what changed and why.
+      additions:
+        type: array
+        description: Array of addition changes representing added elements
+        items:
+          $ref: '#/definitions/addition_change'
+      modifications:
+        type: array
+        description: Array of modification changes representing modifications
+        items:
+          $ref: '#/definitions/modification_change'
+      deletions:
+        type: array
+        description: Array of deletion changes representing removed elements
+        items:
+          $ref: '#/definitions/deletion_change'
+  item_change:
+    type: object
+    description: Represents a specific schema element change
+    required:
+      - type
+      - name
+    properties:
+      type:
+        type: string
+        description: Type of the EXPRESS construct
+        enum:
+          - ENTITY
+          - TYPE
+          - FUNCTION
+          - RULE
+          - PROCEDURE
+          - CONSTANT
+          - REFERENCE_FROM
+          - USE_FROM
+          - SUBTYPE_CONSTRAINT
+      name:
+        type: string
+        description: Name of the EXPRESS construct
+      description:
+        type: array
+        description: >-
+          Array of strings describing the change. Each string represents
+          a description for a single change in the named target.
+        items:
+          type: string
+      interfaced_items:
+        type: array
+        description: >-
+          For USE_FROM or REFERENCE_FROM, list of specific items referenced
+          or used. Not needed when in deletions.
+        items:
+          type: string
+  modification_change:
+    description: Represents a modification to the schema
+    $ref: '#/definitions/item_change'
+  addition_change:
+    description: Represents an addition to the schema
+    allOf:
+      - $ref: '#/definitions/item_change'
+      - properties:
+          moved_from:
+            type: object
+            description: >-
+              If the addition was due to a move from another schema, provides
+              the resource and module where it was moved from.
+            required:
+              - schema
+            properties:
+              schema:
+                type: string
+                description: Name of the schema where the item was moved from
+              version:
+                type: integer
+                description: Version number in the source schema
+  deletion_change:
+    description: Represents a deletion from the schema
+    allOf:
+      - $ref: '#/definitions/item_change'
+      - properties:
+          moved_to:
+            type: object
+            description: >-
+              If the deletion was due to a move to another schema, provides
+              the resource and module where it was moved to.
+            required:
+              - schema
+            properties:
+              schema:
+                type: string
+                description: Name of the schema where the item was moved to
+              version:
+                type: integer
+                description: Version number in the target schema

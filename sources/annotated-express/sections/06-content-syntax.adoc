@@ -1,0 +1,37 @@
+== Content syntax
+
+=== General
+
+Annotated EXPRESS (in its current form) accepts Metanorma AsciiDoc.
+The syntax of Metanorma AsciiDoc is described at https://www.metanorma.org.
+
+There are several extensions to Metanorma AsciiDoc for the documentation of
+EXPRESS.
+
+=== EXPRESS object cross-references
+
+In Annotated EXPRESS remark content, it is often necessary to cross-reference
+other EXPRESS objects.
+
+In the generated EXPRESS documentation, these references become links to the
+definition of the target EXPRESS objects.
+
+The syntax is:
+
+[source]
+----
+<<express:{TAG}>>
+----
+
+or
+
+[source]
+----
+<<express:{TAG},{RENDER TEXT}>>
+----
+
+Where:
+
+* `{TAG}` is the EXPRESS named tag, e.g. `action_schema.action_method`
+* `{RENDER TEXT}` is the desired rendering text, if different from the named tag,
+  e.g. `action methods`

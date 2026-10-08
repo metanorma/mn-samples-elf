@@ -1,0 +1,86 @@
+
+[[patent-statement]]
+== Patent statement and licensing declaration form
+
+=== Purpose
+
+The patent statement and licensing declaration form (see <<patent-form>>) is provided
+for entities with information on how essential patents affect
+ELF deliverables (such as, patent holders)
+to provide consistent, accurate information in the ELF patent
+information database.
+
+=== Procedure
+
+Entities shall report patent information to ELF
+using the ELF patent declaration form, which is
+available on the ELF website (see <<patent-form>>).
+
+The completed declaration form should be directly submitted
+to the designated contact provided on the form.
+
+The declaration form also allows patent holders to make a licensing declaration relative to rights in patents required for implementation of a specific deliverable.
+
+
+=== Declaration of patent license
+
+Specifically, by submitting this declaration form, the submitting party declares, in accordance with the ELF patent policy, patents held by it and whose licence would be required to practice or implement part(s) or all of a specific deliverable:
+
+. its willingness to license (by selecting option 1 or 2 on the Form); or
+. its unwillingness to license (by selecting option 3 on the Form).
+
+
+=== Additional information required due to unwillingness to license
+
+If a patent holder has selected the licensing option 3 on the declaration form, then, for the referenced relevant ELF deliverable, ELF requires the patent holder to provide certain additional information permitting patent identification.
+
+Multiple declaration forms are appropriate if the patent holder wishes to identify several patents and classifies them in different options of the declaration form for the same deliverable or if the patent holder classifies different claims of a complex patent in different options of the declaration form.
+
+Information contained in a declaration form may be corrected in case of obvious errors, such as a typographical mistake in a standard or patent reference number.
+
+=== Superseding license declarations
+
+The licensing declaration contained in the declaration form remains in force unless it is superseded by another declaration form containing more favorable licensing terms and conditions from a licensee's perspective reflecting:
+
+. a change in commitment from option 3 to either option 1 or option 2;
+. a change in commitment from option 2 to option 1; or
+. un-checking one or more sub-options contained within option 1 or 2.
+
+==== Contact information
+
+In completing the declaration form, attention should be given to supplying contact information that will remain valid over time:
+
+* "`Name`", "`Department`" and "`E-mail addresses`" should be generic.
+
+* A single point of contact for a particular submitting party is preferred if multiple declaration forms are submitted (particularly for multinational organizations).
+
+For maintaining the currency of information in the ELF patent information database, the patent declarer is urged to directly contact ELF on any change or corrections to declaration forms submitted,
+especially on the change of contact points.
+
+=== Conduct of meetings
+
+Early disclosure of patents contributes to the efficiency of the process by which deliverables are established.
+
+Therefore, each technical body, in the course of the development of a proposed deliverable, will request the disclosure of any known patents essential to the proposed deliverable.
+
+The leadership of technical body will, ask at an appropriate time in each meeting, whether anyone has knowledge of patents, the use of which may be required to practice or implement the deliverable being considered. The fact that the question was asked shall be recorded in the meeting report, along with any affirmative responses.
+
+As long as ELF has received no indication of a patent holder selecting <<DIR103,clause=5.4>>, the deliverable may be approved with normal procedure. It is expected that discussions in technical bodies will include consideration of including patented material in a deliverable, however the technical bodies may not take position regarding the essentiality, scope, validity or specific licensing terms of any claimed patents.
+
+=== Patent information database
+
+In order to facilitate both the standards-making process and the application of deliverables, ELF makes available to the public a patent information database composed of information that was communicated to ELF by the means of declaration forms.
+
+The patent information databases may contain information on specific patents, or may contain no such information but rather a statement about compliance with the patent policy for a particular deliverable.
+
+The patent information databases are not certified to be either accurate or complete, but only reflect the information that has been communicated to ELF.
+
+As such, the patent information databases may be viewed as simply raising a flag to alert users that they may wish to contact the entities who have communicated declaration forms to ELF in order to determine if patent licenses must be obtained for use or implementation of a particular deliverable.
+
+=== Assignment or transfer of patent rights
+
+The rules governing the assignment or transfer of patent rights are contained in the patent statement and licensing declaration forms (see <<patent-form>>).
+
+By complying with these rules, the patent holder has discharged in full all of its obligations and liability with regards to the licensing commitments after the transfer or assignment.
+
+These rules are not intended to place any duty on the patent holder to compel compliance with the licensing commitment by the assignee or transferee after the transfer occurs.

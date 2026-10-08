@@ -1,0 +1,4 @@
+[bibliography]
+== Normative References
+
+* [[[DIR101,ELF 101:2026]]], _ELF Directive: Standardization and publication_

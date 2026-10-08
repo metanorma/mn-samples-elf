@@ -1,0 +1,41 @@
+= EXPRESS schema manifest specification
+:docnumber: 5004
+:edition: 1
+:copyright-year: 2024
+:revdate: 2024-05-21
+:language: en
+:title-main-en: EXPRESS schema manifest specification
+:doctype: standard
+:technical-committee: EXPRESS
+:imagesdir: images
+:mn-document-class: elf
+:mn-output-extensions: xml,html,doc,pdf,rxl
+:fullname: Ronald Tse
+:surname: Tse
+:givenname: Ronald
+:affiliation: EXPRESS Language Foundation
+:fullname_2: Thomas Thurman
+:surname_2: Thurman
+:givenname_2: Thomas
+:affiliation_2: EXPRESS Language Foundation
+:docidentifier: ELF 5004:2024
+:data-uri-image:
+:local-cache-only:
+
+include::sections/00-foreword.adoc[]
+
+include::sections/00-introduction.adoc[]
+
+include::sections/01-scope.adoc[]
+
+include::sections/02-normrefs.adoc[]
+
+include::sections/03-terms.adoc[]
+
+include::sections/04-syntax.adoc[]
+
+include::sections/aa-examples.adoc[]
+
+include::sections/ab-schemas.adoc[]
+
+include::sections/99-bibliography.adoc[]

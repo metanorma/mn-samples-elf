@@ -1,0 +1,418 @@
+[[navigation]]
+== Navigation patterns
+
+=== General
+
+This clause describes common navigation patterns used in EXPRESS mapping
+reference paths.
+
+These patterns represent typical ways ARM entities and attributes map to MIM
+entities through schema relationships.
+
+=== Subtype chain navigation
+
+==== Pattern description
+
+A subtype chain navigates through multiple subtype relationships from a starting
+entity to a base entity.
+
+==== Syntax pattern
+
+[source]
+----
+subtype_entity_1 <=
+subtype_entity_2 <=
+...
+base_entity
+----
+
+==== Semantics
+
+* Each entity is a subtype of the next entity in the chain
+* The chain terminates at a base entity that is not itself a subtype
+* Each step must be a valid subtype relationship in the EXPRESS schema
+
+==== Example
+
+[example]
+====
+[source]
+----
+contact_size_dependent_land <=
+land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition
+----
+
+This path shows that `contact_size_dependent_land` ultimately derives from
+`product_definition` through a chain of subtypes.
+====
+
+=== Supertype chain navigation
+
+==== Pattern description
+
+A supertype chain navigates through multiple supertype relationships from a base
+entity to increasingly specific subtypes.
+
+==== Syntax pattern
+
+[source]
+----
+base_entity =>
+supertype_entity_1 =>
+supertype_entity_2 =>
+...
+specific_subtype
+----
+
+==== Semantics
+
+* Each entity is a supertype of the next entity in the chain
+* The chain starts from a base entity and moves to more specific subtypes
+* Each step must be a valid supertype relationship in the EXPRESS schema
+
+==== Example
+
+[example]
+====
+[source]
+----
+product_definition =>
+part_template_definition =>
+single_stratum_template =>
+single_stratum_continuous_template =>
+stratum_feature_template =>
+land_physical_template
+----
+
+This path shows progressive specialization from `product_definition` to the
+specific `land_physical_template` entity.
+====
+
+=== Forward attribute navigation
+
+==== Pattern description
+
+Forward attribute navigation follows an attribute from an entity to the entity
+it references.
+
+==== Syntax pattern
+
+[source]
+----
+source_entity.reference_attribute -> target_entity
+----
+
+==== Semantics
+
+* `source_entity` has an attribute named `reference_attribute`
+* The attribute type is `target_entity` or a SELECT type containing
+  `target_entity`
+* The path continues from `target_entity`
+
+==== Example
+
+[example]
+====
+[source]
+----
+product_definition_relationship.relating_product_definition ->
+product_definition
+----
+
+Navigates from a `product_definition_relationship` to the `product_definition`
+it relates through the `relating_product_definition` attribute.
+====
+
+=== Inverse attribute navigation
+
+==== Pattern description
+
+Inverse attribute navigation finds entities that reference the current entity
+through a specific attribute.
+
+==== Syntax pattern
+
+[source]
+----
+referenced_entity <-
+referencing_entity.reference_attribute
+referencing_entity
+----
+
+==== Semantics
+
+* `referencing_entity` has an attribute named `reference_attribute`
+* The attribute references `referenced_entity`
+* The path finds all `referencing_entity` instances referencing the current
+  `referenced_entity`
+* The path continues from `referencing_entity`
+
+==== Example
+
+[example]
+====
+[source]
+----
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+----
+
+Finds all `product_definition_relationship` entities that reference a specific
+`product_definition` through their `related_product_definition` attribute.
+====
+
+=== Round-trip navigation
+
+==== Pattern description
+
+Round-trip navigation combines inverse and forward navigation to traverse a
+relationship entity connecting two entities.
+
+==== Syntax pattern
+
+[source]
+----
+entity_a <-
+relationship_entity.attribute_to_a
+relationship_entity
+relationship_entity.attribute_to_b ->
+entity_b
+----
+
+==== Semantics
+
+* Starts from `entity_a`
+* Finds all `relationship_entity` instances referencing `entity_a`
+* From those instances, navigates to `entity_b`
+* Effectively finds all `entity_b` related to `entity_a` through
+  `relationship_entity`
+
+==== Example
+
+[example]
+====
+[source]
+----
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+product_definition_relationship.relating_product_definition ->
+product_definition
+----
+
+Finds all `product_definition` entities related to the starting
+`product_definition` through `product_definition_relationship`.
+====
+
+=== Constrained navigation
+
+==== Pattern description
+
+Constrained navigation adds conditions that entities or attributes must satisfy
+during path traversal.
+
+==== Syntax pattern
+
+[source]
+----
+entity_name
+{entity_name
+entity_name.attribute_name = constraint_value}
+----
+
+==== Semantics
+
+* The constraint applies to the current entity in the path
+* Only entities satisfying the constraint are considered valid
+* Multiple constraints may be specified for the same entity
+
+==== Example
+
+[example]
+====
+[source]
+----
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'definition usage'}
+----
+
+Constrains the path to only those `product_definition_relationship` entities
+where the `name` attribute equals `'definition usage'`.
+====
+
+=== Constrained round-trip navigation
+
+==== Pattern description
+
+Combines round-trip navigation with constraints on the relationship entity.
+
+==== Syntax pattern
+
+[source]
+----
+entity_a <-
+relationship_entity.attribute_to_a
+relationship_entity
+{relationship_entity
+relationship_entity.constraint_attribute = constraint_value}
+relationship_entity.attribute_to_b ->
+entity_b
+----
+
+==== Semantics
+
+* Navigates from `entity_a` through `relationship_entity` to `entity_b`
+* Only `relationship_entity` instances satisfying the constraint are traversed
+* Common pattern for relationship entities with type or role attributes
+
+==== Example
+
+[example]
+====
+[source]
+----
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'definition usage'}
+product_definition_relationship.relating_product_definition ->
+product_definition
+----
+
+Finds related `product_definition` entities specifically through
+`product_definition_relationship` instances of type `'definition usage'`.
+====
+
+=== Mixed subtype and attribute navigation
+
+==== Pattern description
+
+Combines subtype relationships with attribute navigation in a single path.
+
+==== Syntax pattern
+
+[source]
+----
+entity_a <=
+entity_b <=
+...
+base_entity <-
+relationship.attribute
+relationship
+relationship.other_attribute ->
+target_entity
+----
+
+==== Semantics
+
+* First establishes the entity hierarchy through subtype relationships
+* Then navigates through attributes and relationships
+* Common in complex mappings involving both inheritance and association
+
+==== Example
+
+[example]
+====
+[source]
+----
+land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'definition usage'}
+product_definition_relationship.relating_product_definition ->
+product_definition =>
+part_template_definition
+----
+
+Establishes the subtype chain, navigates through relationships, and continues to
+supertypes.
+====
+
+=== Alternative path navigation
+
+==== Pattern description
+
+Specifies multiple alternative paths, where at least one must be valid.
+
+==== Syntax pattern
+
+[source]
+----
+(path_alternative_1)
+(path_alternative_2)
+----
+
+==== Semantics
+
+* Exactly one of the alternatives must be satisfied
+* Each alternative is a complete path segment
+* Used when different schema patterns can satisfy the same mapping
+
+==== Example
+
+[example]
+====
+[source]
+----
+(product_definition <-
+product_definition_formation.of_product
+product_definition_formation)
+(product_definition <-
+product_definition_context_association.definition
+product_definition_context_association)
+----
+
+The target can be reached through either `product_definition_formation` or
+`product_definition_context_association`.
+====
+
+=== Required combined path navigation
+
+==== Pattern description
+
+Specifies multiple path segments that must all be satisfied.
+
+==== Syntax pattern
+
+[source]
+----
+[required_segment_1]
+[required_segment_2]
+----
+
+==== Semantics
+
+* All required segments must be satisfied
+* Each segment is a distinct portion of the path
+* Used when multiple relationships must exist simultaneously
+
+==== Example
+
+[example]
+====
+[source]
+----
+[product_definition <=
+characterized_product_definition <=
+characterized_definition]
+[product_definition_shape <=
+property_definition]
+----
+
+Both the product definition characterization and the shape property definition
+must exist.
+====

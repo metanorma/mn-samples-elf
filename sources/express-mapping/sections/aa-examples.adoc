@@ -1,0 +1,964 @@
+[appendix]
+== Examples
+
+=== General
+
+This annex provides comprehensive examples of EXPRESS mapping language reference
+paths drawn from actual ISO 10303 module mapping specifications. Each example
+demonstrates specific patterns and operators described in the normative clauses
+of this document.
+
+[[examples-simple-chains]]
+=== Simple entity chains
+
+==== General
+
+Simple entity chains demonstrate the most basic form of reference path
+navigation, using only subtype and supertype operators.
+
+==== Basic subtype chain
+
+This example from ISO 10303-1692 (Land) shows a simple subtype chain navigating
+from a specialized entity to its base entity.
+
+.Simple subtype navigation
+[example]
+====
+[source]
+----
+land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition
+----
+
+This path specifies that:
+
+* `land` is a subtype of `stratum_feature_template_component`
+* `stratum_feature_template_component` is a subtype of `laminate_component`
+* `laminate_component` is a subtype of `assembly_component`
+* `assembly_component` is a subtype of `component_definition`
+* `component_definition` is a subtype of `product_definition`
+
+The path establishes the complete subtype hierarchy from the ARM entity `Land`
+to the base MIM entity `product_definition`.
+====
+
+==== Extended subtype chain
+
+This example shows a longer subtype chain for more specialized entities.
+
+.Extended subtype navigation
+[example]
+====
+[source]
+----
+plated_passage_dependent_land <=
+inter_stratum_feature_dependent_land <=
+land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition
+----
+
+This path demonstrates:
+
+* Multiple levels of specialization through subtype relationships
+* Navigation from a highly specialized entity (`plated_passage_dependent_land`)
+through intermediate specializations to the base entity
+* The hierarchical nature of entity classifications in ISO 10303
+====
+
+[[examples-round-trip]]
+=== Round-trip navigation
+
+==== General
+
+Round-trip paths navigate forward through relationships, then backward through
+inverse relationships, demonstrating complex attribute-based navigation
+patterns.
+
+==== Simple round-trip with constraint
+
+This example from ISO 10303-1692 shows a complete round-trip pattern with a
+constraint.
+
+.Round-trip with constrained relationship
+[example]
+====
+[source]
+----
+land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'definition usage'}
+product_definition_relationship.relating_product_definition ->
+product_definition =>
+part_template_definition =>
+single_stratum_template =>
+single_stratum_continuous_template =>
+stratum_feature_template =>
+land_physical_template
+----
+
+This path demonstrates:
+
+* Subtype chain navigation (`<=`) from `land` to `product_definition`
+* Inverse attribute navigation (`<-`) via `product_definition_relationship.related_product_definition`
+* Constraint application (`{}`) requiring `name = 'definition usage'`
+* Forward attribute navigation (`->`) via `product_definition_relationship.relating_product_definition`
+* Supertype chain navigation (`=>`) from `product_definition` to `land_physical_template`
+
+The complete path maps the ARM attribute `derived_from` of entity `Land` to an instance of `Land_physical_template` in the MIM.
+====
+
+==== Complex round-trip with multiple constraints
+
+This example shows a more complex round-trip with detailed constraints.
+
+.Complex constrained round-trip
+[example]
+====
+[source]
+----
+plated_passage_dependent_land <=
+inter_stratum_feature_dependent_land <=
+land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'definition usage'}
+product_definition_relationship.relating_product_definition ->
+product_definition =>
+part_template_definition =>
+single_stratum_template =>
+single_stratum_continuous_template =>
+stratum_feature_template =>
+land_physical_template =>
+default_passage_based_land_physical_template =>
+default_plated_passage_based_land_physical_template
+----
+
+This path illustrates:
+
+* A complete subtype chain to establish the starting context
+* A constrained relationship traversal to find related definitions
+* An extended supertype chain navigating through multiple specialization levels
+* Multiple constraint validations ensuring the correct relationship type
+
+The path maps from a specialized ARM entity through a constrained relationship to a specialized template in the MIM.
+====
+
+[[examples-shape-aspect]]
+=== Shape aspect navigation
+
+==== General
+
+Shape aspect navigation patterns demonstrate complex traversals through shape definitions and feature relationships.
+
+==== Shape aspect with feature instantiation
+
+This example from ISO 10303-1698 shows navigation through shape aspects and feature relationships.
+
+.Shape aspect to component navigation
+[example]
+====
+[source]
+----
+laminate_component_interface_terminal <=
+laminate_component_feature <=
+component_feature <=
+shape_aspect
+shape_aspect.of_shape ->
+product_definition_shape <=
+property_definition
+property_definition.definition ->
+characterized_definition
+characterized_definition = characterized_product_definition
+characterized_product_definition
+characterized_product_definition = product_definition
+product_definition =>
+component_definition =>
+assembly_component =>
+laminate_component =>
+stratum_feature_template_component =>
+land =>
+contact_size_dependent_land
+----
+
+This path demonstrates:
+
+* Subtype navigation through shape aspect hierarchy
+* Forward navigation via `shape_aspect.of_shape` attribute
+* Navigation through property definitions
+* Type selection using `=` operator for `characterized_definition`
+* Multiple type selections for `characterized_product_definition`
+* Supertype chain to reach the target entity
+
+The complete path establishes the relationship between a terminal feature and its associated component.
+====
+
+==== Shape aspect with relationship constraint
+
+This example shows constrained navigation through shape aspect relationships.
+
+.Constrained shape aspect relationship
+[example]
+====
+[source]
+----
+laminate_component_interface_terminal <=
+laminate_component_feature <=
+component_feature <=
+shape_aspect <-
+shape_aspect_relationship.related_shape_aspect
+shape_aspect_relationship
+{shape_aspect_relationship
+shape_aspect_relationship.name = 'instantiated feature'}
+shape_aspect_relationship.relating_shape_aspect ->
+{shape_aspect
+shape_aspect.description = 'interface terminal'}
+shape_aspect =>
+land_template_terminal
+----
+
+This path illustrates:
+
+* Inverse navigation through `shape_aspect_relationship`
+* Constraint on the relationship name
+* Forward navigation to the relating shape aspect
+* Constraint on the shape aspect description
+* Supertype navigation to the target entity
+
+The path validates both the relationship type and the shape aspect characteristics.
+====
+
+[[examples-alternative-paths]]
+=== Alternative paths
+
+==== General
+
+Alternative paths specify multiple valid navigation routes to reach the target entity or attribute value.
+
+==== Simple alternative with shared endpoint
+
+This example from ISO 10303-1692 demonstrates alternative subtype chains.
+
+.Alternative subtype paths
+[example]
+====
+[source]
+----
+land_with_join_terminal <=
+[land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition]
+[laminate_component_join_terminal <=
+laminate_component_feature <=
+component_feature <=
+shape_aspect]
+----
+
+This path specifies:
+
+* Two alternative navigation routes enclosed in `[]` brackets
+* First alternative: subtype chain through product definition hierarchy
+* Second alternative: subtype chain through shape aspect hierarchy
+* Both alternatives must lead to valid entity instances
+
+The entity `land_with_join_terminal` can be reached through either path.
+====
+
+[[examples-constrained-paths]]
+=== Constrained paths
+
+==== General
+
+Constrained paths apply validation criteria at specific points in the navigation sequence.
+
+==== Single constraint on entity attribute
+
+This example shows a simple constraint on an entity attribute.
+
+.Attribute value constraint
+[example]
+====
+[source]
+----
+laminate_component_interface_terminal <=
+laminate_component_feature <=
+component_feature <=
+shape_aspect
+{shape_aspect
+shape_aspect.description = 'land interface terminal'}
+----
+
+This path demonstrates:
+
+* Navigation through a subtype chain
+* Constraint application at the final entity
+* Validation that `description` attribute equals a specific string value
+
+Only instances with the specified description value satisfy this mapping.
+====
+
+==== Multiple constraints in sequence
+
+This example shows multiple constraints applied at different points.
+
+.Multiple sequential constraints
+[example]
+====
+[source]
+----
+land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'alternate instantiated template'}
+product_definition_relationship.relating_product_definition ->
+product_definition =>
+part_template_definition =>
+single_stratum_template =>
+single_stratum_continuous_template =>
+stratum_feature_template =>
+land_physical_template
+----
+
+This path illustrates:
+
+* A subtype chain leading to a relationship entity
+* Constraint on the relationship's name attribute
+* Navigation through the constrained relationship
+* Continued navigation through supertype chain
+
+Each constraint must be satisfied for the path to be valid.
+====
+
+[[examples-reference-relationships]]
+=== Reference relationships
+
+==== General
+
+Reference relationship patterns establish connections between entities through named relationships.
+
+==== Simple reference relationship
+
+This example shows a basic reference relationship pattern.
+
+.Named reference relationship
+[example]
+====
+[source]
+----
+plated_passage_dependent_land <=
+inter_stratum_feature_dependent_land <=
+land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'reference plated passage'}
+product_definition_relationship.relating_product_definition ->
+product_definition =>
+component_definition =>
+assembly_component =>
+laminate_component =>
+inter_stratum_feature =>
+plated_inter_stratum_feature =>
+plated_passage
+----
+
+This path demonstrates:
+
+* Establishing context through subtype chain
+* Inverse navigation to find relationships
+* Constraint identifying the reference relationship by name
+* Forward navigation through the relationship
+* Supertype navigation to the referenced entity
+
+The pattern establishes the `reference_plated_passage` attribute mapping.
+====
+
+==== Multiple reference relationships
+
+This example from ISO 10303-1692 shows handling multiple reference relationships.
+
+.Dual reference pattern
+[example]
+====
+[source]
+----
+unsupported_passage_dependent_land <=
+inter_stratum_feature_dependent_land <=
+land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'reference passage'}
+product_definition_relationship.relating_product_definition ->
+product_definition =>
+component_definition =>
+assembly_component =>
+laminate_component =>
+inter_stratum_feature =>
+unsupported_passage
+----
+
+This path illustrates:
+
+* A reference relationship identified by name 'reference passage'
+* Navigation pattern similar to other reference relationships
+* Targeting a different entity type (unsupported_passage)
+
+Different reference relationship names distinguish between multiple relationships from the same source entity.
+====
+
+[[examples-thermal-isolation]]
+=== Structured template navigation
+
+==== General
+
+Structured template patterns navigate through geometric template hierarchies.
+
+==== Structured component to template
+
+This example from ISO 10303-1698 shows navigation from a structured component to its template.
+
+.Structured template reference
+[example]
+====
+[source]
+----
+thermal_isolation_removal_component <=
+material_removal_structured_component <=
+structured_layout_component <=
+assembly_group_component <=
+assembly_component <=
+component_definition <=
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship.name = 'definition usage'}
+product_definition_relationship.relating_product_definition ->
+product_definition =>
+part_template_definition =>
+geometric_template =>
+structured_template =>
+single_stratum_structured_template =>
+material_removal_structured_template =>
+thermal_isolation_removal_template
+----
+
+This path demonstrates:
+
+* Navigation through structured component hierarchy
+* Constrained relationship to template definition
+* Navigation through geometric template specializations
+* Multiple levels of template specialization
+
+The pattern establishes the relationship between a physical component and its abstract template definition.
+====
+
+==== Dependent thermal isolation pattern
+
+This example shows a dependent component referencing its template.
+
+.Dependent component template reference
+[example]
+====
+[source]
+----
+dependent_thermal_isolation_removal_component <=
+thermal_isolation_removal_component <=
+material_removal_structured_component <=
+structured_layout_component <=
+assembly_group_component <=
+assembly_component <=
+component_definition <=
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship.name = 'definition usage'}
+product_definition_relationship.relating_product_definition ->
+product_definition =>
+part_template_definition =>
+geometric_template =>
+structured_template =>
+single_stratum_structured_template =>
+material_removal_structured_template =>
+thermal_isolation_removal_template =>
+dependent_thermal_isolation_removal_template
+----
+
+This path illustrates:
+
+* Additional level of specialization for dependent components
+* Same relationship pattern as independent components
+* Extended template specialization hierarchy
+
+Dependent and independent components follow parallel mapping patterns with different specialization levels.
+====
+
+[[examples-electrical-isolation]]
+=== Material removal patterns
+
+==== General
+
+Material removal patterns demonstrate navigation through specialized component and template hierarchies.
+
+==== Electrical isolation removal
+
+This example from ISO 10303-1698 shows electrical isolation removal mapping.
+
+.Electrical isolation component to template
+[example]
+====
+[source]
+----
+dependent_electrical_isolation_removal_component <=
+electrical_isolation_laminate_component <=
+material_removal_laminate_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship.name = 'definition usage'}
+product_definition_relationship.relating_product_definition ->
+product_definition =>
+part_template_definition =>
+single_stratum_template =>
+single_stratum_continuous_template =>
+material_removal_feature_template =>
+electrical_isolation_removal_template =>
+dependent_electrical_isolation_removal_template
+----
+
+This path demonstrates:
+
+* Material removal component specialization hierarchy
+* Constrained definition usage relationship
+* Material removal feature template hierarchy
+* Parallel structure between component and template hierarchies
+
+The pattern establishes the mapping for electrical isolation removal features.
+====
+
+[[examples-attachment-size]]
+=== Attachment size based patterns
+
+==== General
+
+Attachment size based patterns demonstrate navigation to templates parameterized by attachment dimensions.
+
+==== Contact size dependent land
+
+This example from ISO 10303-1692 shows navigation to an attachment size based template.
+
+.Attachment size based template reference
+[example]
+====
+[source]
+----
+contact_size_dependent_land <=
+land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'definition usage'}
+product_definition_relationship.relating_product_definition ->
+product_definition =>
+part_template_definition =>
+single_stratum_template =>
+single_stratum_continuous_template =>
+stratum_feature_template =>
+land_physical_template =>
+default_attachment_size_based_land_physical_template
+----
+
+This path demonstrates:
+
+* Navigation from a size-dependent component
+* Constrained relationship to template definition
+* Specialization to attachment size based template
+* The relationship between component sizing and template selection
+
+The pattern enables parameterization of land geometry based on attached component sizes.
+====
+
+[[examples-passage-based]]
+=== Passage based patterns
+
+==== General
+
+Passage based patterns establish relationships between land features and passage features that they interface with.
+
+==== Unsupported passage based land
+
+This example shows the mapping for lands based on unsupported passages.
+
+.Unsupported passage based template
+[example]
+====
+[source]
+----
+unsupported_passage_dependent_land <=
+inter_stratum_feature_dependent_land <=
+land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'definition usage'}
+product_definition_relationship.relating_product_definition ->
+product_definition =>
+part_template_definition =>
+single_stratum_template =>
+single_stratum_continuous_template =>
+stratum_feature_template =>
+land_physical_template =>
+default_passage_based_land_physical_template =>
+default_unsupported_passage_based_land_physical_template
+----
+
+This path illustrates:
+
+* Navigation from passage-dependent land
+* Template specialization for passage-based features
+* Additional specialization for unsupported passages
+* Hierarchical template classification
+
+The pattern enables land geometry to be defined relative to associated passage features.
+====
+
+==== Plated passage based land
+
+This example shows the mapping for lands based on plated passages.
+
+.Plated passage based template
+[example]
+====
+[source]
+----
+plated_passage_dependent_land <=
+inter_stratum_feature_dependent_land <=
+land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'definition usage'}
+product_definition_relationship.relating_product_definition ->
+product_definition =>
+part_template_definition =>
+single_stratum_template =>
+single_stratum_continuous_template =>
+stratum_feature_template =>
+land_physical_template =>
+default_passage_based_land_physical_template =>
+default_plated_passage_based_land_physical_template
+----
+
+This path demonstrates:
+
+* Same base pattern as unsupported passage based land
+* Different final template specialization
+* Consistent mapping structure across passage types
+
+The pattern maintains structural consistency while accommodating different passage metallization types.
+====
+
+[[examples-alternate-definitions]]
+=== Alternate definition patterns
+
+==== General
+
+Alternate definition patterns provide alternative template references for entities that support multiple configuration options.
+
+==== Alternate land definition
+
+This example from ISO 10303-1692 shows the mapping for alternate land template definitions.
+
+.Alternate template instantiation
+[example]
+====
+[source]
+----
+land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'alternate instantiated template'}
+product_definition_relationship.relating_product_definition ->
+product_definition =>
+part_template_definition =>
+single_stratum_template =>
+single_stratum_continuous_template =>
+stratum_feature_template =>
+land_physical_template
+----
+
+This path demonstrates:
+
+* Direct navigation to relationship entity (no inverse navigation)
+* Constraint specifying 'alternate instantiated template' relationship
+* Navigation through the relationship to template
+* Simplified path for alternate definitions
+
+The pattern enables entities to reference multiple template definitions for different configuration scenarios.
+====
+
+[[examples-validation-scenarios]]
+=== Validation scenarios
+
+==== General
+
+These examples illustrate various validation scenarios and error conditions.
+
+==== Valid path with all constraints satisfied
+
+This example shows a valid path where all constraints are satisfied.
+
+.Fully valid reference path
+[example]
+====
+[source]
+----
+land <=
+stratum_feature_template_component <=
+laminate_component <=
+assembly_component <=
+component_definition <=
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'definition usage'}
+product_definition_relationship.relating_product_definition ->
+product_definition =>
+part_template_definition =>
+single_stratum_template =>
+single_stratum_continuous_template =>
+stratum_feature_template =>
+land_physical_template
+----
+
+Validation checks:
+
+* All entities exist in the EXPRESS repository
+* All subtype relationships are valid
+* Attributes used for navigation exist
+* Relationship constraints are syntactically correct
+* Complete path from ARM to MIM
+
+This path would pass all validation rules.
+====
+
+==== Invalid entity reference
+
+This example shows an error condition with an invalid entity reference.
+
+.Invalid entity in path
+[example]
+====
+[source]
+----
+land <=
+invalid_entity_name <=
+laminate_component <=
+assembly_component
+----
+
+Validation errors:
+
+* Entity 'invalid_entity_name' does not exist in the EXPRESS repository
+* Subtype relationship cannot be validated
+* Path is incomplete
+
+This path would fail entity existence validation.
+====
+
+==== Invalid attribute reference
+
+This example shows an error condition with an invalid attribute reference.
+
+.Invalid attribute navigation
+[example]
+====
+[source]
+----
+land <=
+stratum_feature_template_component <=
+laminate_component
+laminate_component.invalid_attribute ->
+product_definition
+----
+
+Validation errors:
+
+* Attribute 'invalid_attribute' does not exist on entity 'laminate_component'
+* Navigation cannot proceed
+* Path is broken
+
+This path would fail attribute existence validation.
+====
+
+==== Constraint validation failure
+
+This example shows a constraint that cannot be validated.
+
+.Invalid constraint syntax
+[example]
+====
+[source]
+----
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.invalid_attribute = 'value'}
+----
+
+Validation errors:
+
+* Attribute 'invalid_attribute' does not exist on 'product_definition_relationship'
+* Constraint cannot be evaluated
+* Path may proceed but constraint is invalid
+
+This path would generate a constraint validation warning.
+====
+
+==== Type mismatch in navigation
+
+This example shows a type mismatch error.
+
+.Type incompatibility
+[example]
+====
+[source]
+----
+shape_aspect
+shape_aspect.of_shape ->
+product_definition
+----
+
+Validation errors:
+
+* Attribute 'of_shape' has type 'product_definition_shape'
+* Expected target is 'product_definition_shape', not 'product_definition'
+* Type mismatch in navigation
+
+This path would fail type compatibility validation.
+====
+
+[[examples-complex-patterns]]
+=== Complex combined patterns
+
+==== General
+
+These examples demonstrate combinations of multiple navigation patterns in a single reference path.
+
+==== Multi-constraint round-trip with alternatives
+
+This hypothetical example combines multiple advanced patterns.
+
+.Complex combined navigation
+[example]
+====
+[source]
+----
+specialized_component <=
+[base_component_type_a <=
+component_definition]
+[base_component_type_b <=
+alternate_component_definition]
+{component_definition
+component_definition.description = 'specialized'}
+component_definition <=
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'usage'}
+product_definition_relationship.relating_product_definition ->
+{product_definition
+product_definition.description = 'template'}
+product_definition =>
+template_definition =>
+specialized_template
+----
+
+This path demonstrates:
+
+* Alternative paths for initial navigation
+* Constraints on both source and target entities
+* Round-trip through relationship
+* Multiple constraint validations
+* Combined use of all major operators
+
+Such complex paths require careful validation at each step.
+====
+
+[[examples-summary]]
+=== Summary of example patterns
+
+The examples in this annex demonstrate:
+
+. Simple subtype and supertype chains establishing entity hierarchies
+. Round-trip navigation through forward and inverse attribute references
+. Constrained paths validating attribute values at specific points
+. Alternative paths providing multiple valid navigation routes
+. Reference relationship patterns establishing named entity connections
+. Shape aspect navigation through feature and property hierarchies
+. Template reference patterns connecting physical components to abstract definitions
+. Complex combined patterns using multiple operators and constraints
+
+Each pattern serves specific mapping requirements in the ISO 10303 modular architecture, enabling precise specification of how ARM entities and attributes correspond to MIM entity instances and values.

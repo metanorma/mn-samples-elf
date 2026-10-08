@@ -1,0 +1,152 @@
+---
+ae:
+- entity: Activity
+  aimelt:
+    content: executed_action
+  schema: action_schema
+  alt_map: []
+  aa:
+  - attribute: name
+    aimelt:
+      content: action.name
+    schema: action_schema
+    refpath:
+      content: |-
+        executed_action
+        executed_action <= action
+        action.name
+    alt_map: []
+  - attribute: description
+    aimelt:
+      content: action.description
+    schema: action_schema
+    refpath:
+      content: |-
+        executed_action
+        executed_action <= action
+        action.description
+    alt_map: []
+  - attribute: chosen_method
+    assertion_to: Activity_method
+    aimelt:
+      content: PATH
+    source: {}
+    refpath:
+      content: |-
+        executed_action
+        executed_action <= action
+        action.chosen_method -> action_method
+        action_method
+    alt_map: []
+  - attribute: id
+    aimelt:
+      content: id_attribute.attribute_value
+    schema: action_schema
+    refpath:
+      content: |-
+        executed_action
+        executed_action <= action
+        action <- id_attribute.identified_item
+        id_attribute.attribute_value
+    alt_map: []
+- entity: Activity_relationship
+  aimelt:
+    content: action_relationship
+  schema: action_schema
+  alt_map: []
+  aa:
+  - attribute: description
+    aimelt:
+      content: action_relationship.description
+    schema: action_schema
+    alt_map: []
+  - attribute: name
+    aimelt:
+      content: action_relationship.name
+    schema: action_schema
+    alt_map: []
+  - attribute: related_activity
+    assertion_to: Activity
+    aimelt:
+      content: PATH
+    source: {}
+    refpath:
+      content: |
+        action_relationship
+        action_relationship.related_action -> action
+        action => executed_action
+    alt_map: []
+  - attribute: relating_activity
+    assertion_to: Activity
+    aimelt:
+      content: PATH
+    source: {}
+    refpath:
+      content: |-
+        action_relationship
+        action_relationship.relating_action -> action
+        action => executed_action
+    alt_map: []
+- entity: Activity_status
+  aimelt:
+    content: action_status
+  schema: action_schema
+  alt_map: []
+  aa:
+  - attribute: assigned_activity
+    assertion_to: Activity
+    aimelt:
+      content: PATH
+    source: {}
+    refpath:
+      content: |
+        action_status
+        action_status.assigned_action -> executed_action
+    alt_map: []
+  - attribute: status
+    aimelt:
+      content: action_status.status
+    schema: action_schema
+    alt_map: []
+- entity: Applied_activity_assignment
+  aimelt:
+    content: applied_action_assignment
+  source:
+    content: ISO 10303-1047
+  alt_map: []
+  aa:
+  - attribute: assigned_activity
+    assertion_to: Activity
+    aimelt:
+      content: PATH
+    source: {}
+    refpath:
+      content: |-
+        applied_action_assignment
+        applied_action_assignment <= action_assignment
+        action_assignment
+        action_assignment.assigned_action -> action
+        action => executed_action
+    alt_map: []
+  - attribute: items
+    assertion_to: activity_item
+    aimelt:
+      content: PATH
+    source: {}
+    refpath:
+      content: |-
+        applied_action_assignment
+        applied_action_assignment.items[i] -> action_items
+    alt_map: []
+  - attribute: role
+    aimelt:
+      content: object_role.name
+    schema: action_schema
+    refpath:
+      content: |-
+        applied_action_assignment
+        applied_action_assignment <= action_assignment
+        action_assignment.role -> object_role
+        object_role.name
+    alt_map: []
+sc: []

@@ -1,0 +1,56 @@
+== Principles
+
+=== Pretty printing
+
+Pretty printing is the systematic formatting of source code according to
+predefined rules to enhance readability, maintainability, and consistency.
+
+The practice of pretty printing is common in programming languages and
+software development. It involves organizing code into a structured format
+that is easy to read and understand. This includes consistent indentation,
+line breaks, and spacing, as well as the use of meaningful names for
+variables, functions, and other constructs. Pretty printing also helps
+identify syntax errors and improve the overall quality of the code.
+
+Pretty printing is particularly important in the context of data modeling
+and schema definition languages like EXPRESS. In these languages, the
+structure and semantics of the data models are defined through a series of
+declarations, expressions, and statements. A well-formatted schema makes
+it easier for developers, data architects, and other stakeholders to
+understand the relationships between different entities, types, and
+attributes. It also aids in the maintenance and evolution of the schema
+over time, as changes can be made more easily when the code is organized
+and readable.
+
+
+=== EXPRESS pretty printing
+
+In the context of the EXPRESS language, pretty printing refers to the
+formatting of EXPRESS schemas, entities, types, functions, rules, and other
+declarations to ensure that they are presented in a consistent and readable
+manner. This is particularly important for human readers who need to
+understand the structure and semantics of the data models defined in
+EXPRESS.
+
+This document is developed based on EXPRESS formatting rules described in the
+following references:
+
+* the ISO/TC 184/SC 4 Supplementary Directives TC 184/SC 4 N2412 and its later
+versions
+
+* the Express Engine development guide for its Pretty Printer, where it covers
+formatting rules beyond the scope of the SC4 Supplementary Directives
+
+NOTE: The rules specified in this document were originally developed by the
+Express Engine team to fill a gap in the ISO/TC 184/SC 4 Supplementary
+Directives. While the Supplementary Directives document (TC 184/SC 4 N2412) and
+its subsequent versions provide some guidance on EXPRESS schema formatting, they
+do not comprehensively address the layout of all EXPRESS constructs.
+
+EXPRESS pretty printing involves the formatting of its various constructs,
+covered by the three basic groups of objects:
+
+* Declarations
+* Expressions
+* Statements
+

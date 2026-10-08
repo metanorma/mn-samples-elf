@@ -1,0 +1,278 @@
+
+[[document-structure]]
+== Document structure
+
+=== General
+
+This section describes the document structure and element
+requirements of a ELF standard document.
+
+=== Cover page
+
+The cover page will contain:
+
+. ELF logo
+
+. Document number (<<project-code>>)
+
+. Document type (<<document-type>>)
+
+. Document title
+
+. Document status (<<document-stage>>)
+
+. Date of publication
+
+. Responsible technical committee
+
+. Document authors and their affiliations, if any (<<document-authors>>)
+
+. Incorporation by reference and hyperlink of the appropriate
+statements of Intellectual Property Rights, Appropriate Usage,
+Trademarks, and Disclaimer of Warranty
+
+In co-published deliverables, as well as any further adoptions,
+the document shall retain the logographic marks of the
+publishing organizations.
+
+
+=== Draft warning
+
+This warning must be shown on the cover page for all draft documents.
+
+[quote]
+____
+WARNING FOR DRAFTS
+
+This document is not an ELF Standard. It is distributed for review and comment, and is subject to change without notice and may not be referred to as a Standard. Recipients of this draft are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.
+____
+
+=== Public review note
+
+Certain ELF documents are intended for public review, as
+specified in <<DIR101>>.
+
+The following note must be shown on the cover page for all documents
+intended for public review.
+
+[quote]
+____
+INSTRUCTIONS FOR REVIEW
+
+This draft is intended for public review. Comments shall be submitted to the issue tracker of the corresponding ELF document repository.
+____
+
+
+=== Technical committee
+
+The responsible technical committee shall be shown on the cover page.
+
+
+[[document-authors]]
+=== Authors, editors and their affiliations
+
+Authors and editors of ELF published documents shall be shown on the
+cover page.
+
+Each individual author or editor shall be shown on the cover page with:
+
+* their role (author or editor) in the creation of the document;
+
+* an affiliation, if the author participated through a ELF organizational membership,
+  where the affiliation must be a current ELF member
+  at the time of participation as an author or editor.
+  Otherwise, in the case an author is an individual member,
+  it should be clearly marked as so.
+
+When a document is attributable to a TC in its entirety, or to
+ELF as an organization, no individual authorship shall be
+shown on the cover page.
+
+
+=== Contributor acknowledgement
+
+Contributors other than authors and editors of the document as well as
+other contributing parties, shall be provided if appropriate within the Foreword.
+
+
+=== Table of contents
+
+A table of contents shall be provided in any user consumable
+format, including HTML, PDF and Word.
+
+This does not apply to standard definition files (ELF XML)
+intended for machine consumption.
+
+The table of contents may be omitted if the document is
+to be provided on paper medium with less than five (5) pages.
+
+
+=== Sections and subsections
+
+The body of the document shall have section and subsection identifiers
+to make it easy to refer clearly to specific items in the document.
+
+
+=== Referable document elements
+
+Document elements including numbered list items, examples, and notes shall be numbered
+uniquely within a clause.
+Such elements shall be cited within the document by their number and containing clause.
+
+[example]
+"Clause 3 a)"
+
+[example]
+"6.3.3 a)"
+
+[example]
+"8.2 Note 3"
+
+[example]
+"2.6 Example 9"
+
+
+Tables, figures, formulas shall be numbered uniquely within
+the document.
+Such elements shall be cited within the document by their type and number.
+
+
+[example]
+"Table 2"
+
+[example]
+"Figure 5"
+
+[example]
+"Formula 12"
+
+
+
+[[spec-foreword]]
+=== Foreword
+
+The foreword shall be the first section of the document, unnumbered.
+It is a mandatory section.
+
+The foreword shall contain a description of the ELF organization
+and provide the necessary copyright and trademark statements.
+
+It is also the place to provide acknowledgements to contributors.
+
+In a revised ELF standard, the foreword shall also describe
+a summary of changes from the previous edition.
+
+
+=== Introduction
+
+The introduction shall be the second section of the document, unnumbered.
+It is a mandatory section.
+
+It shall describe the purpose and intent of the document, as well as
+potential use cases. The document's relationship with existing ELF
+or external standards, if appropriate to be explained,
+shall also be described here.
+
+
+=== Scope
+
+The scope shall always be provided as Section 1.
+
+
+=== Normative and informative references
+
+The section for normative references should be placed at Section 2 of the document.
+
+Informative references shall be placed at the Bibliography section
+at the end of the document, unnumbered.
+
+References in these sections shall be fully cited.
+
+
+[[spec-terms-definitions]]
+=== Terms and definitions
+
+The terms and definitions sections shall be placed beginning at Section 3.
+
+
+////
+=== Glossary
+
+A glossary may be provided if appropriate.
+
+// TODO: Where? Suggest they be considered part of Terms & Definitions.
+////
+
+=== Annexes and appendices
+
+Annexes are numbered sections provided after the main body text.
+An annex may be considered informative or normative.
+
+Each annex is given a clause identifier of capital Latin letters starting from
+the A to Z (English order).
+The first annex shall be stated as (and referred to) "Annex A",
+the second "Annex B", and so forth.
+
+Clauses within annexes shall start with the annex identifier, for example,
+the first subclause in Annex A is "A.1".
+
+Appendixes are "annexes of annexes", and are given a clause identifier
+that incorporate the annex it belongs to, followed by a capital Latin
+letter starting from A to Z (English order).
+
+For example, the first appendix of Annex A will be "Appendix AA",
+the second appendix of Annex C will be "Annex CB".
+
+Clauses within appendix shall start with the appendix identifier, for example,
+the first subclause in Annex SA is "SA.1".
+
+
+=== Change summary
+
+Changes to a document from a previous edition shall be described
+in summarized, bullet-point form at the end of the Foreword (<<spec-foreword>>).
+
+
+=== Page numbers
+
+For documents rendered on paper medium for user consumption,
+page numbers shall be provided on all pages.
+
+// This is ISO practice
+Page numbers shall use Roman numbers of unnumbered initial sections,
+and Arabic numerals for the main body of text (including appendices).
+
+
+=== Trademark and copyright statement
+
+A trademark and copyright statement of the form shown below must
+appear on the cover page and the foreword.
+
+Note that "```yyyy```" is the 4-digit year, such as "```2009```".
+
+//(TODO: add trademark statement)
+
+[quote]
+____
+(c) yyyy EXPRESS Language Foundation.
+
+All rights reserved. Unless otherwise specified, no part of this publication may be reproduced or utilized otherwise in any form or by any means, electronic or mechanical, including photocopying, or posting on the internet or an intranet, without prior written permission. Permission can be requested from the address below.
+____
+
+=== Draft documents
+
+Draft documents should clearly indicate on the title page and
+every page of the document that they are a draft document.
+
+
+=== Canonical representation
+
+An ELF document shall be digitally represented in canonical form
+using the ELF XML syntax, in accordance
+with its defined grammar. This allows the ELF document to be
+digitally rendered into any kind of supported format, including HTML,
+PDF and Word.
+
+ELF XML is an adopted form of Metanorma XML of the Metanorma
+standard document model.
+

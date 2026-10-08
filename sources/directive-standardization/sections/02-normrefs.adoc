@@ -1,0 +1,5 @@
+
+[bibliography]
+== Normative References
+
+* [[[WTOTBTP,WTO TBT Principles]]], _,Annex 2: Decision of the Committee on Principles for the Development of International Standards, Guides and Recommendations with relation to Articles 2, 5 and Annex 3 of the Agreement; Decisions and recommendations adopted by the TBT Committee since 1 January 1995: Annexes to Part 1; _WTO Agreements Series: Technical Barriers to Trade_, World Trade Organization

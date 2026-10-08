@@ -1,0 +1,73 @@
+== Trademarks
+
+=== General
+
+The requirements listed in this clause aligns with <<ITUMARKS>>.
+
+
+=== Impartiality of deliverables
+
+Proper names, trademarks, service marks or certification marks of specific companies/organizations, products or services should not be included in the text of an ELF standardization deliverable if it appears that they might cause any endorsement effect on a reader of the deliverable.
+
+NOTE: ELF standardization deliverables generally provide a description
+of features from which interoperable implementations can be developed.
+As such, the appearance of an endorsement of products, services and
+companies/organizations are not acceptable.
+
+=== Non-endorsement usage
+
+Trademarks, service marks or certification marks may be included in an
+ELF standardization deliverable in order to describe certain technologies or services pertaining to the relevant marks, given that the inclusion does not cause appearance of an endorsement.
+
+Here are some situations where this usage is acceptable.
+
+. The mark is used to refer to a particular facility that is widely recognized as a sole authorized source. +
+[example]
+A reference to a proprietary service with a trademark associated with a specific protocol identifier allocated by the ITU-T or IANA.
+
+. The mark is contained in the designation of a reference. +
+[example]
+Standards bodies often include their name as part of the identifier of their standards. A deliverable may reference "`ISO/IEC xxxx`", "`ITU-T xxxx`", where "`ISO`", "`IEC`" and "`ITU-T`" are protected marks.
+
+. The mark is a well-known reference to a standardized industry approach. +
+[example]
+"`WiFi`", "`Bluetooth`", "`GSM`".
+
+
+=== Proper use references
+
+With justifiable reasons, it is permissible to make "`proper use`"
+references to marks owned by an external party in an
+ELF standardization deliverable, however the usage
+shall adhere to the following guidelines set below in order to
+avoid infringement of rights relating to such marks.
+
+A mark shall only be used as part of accurate, factual statements
+as a means to identify (but not to endorse) a particular object (such as the designations of referenced standards in the text of a deliverable).
+
+Marks should be used in accordance with the following guidelines:
+
+. a mark should be used as a proper adjective followed by a generic name or noun; +
++
+NOTE: Marks are proper adjectives that indicate the source of goods, services or things, and not to be used as a verb or noun.
+
+. marks must not be combined in text;
+
+. marks must not be altered, shortened or abbreviated.
+
+////
+[example]
+Example: Incorrect: “This protocol can be used for transport over WiMax and WiFi.” Correct: “This protocol can be used for transport over WiMax infrastructure and WiFi infrastructure.”
+////
+
+
+////
+[example]
+Example: Incorrect: “This protocol can be used for transport over WiMax/WiFi infrastructure.” Correct: “This protocol can be used for transport over WiMax infrastructure and WiFi infrastructure.”
+////
+
+
+////
+[example]
+Incorrect: “This specification supports the use of an AP Services Router.” Correct: “This specification supports the use of an Access Point Services Router.”
+////

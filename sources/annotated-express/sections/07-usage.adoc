@@ -1,0 +1,86 @@
+== Usage
+
+=== Application on schemas
+
+Let's take an example `action_schema.exp`:
+
+[source]
+----
+(*"action_schema"
+The subject of the *action_schema* is the description of actions, the reasons
+for these actions, and the status of these actions.
+*)
+
+(*"action_schema.__fund_cons"
+Action information can be attached to any aspect of product data.
+*)
+
+(*"action_schema.__example"
+Reasons for action include evolving user requirements, manufacturing problems
+and difficulties that arise when a product is in use.
+*)
+
+(*"action_schema.__expressg"
+[.svgmap]
+====
+image::action_schemaexpg1.svg[]
+
+* <<express:basic_attribute_schema>>; 1
+* <<express:action_schema>>; 2
+* <<express:support_resource_schema>>; 3
+====
+*)
+----
+
+* Content in `(*"action_schema" ... *)` provides a basic description (and
+purpose) of the schema.
+
+* Content in `(*"action_schema.__fund_cons" ... *)` describes the concepts and
+assumptions in creating this schema.
+
+* Content in `(*"action_schema.__example" ... *)` describes an example on how
+the schema can be used.
+
+* Content in `(*"action_schema.__expressg" ... *)` provides a graphical
+diagram (in Metanorma AsciiDoc syntax with an `svg` here) relevant to the
+understanding of the schema.
+
+=== Application on entities
+
+Entities inside the schema are accessed using the `{schema}.{entity}` syntax
+(potentially multiple dots).
+
+For example, the `action_schema.supported_item` entity is documented like this:
+
+[source]
+----
+(*"action_schema.supported_item"
+The *supported_item* allows for the designation of an
+<<express:action_schema.action_directive,action_directive>>, an
+<<express:action_schema.action,action>>, or an
+<<express:action_schema.action_method,action_method>>.
+*)
+
+(*"action_schema.supported_item.__note"
+This specifies the use of an
+<<express:action_schema.action_resource,action_resource>>.
+*)
+----
+
+Notice that within the named remark `action_schema.supported_item.__note`,
+there is an `<<express:...>>` link which references another EXPRESS object
+`action_schema.action_resource`.
+
+=== Application on other EXPRESS objects
+
+Annotations can be made to any EXPRESS objects that are referencable,
+including:
+
+* ENTITY
+** properties
+** DERIVE properties
+** WHERE rules
+** IP: Informal proposition rules
+* TYPE
+* FUNCTION
+** LOCAL variables

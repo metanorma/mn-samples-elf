@@ -1,0 +1,12 @@
+== Introduction
+
+The Metanorma ELF format provides a standardized approach for creating EXPRESS
+language documentation using the Metanorma toolchain. This document describes
+the process of converting existing EXPRESS documentation into the Annotated
+EXPRESS format, which is the model-based method preferred for modern EXPRESS
+documentation.
+
+This guide is intended for document maintainers and developers who need to
+migrate existing EXPRESS documentation to the standardized Annotated EXPRESS
+format. The approach described here can be applied to PDF parts after converting
+them into Metanorma.

@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=https://www.expresslang.org/schemas/changes/v1/schema_changes.yaml
+---
+schema: Document_and_version_identification_arm
+versions:
+- version: 2
+- version: 3

@@ -1,0 +1,338 @@
+[[constraints]]
+== Constraints
+
+=== General
+
+Constraints specify conditions that entities or attributes must satisfy during
+path navigation.
+
+They enable precise mapping specifications by limiting paths to entities
+matching specific criteria.
+
+=== Constraint syntax
+
+==== Basic structure
+
+A constraint block is enclosed in curly braces and contains one or more
+constraint expressions.
+
+Syntax:
+
+[source]
+----
+{entity_name
+entity_name.attribute_name operator value}
+----
+
+==== Multiple constraints
+
+Multiple constraints may be specified within a single block or across multiple
+blocks.
+
+Syntax for single block:
+
+[source]
+----
+{entity_name
+entity_name.attribute_1 = value_1
+entity_name.attribute_2 = value_2}
+----
+
+Syntax for multiple blocks:
+
+[source]
+----
+{entity_name
+entity_name.attribute_1 = value_1}
+{entity_name
+entity_name.attribute_2 = value_2}
+----
+
+Semantics:
+
+* All constraints must be satisfied
+* Multiple constraints represent a logical AND condition
+
+[example]
+====
+[source]
+----
+{product_definition_relationship
+product_definition_relationship.name = 'definition usage'
+product_definition_relationship.description = 'explicit'}
+----
+
+Requires both the `name` and `description` attributes to match.
+====
+
+=== Value types
+
+==== String values
+
+String values must be enclosed in single quotes.
+
+Syntax:
+
+[source]
+----
+{entity_name
+entity_name.string_attribute = 'string value'}
+----
+
+[example]
+====
+[source]
+----
+{product_definition_relationship
+product_definition_relationship.name = 'definition usage'}
+----
+====
+
+==== Numeric values
+
+Numeric values (INTEGER, REAL, NUMBER) are specified without quotes.
+
+Syntax:
+
+[source]
+----
+{entity_name
+entity_name.numeric_attribute = numeric_value}
+----
+
+[example]
+====
+[source]
+----
+{dimension_count
+dimension_count.dim = 3}
+----
+====
+
+==== Boolean and logical values
+
+Boolean and logical values use keywords TRUE, FALSE, or UNKNOWN.
+
+Syntax:
+
+[source]
+----
+{entity_name
+entity_name.boolean_attribute = TRUE}
+----
+
+[example]
+====
+[source]
+----
+{representation_item
+representation_item.optional_flag = TRUE}
+----
+====
+
+==== Enumeration values
+
+Enumeration values are specified as identifiers without quotes.
+
+Syntax:
+
+[source]
+----
+{entity_name
+entity_name.enum_attribute = ENUM_VALUE}
+----
+
+[example]
+====
+[source]
+----
+{geometric_representation_context
+geometric_representation_context.coordinate_space_dimension = THREE_D}
+----
+====
+
+=== Negated constraints
+
+==== Syntax
+
+The negation operator `!` inverts a constraint.
+
+[source]
+----
+!{entity_name
+entity_name.attribute_name = value}
+----
+
+==== Semantics
+
+* The path excludes entities matching the specified condition
+* Equivalent to "attribute_name NOT EQUAL TO value"
+
+==== Example
+
+[example]
+====
+[source]
+----
+!{product_definition_relationship
+product_definition_relationship.name = 'alternate'}
+----
+
+Excludes `product_definition_relationship` entities where `name` is
+`'alternate'`.
+====
+
+=== Constraint application
+
+==== Applying to current entity
+
+Constraints apply to the entity specified in the constraint block.
+
+[source]
+----
+entity_name
+{entity_name
+entity_name.attribute = value}
+----
+
+The constraint is checked when the path reaches `entity_name`.
+
+==== Applying during navigation
+
+Constraints can be placed at any point in the path to filter entities during
+navigation.
+
+[example]
+====
+[source]
+----
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+{product_definition_relationship
+product_definition_relationship.name = 'definition usage'}
+product_definition_relationship.relating_product_definition ->
+product_definition
+----
+
+The constraint filters which `product_definition_relationship` instances are
+traversed.
+====
+
+=== Constraint validation
+
+==== Entity validation
+
+The constrained entity must:
+
+* Exist in the EXPRESS schema
+* Appear in the path at the location where the constraint is specified
+
+==== Attribute validation
+
+The constrained attribute must:
+
+* Exist on the specified entity
+* Be accessible (not private or restricted)
+* Have a type compatible with the constraint value
+
+==== Value validation
+
+The constraint value must:
+
+* Match the attribute's base type (STRING, INTEGER, etc.)
+* Follow proper literal syntax for the type
+* For enumerations, be a valid enumeration value
+
+==== Type compatibility
+
+The following table shows required value syntax for each attribute type:
+
+[cols="1,1,2",options="header"]
+|===
+|Attribute type |Value syntax |Example
+
+|STRING
+|Single-quoted string
+|`'definition usage'`
+
+|INTEGER
+|Unquoted integer
+|`42`
+
+|REAL
+|Unquoted decimal
+|`3.14159`
+
+|NUMBER
+|Unquoted number
+|`100` or `2.5`
+
+|BOOLEAN
+|TRUE or FALSE
+|`TRUE`
+
+|LOGICAL
+|TRUE, FALSE, or UNKNOWN
+|`UNKNOWN`
+
+|ENUMERATION
+|Unquoted enumeration value
+|`CARTESIAN`
+
+|===
+
+=== Common constraint patterns
+
+==== Relationship type constraints
+
+Constraining relationship entities by their type or role.
+
+[example]
+====
+[source]
+----
+{product_definition_relationship
+product_definition_relationship.name = 'definition usage'}
+----
+====
+
+==== Geometry type constraints
+
+Constraining geometric entities by their dimensionality or type.
+
+[example]
+====
+[source]
+----
+{geometric_representation_context
+geometric_representation_context.coordinate_space_dimension = 3}
+----
+====
+
+==== Description constraints
+
+Constraining by description attributes that specify roles or purposes.
+
+[example]
+====
+[source]
+----
+{shape_aspect
+shape_aspect.description = 'land interface terminal'}
+----
+====
+
+==== Multiple attribute constraints
+
+Requiring multiple attributes to satisfy conditions simultaneously.
+
+[example]
+====
+[source]
+----
+{characterized_object
+characterized_object.name = 'boundary'
+characterized_object.description = 'outer'}
+----
+====

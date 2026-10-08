@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://www.expresslang.org/schemas/changes/v1/schema_changes.yaml
+---
+schema: Document_and_version_identification_mim
+versions:
+- version: 2
+  deletions:
+  - type: USE_FROM
+    name: Product_identification_mim
+- version: 3
+  additions:
+  - type: USE_FROM
+    name: product_definition_schema
+    interfaced_items:
+    - product_category
+    - product_related_product_category

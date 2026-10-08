@@ -1,0 +1,165 @@
+== Specific conversion cases
+
+=== Attribute conversion
+
+Given this text:
+
+[source]
+----
+ENTITY action_method_with_associated_documents
+  SUBTYPE OF (action_method);
+  documents : SET [l:?] of document;
+END_ENTITY;
+----
+
+...
+
+Attribute definitions:
+
+**document**s:: the set of one or more documents that identifies the *action_method*.
+
+It should be converted into:
+
+[source]
+----
+ENTITY action_method_with_associated_documents
+  SUBTYPE OF (action_method);
+  documents : SET [l:?] of document;
+END_ENTITY;
+
+(*"method_definition_schema.action_method_with_associated_documents.documents"
+the set of one or more documents that identifies the *action_method*.
+*)
+----
+
+=== Formal propositions conversion
+
+Given this text:
+
+[source]
+----
+Formal propositions:
+
+*WR1*:: The *number_of_elements* shall be greater than or equal to one.
+*WR2*:: The value of the *number_of_elements* shall ...
+----
+
+It should be converted into:
+
+[source]
+----
+(*"method_definition_schema.action_method_to_select_from.WR1"
+The *number_of_elements* shall be greater than or equal to one.
+*)
+
+(*"method_definition_schema.action_method_to_select_from.WR2"
+The value of the *number_of_elements* shall ...
+*)
+----
+
+=== Informal propositions conversion
+
+Given this text:
+
+[source]
+----
+ENTITY serial_action_method
+  SUBTYPE OF (action_method_relationship);
+END_ENTITY;
+----
+...
+
+Informal propositions:
+
+*IP1*:: Individual **action_method**s in a collection...
+
+It should be converted into:
+
+[source]
+----
+(*"method_definition_schema.serial_action_method.IP1"
+Individual **action_method**s in a collection...
+*)
+----
+
+=== Notes, examples, figures and tables
+
+These objects are to be converted into native Annotated EXPRESS remarks.
+
+For example, this content:
+
+[source,adoc]
+----
+==== sequential_method
+
+A *sequential_method* is ...
+
+NOTE: See <<annexE>> for an extended example using indexes for *sequential_method*.
+
+EXPRESS specification:
+
+[%unnumbered]
+[source]
+----
+*)
+ENTITY sequential_method
+  SUBTYPE OF (serial_action_method);
+  sequence_position : count_measure;
+END_ENTITY;
+(*
+----
+
+Attribute definitions:
+
+*sequence_position*:: the position of ...
+
+Informal propositions:
+
+*IP1*:: There shall be ...
+
+NOTE: This proposition...
+
+NOTE: If the *sequential_method* ...
+
+NOTE: The context ...
+----
+
+Needs to become:
+
+[source]
+----
+ENTITY sequential_method
+  SUBTYPE OF (serial_action_method);
+  sequence_position : count_measure;
+END_ENTITY;
+
+(*"method_definition_schema.sequential_method"
+A *sequential_method* is ...
+*)
+
+(*"method_definition_schema.sequential_method.__note"
+See <<annexE>> for an extended example using indexes for *sequential_method*.
+*)
+
+(*"method_definition_schema.sequential_method.__note"
+This proposition ...
+*)
+
+(*"method_definition_schema.sequential_method.__note"
+If the *sequential_method* ...
+*)
+
+(*"method_definition_schema.sequential_method.__note"
+The context ...
+*)
+
+(*"method_definition_schema.sequential_method.sequence_position"
+the position of ...
+*)
+
+(*"method_definition_schema.sequential_method.IP1"
+There shall be ...
+*)
+----
+
+NOTE: Place the annotations after the EXPRESS declarations.

@@ -1,0 +1,540 @@
+
+[[process]]
+== Standardization process
+
+=== General
+
+Every ELF deliverable starts as a project.
+
+An ELF project goes through the following processes:
+
+* starts with a proposal;
+* the proposal is given to the approving entity for enactment;
+* assigns a committee as project owner once the project is approved;
+* the committee creates one or more working drafts from the proposal;
+* the committee decides to endorse a committee draft;
+* the approved committee draft becomes a standards draft
+* the draft standard is given to the approving entity for endorsement;
+* the draft standard is approved for publication as a standard.
+
+//NOTE: TODO: joint publishing
+
+=== Project stages
+
+The following table provides a mapping between ELF project stages and
+ISO project stages. This document identifies stages
+according to the ELF project stage names.
+
+[cols="1,1,1,1,1",options="header"]
+.Alignment between ISO and ELF project stages
+|===
+|Stage identifier
+|ELF stage
+|ISO harmonized stage (<<ISODIR1>>)
+|ELF deliverable
+|ISO deliverable
+
+|*Preliminary*
+|00 Preliminary
+|00 Preliminary
+|PWI
+|PWI
+
+|*Proposal*
+|10 Proposal
+|10 Proposal
+|NWIP
+|NWIP
+
+|*Preparatory*
+|20 Preparatory
+|20 Preparatory
+|WD
+|WD
+
+|*Committee*
+|30 Committee
+|30 Committee
+|CD
+|CD
+
+|*Enquiry*
+|40 Enquiry
+|40 Enquiry
+|DS
+|DIS
+
+|*Approval*
+|50 Approval
+|50 Approval
+|FDS
+|FDIS
+
+|*Publication*
+|60 Publication
+|60 Publication
+|ES
+|IS
+
+|*Review*
+|90 Review
+|90 Review
+|
+|
+
+|*Withdrawal*
+|95 Withdrawal
+|95 Withdrawal
+|
+|
+
+|===
+
+
+=== Project track
+
+There is only one project track in ELF as considered by the TCB.
+
+
+=== Project ownership
+
+==== General
+
+All ELF non-administrative documents must be owned by a single
+Technical Committee (the "`owning`" Technical Committee) even if two
+or more TCs participate in the work of developing the document.
+
+
+==== Transition of ownership on TC retirement
+
+When a TC completes its scope of work and is shut down, the ownership
+of its documents moves to the TCB.
+
+TCB may retain ownership of a document once assigned to it, or
+it may assign the document to a different or new Technical Committee,
+generally if follow-on work or maintenance is required on the document.
+
+
+=== Project membership
+
+==== General
+
+The owning TC is responsible for maintaining expert membership of a
+project group.
+
+ELF members are allowed to nominate experts to the project group
+with approval of the owning TC.
+
+At least one person, at most two, serves as project leader, as decided
+by the owning TC.
+
+The project leader(s) shall assume project editorship unless that
+activity is specifically assigned to another individual.
+
+
+==== External members
+
+Individuals who are not members of ELF are only allowed to participate in
+a project if specifically authorized by the project owning TC, in consultation
+with the project leader, and approved by the TCB.
+
+
+=== Project stages
+
+
+==== Preliminary stage
+
+===== Initiation methods
+
+A standardization project can be initiated in one of the following ways:
+
+. a project defined as part of the charter process of a TC;
+
+. a TC decides to create a new project as an addition to its program of work;
+
+. the TCB or the Board of Directors decides that a project should
+be initiated and assigns it to a Technical Committee.
+
+
+===== Initiation requirements
+
+When a project is initiated, the following items must be defined
+by the proposer as part of the proposal to the TCB:
+
+. scope
+
+. target audience
+
+. relevant regulatory or market needs (as feasible and appropriate)
+  (this satisfies <<WTOTBTP,clause=4.a>>)
+
+. current scientific and technological developments
+  (this satisfies <<WTOTBTP,clause=4.a>>)
+
+. schedule for development and publication
+
+. proposer, project leader
+
+All documents other than administrative documents must have an editor
+or editors who are members of the Technical Committee(s) developing the
+document.
+
+
+
+===== Confirmation
+
+Once a project is confirmed initiation:
+
+. the project shall be assigned a project number as decided by the TCB;
+
+. the project's name and stage shall be listed in the project registry
+  (this satisfies <<WTOTBTP,clause=1.a>>); and
+
+. the project will be announced by the TCB to all members with a
+  brief description of its scope (including objective and rationale)
+  at an early enough stage that facilitates amendments and comments
+  (this satisfies <<WTOTBTP,clause=1.b>>).
+
+NOTE: This document supports the creation of a project registry.
+
+
+===== First draft
+
+A first draft of the standardization deliverable may be created
+for proposal submission, or may be created in the Committee stage.
+
+Disclaimers and necessary statements such as relating to IPR and
+copyright shall be placed in an obvious place in the draft.
+
+
+==== Proposal stage
+
+When the TCB determines interest within ELF to develop the
+proposed project, the project initiator should submit a proposal
+to the TCB for ballot indicating its wish to develop the proposed project.
+
+If accepted, the project shall be adopted by an ELF TC.
+Members of the project group shall be represented by experts.
+This project shall then be listed in the TCB register of projects.
+
+If rejected, its output may still be developed by one or more members
+of ELF if appropriate, and the resulting output may still be
+proposed to the TCB for development in later stages.
+
+
+A "`Report`" document type shall be published upon a successful ballot
+of two-thirds approval at this stage.
+
+
+==== Preparatory stage
+
+This is an optional stage.
+
+The goal of the preparatory stage is to create a "`working draft`"
+of the deliverable approved by the project group within the TC.
+
+Once the project team decides the working draft has advanced
+to being a "`committee draft`" or a "`draft standard`", this
+stage ends.
+
+There is no ballot at this stage.
+
+
+==== Committee stage
+
+This is an optional stage.
+
+The goal of the committee stage is to create a "`committee draft`"
+of the deliverable approved by the TC.
+
+The owning TC distributes the committee draft and may select a 8-week or 10-week
+comment period for TC members to comment.
+
+Within 4 weeks of completion of the comment period, the owning TC shall distribute
+all formal comments received during ballot to TC members.
+
+Given the results of comments, the Chair of the TC, considering TC consensus,
+in consultation with the project leader (if necessary),
+shall decide on the below outcomes:
+
+. to prepare and circulate a revised committee draft for consideration; or
+
+. to register the committee draft for the enquiry stage.
+
+In case TC consensus is unclear from the results, a ballot (<<process-balloting>>) can be launched
+to determine consensus for stage advancement.
+
+A "`Specification`" document type shall be published upon advancement
+to the enquiry stage.
+
+
+[[stage-enquiry]]
+==== Enquiry stage
+
+The goal of the enquiry stage is to create a "`draft standard`"
+of the deliverable approved by the TC.
+
+The public review period (<<public-review>>) shall be started within
+4 weeks of entering this stage.
+
+Once the owning TC deems a document under development to be
+ready for publication, the Chair of the owning TC shall arrange
+for an official ballot (<<process-balloting>>) amongst TC members.
+"`No`" votes must be accompanied with technical reasons.
+
+If no "`No`" votes were registered in the DIS ballot,
+the project is deemed to have unanimous support. It shall be fast-tracked
+towards the Approval stage for TCB ballot.
+
+If the ballot was successful but at least one "`No`" vote has been received,
+the project is advanced to Approval stage.
+
+If the ballot failed, the Chair of the owning TC, in consultation
+with the project leader to decide whether to prepare and circulate a revised
+draft standard for re-balloting.
+
+
+==== Approval stage
+
+The goal of the approval stage is to create a "`final draft standard`"
+of the deliverable approved by the ELF membership.
+
+The public review period (<<public-review>>) shall be started within
+4 weeks of entering this stage, unless the document has already
+been reviewed publicly at the Enquiry stage (<<stage-enquiry>>).
+
+A "`last call`" for formal comments shall be issued by the Chair of
+the owning TC to both the TCB and to the full ELF membership
+of 8 weeks.
+
+The formal commenting process is described in detail at <<comments-formal>>.
+
+After the close of the commenting period, the Chair of TCB shall
+distribute the comments to the ELF membership within
+4 weeks of the close, and conduct a 8-week ballot (<<process-balloting>>)
+of TCB members for a vote to approve publication.
+
+All TCB members are required to vote in this ballot. A TCB member
+that did not vote in the TCB poll is considered to have violated
+membership terms of the TCB, and has a 3-week period to rectify.
+
+"`No`" votes from a TCB member must be accompanied with constructive
+comments.
+
+If the ballot was successful, the project is deemed to be ready for
+publication and is advanced to the publication stage.
+
+If the ballot failed, the Chair of the owning TC, in consultation
+with the project leader to decide whether to prepare and circulate a revised
+final draft standard for re-balloting.
+
+
+[[draft-stages]]
+==== Draft development stages (Preparatory, Committee and Enquiry stages)
+
+. Each new draft version of the document as it is developed shall be
+posted by the editor(s) on the ELF Document Repository. A
+version is defined as a checkpoint where the developers want review
+from individuals other than active contributors, typically at the
+end of a development stage when the draft is a candidate for ballot.
+
+. The availability of each new draft version shall be announced
+to all TCs and as appropriately, to external liaison or partner
+working groups (this satisfies <<WTOTBTP,clause=1.c>>).
+
+. A draft version may be announced to the ELF membership
+if ELF-wide comment is requested
+(this satisfies <<WTOTBTP,clause=1.c>>).
+
+. A draft version may be posted for external review and
+comments upon approval by TCB (see <<public-review>>).
+This is normally be done at the Enquiry and Approval stages,
+where the draft is considered more mature for appropriate
+external input.
+
+. Once initial approval is given by TCB, a draft may be posted
+for external review and comment multiple times.
+
+In every of the development stages, resolution of all outstanding
+comments is required to proceed towards ballot.
+
+
+
+
+
+[[pre-publication]]
+==== Pre-publication stages (Enquiry and Approval stages)
+
+Once a "`draft standard`" or a "`final draft standard`" is approved
+towards publication, a public review period ensues.
+
+The public review process is described in <<public-review>>.
+
+
+
+==== Publication stage
+
+// TODO:
+
+===== Distribution
+
+Once TCB approves a document for publication, the Chair of the
+owning TC shall forward the final draft standard to the
+Executive Director of ELF for publication.
+
+A standard designated for public access will be distributed
+on the ELF document register (this satisfies <<WTOTBTP,clause=1.e>>).
+
+Internal documents are made available only to members of ELF
+via the members area of the ELF website, and are registered in
+the ELF Internal Document Register.
+
+[[dual-logo]]
+===== Dual-logo documents
+
+A dual-logo document is a deliverable co-published by ELF and an
+external standardization body under the marks of both parties.
+
+For a dual-logo document, after the collaborating standardization
+body accepts a joint work item for publication, the joint work item
+will be published by ELF under the corresponding document type.
+
+
+===== Statement changes
+
+The "`boilerplate`" statements of IP, appropriate usage and
+disclaimer will be changed to the external (public) statement.
+
+
+===== Registration at the public document register
+
+The name, category, version and project number of the deliverable
+shall be registered in the ELF Public Document Register.
+
+
+
+=== Abandonment
+
+==== Abandonment of joint work items
+
+A joint work item may be abandoned by one of the two parties if it sees
+it being inappropriate or is no longer interested or able to contribute
+to the joint work item. Each party is allowed to abandon the joint
+work, which at that point will become sole work of the other party.
+
+A notice of such must be sent by the abandoning party to the other party and
+distributed by both parties to its members.
+
+The abandoning party, if the abandoned work is carried on by the other
+party, is required to explicitly agree that the copyright of such work
+is to be waived to the other party to allow publication of the document.
+
+If the abandoning party wishes to rejoin an abandoned work item, it is
+allowed, given a notice is filed with the TCB, unless in exceptional
+circumstances.
+
+
+
+
+[[process-balloting]]
+=== Balloting
+
+A ballot is launched upon gauging consensus within a group
+(TC, TCB or amongst all members).
+
+In each ballot, a member is allocated three options:
+
+* Yes
+* No
+* Abstain
+
+A "`No`" vote must be accompanied by constructive comments. "`Abstain`" votes
+are not counted against the outcome.
+
+Consensus is considered to have been reached when there are two-thirds of "`Yes`" votes.
+
+
+
+[[appeals]]
+=== Appeals
+
+An appeal may be raised by any affected party against a procedural
+decision taken in the ELF standardization process, including decisions
+taken by a technical committee or the TCB.
+
+An appeal shall be submitted in writing to the Executive Director
+within 30 days of the decision being announced to the ELF membership
+or published in the corresponding ELF document repository, stating
+the decision appealed against and the grounds for the appeal.
+
+The Executive Director shall present the appeal to the Board of
+Directors, which considers the appeal and decides upon it.
+
+Members of the Board of Directors who took part in the contested
+decision shall not take part in deciding the appeal.
+
+The decision of the Board of Directors on an appeal is final.
+
+
+=== Availability of working documents
+
+Drafts and working documents are available according to
+each party's normal practices.
+
+
+
+=== Promotional activities in co-developed projects
+
+Promotional programs will be shared between the collaborating
+parties for the purpose of coordinating marketing activities.
+
+
+
+=== External progression
+
+In some cases, ELF deliverables are sent to be progressed
+at another standards body:
+
+* upon completion of the Approval stage, an ELF document may be sent
+  immediately to an external standardization body for progression
+  to become a standard; and
+
+* if a published ELF document is subsequently decided to
+  be forwarded to another standards body for progression.
+
+In these situations, the ELF document shall be accompanied by a
+link at the ELF website, that provides the document at the target standards
+body, completely with document number, title, etc. given by that
+standards body.
+
+It is anticipated that such documents will be progressed and modified
+according to the processes of the recipient standards body. ELF
+shall attempt to ensure that the link remains valid, and if
+possible for the most current version of the document.
+
+
+[[liaisons]]
+=== Liaisons and collaborative development
+
+ELF may co-develop and co-publish documents with external
+standardization bodies.
+
+Such collaboration is governed by a collaboration agreement between
+ELF and the collaborating party, which shall be approved by the
+Board of Directors.
+
+For projects under a collaboration agreement, ELF agrees to adopt a
+developmental track not slower than a corresponding track selected
+by the external standardization body to ensure synchronicity between
+development outcome and publication.
+
+The project stages of the collaborating parties shall be synchronized
+correspondingly: if a deliverable is advanced or rejected at the
+external standardization body, the ELF project stage shall be advanced
+or retained accordingly.
+
+
+=== Document requirements
+
+Requirements of an ELF document are stated in <<DIR102>>.
+

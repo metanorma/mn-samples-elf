@@ -1,0 +1,4 @@
+[appendix,obligation=informative]
+== Bibliography
+
+* [[[ISO10303-2,ISO 10303-2]]]

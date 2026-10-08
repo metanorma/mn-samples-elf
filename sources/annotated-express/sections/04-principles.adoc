@@ -1,0 +1,48 @@
+== Basic syntax principles
+
+=== General
+
+Annotated EXPRESS uses the "named remark tag" syntax described in the EXPRESS
+language manual.
+
+[source]
+----
+(*"NAME"
+...
+*)
+----
+
+Where:
+
+* `NAME` is a "tag" that references an EXPRESS object, such as a schema, entity,
+property, function, or rule.
+
+A tag looks like `schema_name.entity_name.property_name`.
+
+[example]
+====
+Given this schema `action_schema`:
+
+[source]
+----
+SCHEMA action_schema;
+  ENTITY action;
+    name : label;
+    description : OPTIONAL text;
+    chosen_method : action_method;
+  DERIVE
+    id : identifier := get_id_value(SELF);
+  WHERE
+    WR1: SIZEOF(USEDIN(SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'ID_ATTRIBUTE.IDENTIFIED_ITEM')) <= 1;
+  END_ENTITY;
+END_SCHEMA;
+----
+
+The tag references would be:
+
+* to the schema: `"action_schema"`
+* to the entity `action`: `"action_schema.action"`
+* to the property `name`: `"action_schema.action.name"`
+* to the derived property `id`: `"action_schema.action.id"`
+* to the where rule `WR1`: `"action_schema.action.wr:WR1"`
+====

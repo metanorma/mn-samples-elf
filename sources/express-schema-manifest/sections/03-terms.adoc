@@ -1,0 +1,27 @@
+== Terms and definitions
+
+
+=== EXPRESS
+data modeling language defined in ISO 10303-11 that provides a formal way to
+specify data structures and constraints
+
+[.source]
+<<iso-10303-11>>
+
+=== EXPRESS schema
+named collection of data specifications in EXPRESS language that defines a set of
+entities, types, rules, and other elements for a specific domain or application
+
+[.source]
+<<iso-10303-11>>
+
+=== schema manifest
+structured document that lists and references multiple EXPRESS schemas and their
+locations
+
+=== root path
+base directory path from which individual schema paths are resolved
+
+=== schema listing
+entry in a schema manifest that identifies an EXPRESS schema by name and
+optionally specifies its location

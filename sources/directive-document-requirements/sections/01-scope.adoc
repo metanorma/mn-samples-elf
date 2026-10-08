@@ -1,0 +1,27 @@
+== Scope
+
+This document provides requirements on document structure of the following types of ELF publication:
+
+* Directive
+
+* Standard
+
+* Guide
+
+* Specification
+
+* Amendment
+
+* Technical corrigendum
+
+* Report
+
+These publication types are described in <<DIR101>>.
+
+This document does not apply to the following types of documents
+produced by ELF, although processes described in this document
+can be optionally used as guidance:
+
+* policy statements;
+* internal administrative documents; and
+* how-to guides.

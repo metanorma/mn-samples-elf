@@ -1,0 +1,36 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: EXPRESS Schema Manifest
+description: Defines a cohesive set of EXPRESS schemas and their locations.
+type: object
+required:
+  - schemas
+additionalProperties: false
+properties:
+  path:
+    type: string
+    description: >-
+      (optional) Root path for all schemas. If not set, the root path is set to
+      the directory where the manifest file is located. Can be an absolute path
+      or include shell expansions like ~ for home directory.
+  schemas:
+    type: object
+    description: >-
+      Map of schema names to their configurations. Each key is the name
+      of an EXPRESS schema.
+    additionalProperties:
+      oneOf:
+        - type: "null"
+          description: >-
+            Schema uses default path pattern: `{root_path}/{schema_name}.exp`.
+        - type: object
+          description: >-
+            Schema configuration with explicit path.
+          additionalProperties: false
+          properties:
+            path:
+              type: string
+              description: >-
+                Path to the schema file, relative to root path or absolute.
+                Relative paths that do not start with `/` are considered relative
+                to the root path. `..` can be used to refer to parent directories.
+                Can include shell expansions like `~`.

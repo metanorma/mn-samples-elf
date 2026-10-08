@@ -1,0 +1,44 @@
+
+[[requirements]]
+== Requirements on deliverables
+
+=== Draft deliverables
+
+All drafts submitted for comment shall include on the cover page the following text:
+
+____
+Recipients of this draft are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.
+____
+
+=== Notification
+
+A published document for which no patent rights are identified during the preparation thereof shall contain the following notice in the foreword:
+
+____
+Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. ELF [and ISO] [and IEC] shall not be held responsible for identifying any or all such patent rights.
+____
+
+
+A published document for which patent rights have been identified during the preparation thereof shall include the following notice in the introduction:
+
+____
+The EXPRESS Language Foundation (ELF) [and The International Organization for Standardization (ISO)] [and The International Electrotechnical Commission (IEC)] draws attention to the fact that it is claimed that compliance with this document may involve the use of a patent concerning (... subject matter ...) given in (... subclause ...).
+
+ELF [and ISO] [and IEC] take[s] no position concerning the evidence, validity and scope of this patent right.
+
+The holder of this patent right has assured ELF [and ISO] [and IEC] that he/she is willing to negotiate licences under reasonable and non-discriminatory terms and conditions with applicants throughout the world. In this respect, the statement of the holder of this patent right is registered with ELF [and ISO] [and IEC]. Information may be obtained from:
+
+name of holder of patent right ...
+
+address ...
+
+Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights other than those identified above. ELF [and ISO] [and IEC] shall not be held responsible for identifying any or all such patent rights.
+____
+
+=== Collaborative developed deliverables
+
+Patent declarations in joint deliverables between ELF and other organizations apply only to the specific documents indicated in the declaration forms. Declarations do not apply to documents that are altered (such as through adoption).
+
+////
+However, implementations that conform to identical national and regional adoptions and the respective ISO and/or IEC Deliverables, may rely on declarations submitted to ISO and/or IEC for such Deliverables.
+////

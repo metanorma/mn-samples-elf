@@ -1,0 +1,34 @@
+== Terms and definitions
+
+For the purposes of this document, the following terms and definitions apply.
+
+=== EXPRESS
+data modeling language defined in ISO 10303-11 that provides a formal way to
+specify data structures and constraints
+
+[.source]
+<<iso-10303-11>>
+
+=== Annotated EXPRESS
+set of rules that build on top of the EXPRESS remark tag syntax for documentation
+and description of EXPRESS code
+
+[.source]
+<<AnnotatedEXPRESS>>
+
+=== remark tag
+syntax in EXPRESS using `(* ... *)` notation to indicate documentation content
+
+[.source]
+<<iso-10303-11>>
+
+=== named remark tag
+remark tag that includes a specific name to reference an EXPRESS object
+
+=== traditional EXPRESS documentation
+documentation approach where text content is placed outside EXPRESS schema content
+in standard document format, with EXPRESS code embedded within the document
+
+=== model-based documentation
+documentation approach where documentation content is embedded within the model
+(EXPRESS schema) using structured remark tags

@@ -1,0 +1,19 @@
+== Introduction
+
+ELF is committed to expanding the realm of open standards for information
+modelling and programming languages across the globe and across communities
+of practice.
+
+To facilitate its mission, the ELF Board of Directors has decided
+to align standardization and publication processes with international
+best practices, such as the ISO standardization process, and the
+<<WTOTBTP>>.
+This document aims to achieve the said intention.
+
+The document describes the ELF standardization process, from
+conception, IPR policy, technical committee establishment, collaboration
+policies (liaisons), to the publishing of work items.
+
+Processes described in this document contain parts that relate
+to all ELF technical committees and the TCB, which
+carries responsibility of implementing these processes.

@@ -1,0 +1,457 @@
+[[operators]]
+== Operators
+
+=== General
+
+==== Description
+
+The mapping language uses operators to express different types of navigation
+through EXPRESS schema entity relationships.
+
+Each operator has specific semantics defining how entities and attributes
+relate in the path traversal.
+
+The operators are described in the sections below.
+
+.Summary of operators
+[options="header",cols="1,4,3"]
+|===
+| Operator | Description | Example
+
+| `pass:[<=]` | Subtype relationship (left is subtype of right) | `entity_a pass:[<=] entity_b`
+| `pass:[=>]` | Supertype relationship (left is supertype of right) | `entity_a pass:[=>] entity_b`
+| `pass:[<-]` | Inverse relationship (navigate backwards) | `entity_a pass:[<-] entity_b.attr`
+| `pass:[->]` | Forward relationship (navigate through attribute) | `entity_a.attr pass:[->] entity_b`
+| `{...}` | Constraint block | `{entity.attr = 'value'}`
+| `[...]` | Required section constraint | `[section1][section2]`
+| `(...)` | Alternative section | `(alt1)(alt2)`
+| `<...>` | Required reference path | `<path>`
+| `&#x007C;...&#x007C;` | Supertype entity marker | `&#x007C;&#x007C;supertype_entity&#x007C;&#x007C;`
+| `[i]` | Aggregate element access | `attr[i]`
+| `[n]` | Ordered aggregate nth element | `attr[n]`
+| `=` | Equality constraint | `attr = 'value'`
+| `\` | Line continuation | `entity \`
+| `&#x002A;` | Relationship tree structure | `&#x002A;relationship&#x002A;`
+| `--` | Comment | `-- this is a comment`
+| `&#x002A;>` | Select/enumeration extension | `select_a &#x002A;> select_b`
+| `<&#x002A;` | Inverse select/enumeration extension | `select_a <&#x002A; select_b`
+| `!{...}` | Negative constraint | `!{entity.attr = 'bad'}`
+
+|===
+
+=== Subtype operator (symbol: `pass:[<=]`)
+
+==== Description
+
+The subtype operator `pass:[<=]` indicates that the left entity is a subtype of the
+right entity.
+
+==== Syntax pattern
+
+[source]
+----
+entity_a <= entity_b
+----
+
+==== Semantics
+
+* `entity_a` must be defined as a subtype of `entity_b` in the EXPRESS schema
+* `entity_a` inherits all attributes and constraints from `entity_b`
+* The path continues from `entity_b`
+
+==== Example
+
+[example]
+====
+[source]
+----
+land <=
+stratum_feature_template_component
+----
+
+Indicates that `land` is a subtype of `stratum_feature_template_component`.
+====
+
+=== Supertype operator (symbol: `pass:[=>]`)
+
+==== Description
+
+The supertype operator `pass:[=>]` indicates that the left entity is a supertype of
+the right entity.
+
+==== Syntax pattern
+
+[source]
+----
+entity_a pass:[=>] entity_b
+----
+
+==== Semantics
+
+* `entity_a` must be defined as a supertype of `entity_b` in the EXPRESS schema
+* `entity_b` is a subtype of `entity_a` and inherits from it
+* The path continues from `entity_b`
+
+==== Example
+
+[example]
+====
+[source]
+----
+product_definition pass:[=>]
+part_template_definition
+----
+
+Indicates that `product_definition` is a supertype of
+`part_template_definition`.
+====
+
+=== Forward navigation operator (symbol: `pass:[->]`)
+
+==== Description
+
+The forward navigation operator `pass:[->]` navigates from an entity through one of
+its attributes to the entity referenced by that attribute.
+
+==== Syntax pattern
+
+[source]
+----
+entity_a.attribute_name pass:[->] entity_b
+----
+
+==== Semantics
+
+* `entity_a` must have an attribute named `attribute_name`
+* The attribute must reference `entity_b` or a supertype of `entity_b`
+* The path continues from `entity_b`
+
+==== Example
+
+[example]
+====
+[source]
+----
+product_definition_relationship.relating_product_definition ->
+product_definition
+----
+
+Navigates from `product_definition_relationship` through its
+`relating_product_definition` attribute to `product_definition`.
+====
+
+=== Inverse navigation operator (symbol: `pass:[<-]`)
+
+==== Description
+
+The inverse navigation operator `pass:[<-]` navigates backwards from a referenced
+entity to entities that reference it through a specific attribute.
+
+==== Syntax pattern
+
+[source]
+----
+entity_b <-
+entity_a.attribute_name
+entity_a
+----
+
+==== Semantics
+
+* `entity_a` must have an attribute named `attribute_name`
+* The attribute must reference `entity_b` or a supertype of `entity_b`
+* The path finds all `entity_a` instances that reference the current `entity_b`
+  through `attribute_name`
+* The path continues from `entity_a`
+
+==== Example
+
+[example]
+====
+[source]
+----
+product_definition <-
+product_definition_relationship.related_product_definition
+product_definition_relationship
+----
+
+Finds all `product_definition_relationship` entities that reference
+`product_definition` through their `related_product_definition` attribute.
+====
+
+=== Constraint block operators
+
+==== Description
+
+==== General
+
+Constraint blocks use curly braces `{}` to specify conditions that must be
+satisfied during path navigation.
+
+==== Constraint start (operator: `{`)
+
+The constraint start operator `{` begins a constraint block.
+
+==== Syntax pattern
+
+[source]
+----
+{constraint_expression}
+----
+
+==== Constraint end (operator: `}`)
+
+The constraint end operator `}` ends a constraint block.
+
+==== Equality operator (symbol: `=`)
+
+The equality operator `=` specifies that an attribute must equal a specific
+value.
+
+==== Syntax pattern
+
+[source]
+----
+{entity_name
+entity_name.attribute_name = value}
+----
+
+Where `value` is:
+
+* A string literal in single quotes for STRING attributes
+* A numeric literal without quotes for INTEGER, REAL, or NUMBER attributes
+* A boolean or logical literal (TRUE, FALSE, UNKNOWN) for BOOLEAN or LOGICAL
+  attributes
+* An enumeration value for ENUMERATION attributes
+
+==== Example
+
+[example]
+====
+[source]
+----
+{product_definition_relationship
+product_definition_relationship.name = 'definition usage'}
+----
+
+Constrains the path to `product_definition_relationship` entities where the
+`name` attribute equals `'definition usage'`.
+====
+
+=== Alternative section operators
+
+==== Description
+
+==== Required sections (operator: `[...]`)
+
+Square brackets `[]` enclose sections that must all be satisfied.
+
+==== Syntax pattern
+
+[source]
+----
+[section_1]
+[section_2]
+----
+
+==== Semantics
+
+* All enclosed sections must be satisfied
+* Each section is a distinct path segment
+
+==== Alternative sections (operator: `(...)`)
+
+Parentheses `()` enclose alternative sections where one alternative must be
+satisfied.
+
+==== Syntax pattern
+
+[source]
+----
+(alternative_1)
+(alternative_2)
+----
+
+==== Semantics
+
+* Exactly one of the enclosed alternatives must be satisfied
+* Each alternative represents a different possible path
+
+=== Aggregate access operators
+
+==== Description
+
+==== Element access operator (symbol: `[i]`)
+
+Square brackets with `i` `[i]` indicate access to any element of an aggregate
+attribute.
+
+==== Syntax pattern
+
+[source]
+----
+entity_name.aggregate_attribute[i]
+----
+
+==== Semantics
+
+* The attribute must be an aggregate type (ARRAY, LIST, SET, or BAG)
+* The notation accesses an arbitrary element
+* The specific element accessed is not specified
+
+==== Ordered element access operator (symbol: `[n]`)
+
+Square brackets with a number `[n]` indicate access to a specific element of an
+ordered aggregate.
+
+==== Syntax pattern
+
+[source]
+----
+entity_name.aggregate_attribute[n]
+----
+
+Where `n` is a positive integer.
+
+==== Semantics
+
+* The attribute must be an ordered aggregate type (ARRAY or LIST)
+* The notation accesses the `n`-th element
+* The first element is at position 1
+
+=== Special operators
+
+==== Description
+
+==== Negation operator (symbol: `!`)
+
+The negation operator `!` negates a constraint.
+
+==== Syntax pattern
+
+[source]
+----
+!{entity_name
+entity_name.attribute_name = value}
+----
+
+==== Semantics
+
+* The constraint is inverted
+* The path excludes entities that match the specified condition
+
+==== Line continuation operator (symbol: `\`)
+
+The backslash `\` indicates that the path expression continues on the next line.
+
+==== Syntax pattern
+
+[source]
+----
+long_entity_name_a \
+long_entity_name_b
+----
+
+==== Semantics
+
+* Purely syntactic
+* The path is treated as if the line break did not exist
+* Used for readability in complex paths
+
+==== Comment operator (symbol: `--`)
+
+The double dash `--` introduces a comment.
+
+==== Syntax pattern
+
+[source]
+----
+entity_name  -- this is a comment
+next_entity_name
+----
+
+==== Semantics
+
+* All text from `--` to the end of the line is ignored
+* Used for documentation and annotations
+* Does not affect path semantics
+
+==== Select extension operators (symbol: `*>`)
+
+The select extension operator `*>` indicates that a SELECT type extends another
+SELECT type.
+
+==== Syntax pattern
+
+[source]
+----
+select_type_a *> select_type_b
+----
+
+==== Semantics
+
+* `select_type_a` is extended to include all options from `select_type_b`
+* Used in schema extension contexts
+
+The inverse select extension operator `<*` indicates the inverse relationship.
+
+==== Syntax pattern
+
+[source]
+----
+select_type_a <* select_type_b
+----
+
+==== Semantics
+
+* `select_type_a` is an extension of `select_type_b`
+* Equivalent to `select_type_b *> select_type_a`
+
+==== Supertype entity marker (symbol: `||`)
+
+The supertype entity marker `||` encloses a supertype entity name.
+
+==== Syntax pattern
+
+[source]
+----
+||supertype_entity||
+----
+
+==== Semantics
+
+* Explicitly marks an entity as a supertype in the path
+* Used for clarity in complex inheritance hierarchies
+
+==== Relationship tree marker (symbol: `*`)
+
+The relationship tree marker `*` indicates a relationship tree structure.
+
+==== Syntax pattern
+
+[source]
+----
+*relationship_entity*
+----
+
+==== Semantics
+
+* Multiple instances of the relationship entity may be assembled in a tree
+* The path between the relationship entity and related entities is implied
+* Used for complex recursive relationships
+
+==== Required reference path marker (symbol: `<>`)
+
+The required reference path marker `<>` encloses a required path segment.
+
+==== Syntax pattern
+
+[source]
+----
+<path_segment>
+----
+
+==== Semantics
+
+* The enclosed path segment must be present
+* Used to emphasize mandatory portions of alternative paths

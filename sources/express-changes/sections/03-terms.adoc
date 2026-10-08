@@ -1,0 +1,17 @@
+
+== Terms and definitions
+
+=== schema change
+
+modification to an EXPRESS schema that alters the structure or semantics of the
+schema
+
+=== schema version
+
+specific iteration of an EXPRESS schema, identified by its version number
+in the schema identifier as a positive integer
+
+=== mapping change
+
+modification to the mapping of an EXPRESS schema
+

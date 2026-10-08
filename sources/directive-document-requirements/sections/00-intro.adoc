@@ -1,0 +1,16 @@
+== Introduction
+
+ELF is committed to expanding the realm of standards for information
+modelling and programming languages, with a focus on the EXPRESS
+language family and interoperability across the globe and communities
+of practice.
+
+To facilitate its mission, the ELF Board of Directors has decided
+to align standardization and publication processes with international
+best practices, such as the ISO standardization process
+(<<ISODIR1>>, <<ISODIR1C>>, <<ISODIR2>>)
+and the <<WTOTBT>>.
+
+This document aims to achieve the said intention.
+
+The document describes requirements for ELF standard documents.

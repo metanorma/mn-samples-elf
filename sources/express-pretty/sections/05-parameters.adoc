@@ -1,0 +1,39 @@
+== EXPRESS pretty printing parameters
+
+=== General
+
+In a pretty printing process, parameters are used to control the formatting
+of the output. These parameters can include settings for indentation,
+line length, and other formatting options. The parameters are typically
+specified in a configuration file or as command-line arguments when
+invoking the pretty printer.
+
+
+=== Pretty printing parameters
+
+This following parameters are used to control the formatting of the
+output in the context of EXPRESS pretty printing.
+
+`indent`:: Indent specifies the number of spaces to use for indentation.
+This parameter can be set to a specific value, such as 2, 4, or 8,
+or to a special value like `tab` to indicate that tabs should be used
+for indentation. The default value is 4 spaces.
+
+`line-length`:: Line length specifies the maximum number of characters
+to allow on a single line before wrapping to the next line.
+This parameter can be set to a specific value, such as 80 or 120
+or to a special value like `unlimited` to indicate that there is no
+limit on line length.
+
+`insert-newline`::
+Insert newline specifies whether to insert a newline character
+after certain constructs, such as declarations or expressions.
+This parameter can be set to `true` or `false`, depending on the
+desired formatting style.
+
+`insert-space`:: Insert space specifies whether to insert a space
+character between certain constructs, such as operators or
+parentheses.
+This parameter can also be set to `true` or `false`, depending
+on the desired formatting style.
+

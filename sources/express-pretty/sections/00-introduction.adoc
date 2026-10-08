@@ -1,0 +1,47 @@
+== Introduction
+
+The EXPRESS language, defined in ISO 10303-11, is widely used for data modeling
+in product data exchange applications. A consistent, readable formatting of
+EXPRESS schemas is crucial for human readers to understand the structure and
+semantics of the data models.
+
+Pretty printing refers to the systematic formatting of source code, in this
+case EXPRESS schemas, to enhance readability, maintainability, and
+consistency. A standardized pretty printing format ensures that all EXPRESS
+schemas follow uniform layout rules, making them easier to read, understand,
+and maintain across different implementations and applications.
+
+The rules specified in this document were originally developed by the Express
+Engine team to fill a gap in the ISO/TC 184/SC 4 Supplementary Directives.
+While the Supplementary Directives document (TC 184/SC 4 N2412) and its
+subsequent versions provide some guidance on EXPRESS schema formatting, they
+do not comprehensively address the layout of all EXPRESS constructs.
+
+The pretty printing rules presented here explain how various EXPRESS constructs
+should be formatted for presentation. The document provides references for the
+formatting choices where possible, especially when they are derived from the
+SC4 Supplementary Directives. Where the Directives do not specify formatting
+rules, this document establishes consistent formatting patterns based on the
+Express Engine implementation.
+
+This standard addresses the layout of three basic groups of objects in EXPRESS:
+
+* Declarations (schema, entity, type, function, etc.)
+* Expressions (arithmetic, logical, relational, etc.)
+* Statements (assignment, procedure calls, conditionals, etc.)
+
+By following these rules, EXPRESS schema authors and tool developers can ensure
+that their schemas are presented in a consistent, readable manner that aligns
+with community practices.
+
+This standard builds upon the significant contributions of the Express Engine
+team, particularly the work of Craig Lanning and Thomas Thurman who authored the
+original documentation of pretty printing rules for the EXPRESS language. The
+EXPRESS community recognizes their valuable contributions to establishing
+consistent and readable formatting for EXPRESS schemas.
+
+While the ISO/TC 184/SC 4 had not previously defined comprehensive pretty
+printing rules for EXPRESS, the Express Engine team contributed these rules to
+the ISO/TC 184/SC 4 Supplemental Directives. The EXPRESS Language Foundation has
+adopted these rules as a formal standard to ensure consistent schema formatting
+across the EXPRESS ecosystem.

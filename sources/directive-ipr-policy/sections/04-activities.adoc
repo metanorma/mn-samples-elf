@@ -1,0 +1,18 @@
+[[standardization-activities]]
+== Standardization activities
+
+[[confidentiality]]
+=== No confidential material
+
+No confidential material is to be discussed at or during ELF standardization activities.
+
+All information provided or discussed in ELF activities is presumed to be public information and member participants are reminded that they should not discuss or reveal any confidential information of their respective organizations.
+
+While work in progress within ELF is not publicly available outside ELF, with minor exceptions, completed work products of ELF are intended to be publicly and freely available, and will be posted on the ELF web site.
+
+
+=== Mandatory disclosure of intellectual property rights
+
+Discussions that relate to known or potential intellectual property rights during ELF standardization activities must be performed under full disclosure of such rights.
+
+Individuals participating in the activities of ELF are responsible for determining that such rights when known, must be disclosed in accordance with this provision.

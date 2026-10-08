@@ -1,0 +1,193 @@
+= ELF Directive: Patent policy
+:title-main-en: ELF Directive: Patent policy
+:boilerplate-authority: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/copyright.adoc
+:publisher_logo: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/logo.svg
+:i18nyaml: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/i18n.yaml
+:pdf-stylesheet-override: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/elf.xsl
+:publisher: EXPRESS Language Foundation
+:publisher_abbr: ELF
+:presentation-metadata-color-secondary: #3f65a2
+:presentation-metadata-backcover-text: expresslang.org
+:fonts: Source Sans 3
+:output-extensions: xml,html,pdf,doc,presentation
+:presentation-metadata-doctype-alias: standard
+:docnumber: 103
+:edition: 1
+:copyright-year: 2026
+:revdate: 2026-08-30
+:language: en
+:doctype: international-standard
+:technical-committee: TCB
+:imagesdir: images
+:mn-document-class: elf
+:mn-output-extensions: xml,html,doc,pdf,rxl
+:docidentifier: ELF 103:2026
+:data-uri-image:
+:local-cache-only:
+
+.Foreword
+The EXPRESS Language Foundation ("`ELF`") is a registered public charity in the
+US that facilitates the education, standardization, research, promotion,
+definition, and usage of information modelling and programming languages, with a
+focus on the EXPRESS language family.
+
+ELF works with international partners and experts across the globe, reflecting
+the international nature of its mission. More information about ELF is available
+on the official website (link:++https://www.expresslang.org++[]).
+
+The procedures used to develop this document and those intended for its further
+maintenance are described in the ELF Directives.
+
+In particular the different approval criteria needed for the different types of
+ELF documents should be noted. This document was drafted in accordance with the
+editorial rules of the ELF Directives.
+
+Attention is drawn to the possibility that some of the elements of this
+document may be the subject of patent rights. ELF shall not be held responsible
+for identifying any or all such patent rights. Details of any patent rights
+identified during the development of the document will be provided in the
+Introduction.
+
+Any trade name used in this document is information given for the convenience of
+users and does not constitute an endorsement.
+
+This document was prepared by the Technical Coordination Board (TCB).
+== Introduction
+
+=== General
+
+ELF is committed to expanding the realm of standards for information
+modelling and programming languages, with a focus on the EXPRESS
+language family and interoperability across the globe and communities
+of practice.
+
+As a proponent of open standards, ELF does not endorse
+mandatory usage of patents within ELF Standards.
+The ELF Board of Directors has decided to align
+IPR practice with major international standardization bodies
+including ISO, IEC and ITU.
+
+=== Purpose
+
+This document describes the policy of ELF with regards to patent
+usage within ELF deliverables and provides a
+"`code of practice`" that is simple and straightforward.
+
+ELF deliverables are drawn up by technical, not patent, experts,
+who may not be fully aware of all nuances in the complex
+international legal situation of intellectual property rights.
+
+ELF deliverables are non-binding -- their objective is to ensure
+compatibility of technologies and systems on a worldwide basis.
+
+To ensure the applicability and accessibility of ELF
+deliverables, the implementation and continued usage of content within
+the deliverables must be possible to the worldwide audience without
+discrimination, including any patent embodiment in such deliverables.
+
+== Scope
+
+This document provides the ELF patent policy, which governs all
+standardization deliverables developed through the ELF
+standardization process.
+
+The ELF patent policy is identical to the <<ISOPP>> in content,
+except where:
+
+* entity names such as "`ISO`", "`IEC`", "`ITU-T`" and "`ITU-R`" were
+changed to "`ELF`";
+
+* deliverables and processes pertaining to those entities have been
+changed to their counterparts within ELF.
+
+Detailed arrangements arising from patents (licensing, royalties, etc.)
+are left to the parties concerned, as these arrangements might differ
+from case to case.
+
+[bibliography]
+== Normative References
+
+* [[[ISOPP,ISO/IEC/ITU common patent policy]]], _ISO/IEC/ITU common patent policy_, link:++https://isotc.iso.org/livelink/livelink/fetch/2000/2122/3770791/Common_Policy.htm++[]
+
+[source="DIR101"]
+
+[[terms]]
+== Terms and definitions
+
+[[information-transparency]]
+== Patent information transparency policy
+
+ELF does not provide authoritative or comprehensive information
+about evidence, validity or scope of patents or similar rights.
+
+However, the fullest available information shall be disclosed in any ELF-published standard.
+
+Therefore, any party participating in the work of ELF shall,
+from the outset, draw the attention of the Executive Director and TCB
+of ELF, to any known patent or to any known pending patent
+application, either their own or of other organizations, although
+ELF is unable to verify the validity of any such information.
+
+In a joint deliverable developed with other standardization bodies,
+IPR requirements of all such standardization bodies who will be
+publishing the deliverable shall be satisfied.
+
+[[licensing-requirements]]
+== Licensing requirements on patent holders
+
+=== General
+
+If an ELF deliverable is developed and such information as
+referred to in <<information-transparency>> has been disclosed,
+one of the following three situations may arise.
+
+[[license-free]]
+=== Situation 1: Licensing free-of-charge
+
+The patent holder is willing to negotiate licences free of charge with
+other parties on a nondiscriminatory basis on reasonable terms and
+conditions.
+
+Such negotiations are left to the parties concerned and are performed
+outside ELF.
+
+[[license-nd]]
+=== Situation 2: Licensing in a non-discriminatory manner
+
+The patent holder is willing to negotiate licences with other parties
+on a non-discriminatory basis on reasonable terms and conditions.
+
+Such negotiations are left to the parties concerned and are performed
+outside ELF.
+
+[[license-other]]
+=== Situation 3: Licensing in other manners
+
+The patent holder is not willing to comply with the provisions of
+either <<license-free>> or <<license-nd>>.
+
+In such case, the deliverable shall not include provisions that depends
+on the patent.
+
+[[declaration]]
+== Patent declaration requirements
+
+Whatever the licensing requirements (<<licensing-requirements>>)
+are, the patent holder must provide a written statement to be
+filed at ELF, using the appropriate
+"`Patent Statement and Licensing Declaration`" Form.
+
+This statement must not include additional provisions, conditions, or
+any other exclusion clauses in excess of what is provided for each case
+in the corresponding boxes of the form.
+
+[bibliography]
+== Bibliography
+
+* [[[DIR101,ELF 101:2026]]], _ELF Directive: Standardization and publication_
+
+* [[[ISODIR1,ISO/IEC Directives, Part 1]]], _ISO/IEC Directives, Part 1, Procedures for the technical work_
+
+* [[[ISODIR2,ISO/IEC Directives, Part 2]]], _ISO/IEC Directives, Part 2, Principles and rules for the structure and drafting of ISO and IEC documents_
+
+* [[[ISODIR1C,ISO/IEC Directives, Part 1, Consolidated ISO Supplement]]], _ISO/IEC Directives, Part 1, Consolidated ISO Supplement, Procedures specific to ISO_

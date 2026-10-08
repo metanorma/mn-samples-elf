@@ -1,0 +1,615 @@
+= ELF Directive: Standard document requirements
+:title-main-en: ELF Directive: Standard document requirements
+:boilerplate-authority: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/copyright.adoc
+:publisher_logo: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/logo.svg
+:i18nyaml: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/i18n.yaml
+:pdf-stylesheet-override: /Users/mulgogi/.local/share/mise/installs/ruby/3.4.8/lib/ruby/gems/3.4.0/gems/metanorma-taste-1.1.2/data/elf/elf.xsl
+:publisher: EXPRESS Language Foundation
+:publisher_abbr: ELF
+:presentation-metadata-color-secondary: #3f65a2
+:presentation-metadata-backcover-text: expresslang.org
+:fonts: Source Sans 3
+:output-extensions: xml,html,pdf,doc,presentation
+:presentation-metadata-doctype-alias: standard
+:docnumber: 102
+:edition: 1
+:copyright-year: 2026
+:revdate: 2026-08-30
+:language: en
+:doctype: international-standard
+:technical-committee: TCB
+:imagesdir: images
+:mn-document-class: elf
+:mn-output-extensions: xml,html,doc,pdf,rxl
+:docidentifier: ELF 102:2026
+:data-uri-image:
+:local-cache-only:
+
+.Foreword
+The EXPRESS Language Foundation ("`ELF`") is a registered public charity in the
+US that facilitates the education, standardization, research, promotion,
+definition, and usage of information modelling and programming languages, with a
+focus on the EXPRESS language family.
+
+ELF works with international partners and experts across the globe, reflecting
+the international nature of its mission. More information about ELF is available
+on the official website (link:++https://www.expresslang.org++[]).
+
+The procedures used to develop this document and those intended for its further
+maintenance are described in the ELF Directives.
+
+In particular the different approval criteria needed for the different types of
+ELF documents should be noted. This document was drafted in accordance with the
+editorial rules of the ELF Directives.
+
+Attention is drawn to the possibility that some of the elements of this
+document may be the subject of patent rights. ELF shall not be held responsible
+for identifying any or all such patent rights. Details of any patent rights
+identified during the development of the document will be provided in the
+Introduction.
+
+Any trade name used in this document is information given for the convenience of
+users and does not constitute an endorsement.
+
+This document was prepared by the Technical Coordination Board (TCB).
+== Introduction
+
+ELF is committed to expanding the realm of standards for information
+modelling and programming languages, with a focus on the EXPRESS
+language family and interoperability across the globe and communities
+of practice.
+
+To facilitate its mission, the ELF Board of Directors has decided
+to align standardization and publication processes with international
+best practices, such as the ISO standardization process
+(<<ISODIR1>>, <<ISODIR1C>>, <<ISODIR2>>)
+and the <<WTOTBT>>.
+
+This document aims to achieve the said intention.
+
+The document describes requirements for ELF standard documents.
+
+== Scope
+
+This document provides requirements on document structure of the following types of ELF publication:
+
+* Directive
+
+* Standard
+
+* Guide
+
+* Specification
+
+* Amendment
+
+* Technical corrigendum
+
+* Report
+
+These publication types are described in <<DIR101>>.
+
+This document does not apply to the following types of documents
+produced by ELF, although processes described in this document
+can be optionally used as guidance:
+
+* policy statements;
+* internal administrative documents; and
+* how-to guides.
+[bibliography]
+== Normative References
+
+* [[[DIR101,ELF 101:2026]]], _ELF Directive: Standardization and publication_
+[source="ISODIR1,ISODIR1C,ISODIR2,DIR101"]
+
+[[terms]]
+== Terms, definitions and abbreviations
+
+=== Terms and definitions
+
+[[term-std-work-item]]
+==== standardization work item
+
+publishable work item that creates output that relates
+to standardization
+
+
+[[term-std-project]]
+==== standardization project
+
+organized process with one or more
+_standardization work items_ (<<term-std-work-item>>) that
+contributes towards a defined scope of work
+
+
+[[term-project-owner]]
+==== project owner
+
+entity with authority in charge of a _standardization project_
+(<<term-std-project>>)
+
+[[term-document]]
+==== document
+
+written output of a _standardization work item_ (<<term-std-work-item>>)
+
+[[term-cc-deliverable]]
+==== ELF deliverable
+
+_document_ (<<term-document>>) that could be an ELF Standard,
+Guide, Specification, Report
+
+[[term-iso-deliverable]]
+==== ISO TC deliverable
+
+_document_ (<<term-document>>) of an ISO TC as described in <<ISODIR1>>
+
+NOTE: According to <<ISODIR1>>, ISO TC deliverables include the following types: International Standards, Technical Specifications, Publicly Available Specifications and Technical Reports.
+
+[[term-cc-tc]]
+==== ELF technical committee
+alt:[ELF TC]
+
+internal committee of ELF tasked with a scope of work it
+is responsible for
+
+[[term-document-stage]]
+==== document stage
+
+stage of _document_ (<<term-document>>) as specified in the ELF stages (as defined in <<DIR101>>)
+
+[[term-std-project-output]]
+==== standardization project output
+
+output of a _standardization project_ (<<term-std-project>>)
+
+NOTE: In this document, this explicitly means any documents and IP rights
+produced by the standardization project.
+
+[[term-sdo]]
+==== standardization body
+alt:[standards-developing organization]
+alt:[SDO]
+
+entity that publishes _standardization work items_ (<<term-std-work-item>>)
+
+
+[[term-std-proposal]]
+==== proposal for standardization
+
+proposal for a new _work item_ (<<term-std-work-item>>) for standardization
+
+[[term-co-develop]]
+==== co-develop
+alt:[collaborative development]
+
+act of developing a _standardization work item_ (<<term-std-work-item>>) by multiple parties from the proposal
+_document stage_ (<<term-document-stage>>)
+
+[[term-co-publish]]
+==== co-publish
+alt:[collaborative publishing]
+
+act of publishing _documents_ (<<term-document>>) of identical content
+by multiple parties
+
+==== joint work item
+
+_standardization work item_ (<<term-std-work-item>>) _co-developed_ (<<term-co-develop>>) by both parties
+
+
+==== joint publication
+
+publication that is _co-published_ (<<term-co-publish>>) by ELF with
+an external _standardization body_ (<<term-sdo>>)
+
+NOTE: Both parties may jointly hold copyright of the joint publication.
+
+
+=== Abbreviations
+
+IPR:: Intellectual Property Rights
+
+TCB:: Technical Coordination Board
+
+[[numbering]]
+== Project/document identifier
+
+=== General
+
+ELF implements a numbering system for projects/documents.
+
+=== Project index
+
+A project/document index shall be maintained on the ELF
+website with documents listed by number, name, and type.
+
+[[project-code]]
+=== Project code
+
+. The project code shall be of the form pass:c,q,a,m,p[`[n\]`], where pass:c,q,a,m,p[`[n\]`] is any
+selected positive integer of five (5) or less digits.
+
+. The numbering system applies across all project types.
+Different project types shall not share an identical project code.
+
+. The project code shall be assigned on proposal acceptance
+of the project.
+
+. Co-published documents shall attempt to use an identical project
+code in both ELF and at the collaborative publisher to prevent
+potential ambiguity, if possible.
+
+
+=== Document identifier
+
+==== Representation
+
+The document identifier takes the form of pass:c,q,a,m,p[`[type\][stage\] [code\][:\][y\]`], where:
+
+* pass:c,q,a,m,p[`[type\]`] is the document identifier prefix;
+* pass:c,q,a,m,p[`[stage\]`] is the document stage;
+* pass:c,q,a,m,p[`[code\]`] is the project code of the project that created the document; and
+* pass:c,q,a,m,p[`[y\]`] is the 4-digit edition year.
+
+
+==== Edition year
+
+The edition year is the calendar year in which the document is published.
+On updates, a document will retain the same project code but may be
+assigned a different edition year in which the update is published.
+
+
+==== Co-publishing
+
+Co-published documents shall incorporate codes from all collaborative
+publishing parties in the document identifier, joined together via a
+"`solidus`" sign ("`pass:c,q,a,m,p[``/``]`").
+
+[example]
+ELF deliverables co-published with ISO are referenced as "`ELF/ISO`",
+with IETF as "`ELF/IETF`".
+
+
+[[document-type]]
+==== Document types
+
+Document types shall be represented in the "`type`" as follows:
+
+. Standard, "`ELF`"
+
+. Directive, "`ELF/DIR`"
+
+. Guide, "`ELF/Guide`"
+
+. Specification, "`ELF/S`"
+
+. Report, "`ELF/R`"
+
+. Amendment, "`ELF/Amd`"
+
+. Technical corrigendum, "`ELF/Cor`"
+
+. Administrative, "`ELF/A`"
+
+[example]
+"`ELF/Guide/DS 38002:2018`" is an ELF Guide at DS stage with
+project number 38002, published in 2018.
+
+
+[[document-stage]]
+==== Document stages
+
+Document stages shall be represented in the "`stage`" as follows:
+
+. Published, "`pass:c,q,a,m,p[`` ``]`" (blank)
+
+. Final draft standard, "`pass:c,q,a,m,p[``/FDS``]`"
+
+. Draft standard, "`pass:c,q,a,m,p[``/DS``]`"
+
+. Technical committee draft, "`pass:c,q,a,m,p[``/CD``]`"
+
+. Project group draft / Working draft, "`pass:c,q,a,m,p[``/WD``]`"
+
+
+[example]
+"`ELF/FDS 10668:2018`" is an ELF standard document at FDS stage
+with project number 10668, published in 2018.
+
+[example]
+"`ELF/Guide/DS 20080:2018`" is an ELF guide at DS stage with
+project number 20080, published in 2018.
+
+
+NOTE: Existing documents can be retrofitted to the scheme as practical.
+
+
+[[document-structure]]
+== Document structure
+
+=== General
+
+This section describes the document structure and element
+requirements of a ELF standard document.
+
+=== Cover page
+
+The cover page will contain:
+
+. ELF logo
+
+. Document number (<<project-code>>)
+
+. Document type (<<document-type>>)
+
+. Document title
+
+. Document status (<<document-stage>>)
+
+. Date of publication
+
+. Responsible technical committee
+
+. Document authors and their affiliations, if any (<<document-authors>>)
+
+. Incorporation by reference and hyperlink of the appropriate
+statements of Intellectual Property Rights, Appropriate Usage,
+Trademarks, and Disclaimer of Warranty
+
+In co-published deliverables, as well as any further adoptions,
+the document shall retain the logographic marks of the
+publishing organizations.
+
+
+=== Draft warning
+
+This warning must be shown on the cover page for all draft documents.
+
+[quote]
+____
+WARNING FOR DRAFTS
+
+This document is not an ELF Standard. It is distributed for review and comment, and is subject to change without notice and may not be referred to as a Standard. Recipients of this draft are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.
+____
+
+=== Public review note
+
+Certain ELF documents are intended for public review, as
+specified in <<DIR101>>.
+
+The following note must be shown on the cover page for all documents
+intended for public review.
+
+[quote]
+____
+INSTRUCTIONS FOR REVIEW
+
+This draft is intended for public review. Comments shall be submitted to the issue tracker of the corresponding ELF document repository.
+____
+
+
+=== Technical committee
+
+The responsible technical committee shall be shown on the cover page.
+
+
+[[document-authors]]
+=== Authors, editors and their affiliations
+
+Authors and editors of ELF published documents shall be shown on the
+cover page.
+
+Each individual author or editor shall be shown on the cover page with:
+
+* their role (author or editor) in the creation of the document;
+
+* an affiliation, if the author participated through a ELF organizational membership,
+  where the affiliation must be a current ELF member
+  at the time of participation as an author or editor.
+  Otherwise, in the case an author is an individual member,
+  it should be clearly marked as so.
+
+When a document is attributable to a TC in its entirety, or to
+ELF as an organization, no individual authorship shall be
+shown on the cover page.
+
+
+=== Contributor acknowledgement
+
+Contributors other than authors and editors of the document as well as
+other contributing parties, shall be provided if appropriate within the Foreword.
+
+
+=== Table of contents
+
+A table of contents shall be provided in any user consumable
+format, including HTML, PDF and Word.
+
+This does not apply to standard definition files (ELF XML)
+intended for machine consumption.
+
+The table of contents may be omitted if the document is
+to be provided on paper medium with less than five (5) pages.
+
+
+=== Sections and subsections
+
+The body of the document shall have section and subsection identifiers
+to make it easy to refer clearly to specific items in the document.
+
+
+=== Referable document elements
+
+Document elements including numbered list items, examples, and notes shall be numbered
+uniquely within a clause.
+Such elements shall be cited within the document by their number and containing clause.
+
+[example]
+"Clause 3 a)"
+
+[example]
+"6.3.3 a)"
+
+[example]
+"8.2 Note 3"
+
+[example]
+"2.6 Example 9"
+
+
+Tables, figures, formulas shall be numbered uniquely within
+the document.
+Such elements shall be cited within the document by their type and number.
+
+
+[example]
+"Table 2"
+
+[example]
+"Figure 5"
+
+[example]
+"Formula 12"
+
+
+
+[[spec-foreword]]
+=== Foreword
+
+The foreword shall be the first section of the document, unnumbered.
+It is a mandatory section.
+
+The foreword shall contain a description of the ELF organization
+and provide the necessary copyright and trademark statements.
+
+It is also the place to provide acknowledgements to contributors.
+
+In a revised ELF standard, the foreword shall also describe
+a summary of changes from the previous edition.
+
+
+=== Introduction
+
+The introduction shall be the second section of the document, unnumbered.
+It is a mandatory section.
+
+It shall describe the purpose and intent of the document, as well as
+potential use cases. The document's relationship with existing ELF
+or external standards, if appropriate to be explained,
+shall also be described here.
+
+
+=== Scope
+
+The scope shall always be provided as Section 1.
+
+
+=== Normative and informative references
+
+The section for normative references should be placed at Section 2 of the document.
+
+Informative references shall be placed at the Bibliography section
+at the end of the document, unnumbered.
+
+References in these sections shall be fully cited.
+
+
+[[spec-terms-definitions]]
+=== Terms and definitions
+
+The terms and definitions sections shall be placed beginning at Section 3.
+
+
+////
+=== Glossary
+
+A glossary may be provided if appropriate.
+
+// TODO: Where? Suggest they be considered part of Terms & Definitions.
+////
+
+=== Annexes and appendices
+
+Annexes are numbered sections provided after the main body text.
+An annex may be considered informative or normative.
+
+Each annex is given a clause identifier of capital Latin letters starting from
+the A to Z (English order).
+The first annex shall be stated as (and referred to) "Annex A",
+the second "Annex B", and so forth.
+
+Clauses within annexes shall start with the annex identifier, for example,
+the first subclause in Annex A is "A.1".
+
+Appendixes are "annexes of annexes", and are given a clause identifier
+that incorporate the annex it belongs to, followed by a capital Latin
+letter starting from A to Z (English order).
+
+For example, the first appendix of Annex A will be "Appendix AA",
+the second appendix of Annex C will be "Annex CB".
+
+Clauses within appendix shall start with the appendix identifier, for example,
+the first subclause in Annex SA is "SA.1".
+
+
+=== Change summary
+
+Changes to a document from a previous edition shall be described
+in summarized, bullet-point form at the end of the Foreword (<<spec-foreword>>).
+
+
+=== Page numbers
+
+For documents rendered on paper medium for user consumption,
+page numbers shall be provided on all pages.
+
+// This is ISO practice
+Page numbers shall use Roman numbers of unnumbered initial sections,
+and Arabic numerals for the main body of text (including appendices).
+
+
+=== Trademark and copyright statement
+
+A trademark and copyright statement of the form shown below must
+appear on the cover page and the foreword.
+
+Note that "`pass:c,q,a,m,p[``yyyy``]`" is the 4-digit year, such as "`pass:c,q,a,m,p[``2009``]`".
+
+//(TODO: add trademark statement)
+
+[quote]
+____
+(c) yyyy EXPRESS Language Foundation.
+
+All rights reserved. Unless otherwise specified, no part of this publication may be reproduced or utilized otherwise in any form or by any means, electronic or mechanical, including photocopying, or posting on the internet or an intranet, without prior written permission. Permission can be requested from the address below.
+____
+
+=== Draft documents
+
+Draft documents should clearly indicate on the title page and
+every page of the document that they are a draft document.
+
+
+=== Canonical representation
+
+An ELF document shall be digitally represented in canonical form
+using the ELF XML syntax, in accordance
+with its defined grammar. This allows the ELF document to be
+digitally rendered into any kind of supported format, including HTML,
+PDF and Word.
+
+ELF XML is an adopted form of Metanorma XML of the Metanorma
+standard document model.
+
+
+[bibliography]
+== Bibliography
+
+* [[[WTOTBT,WTO Technical Barriers To Trade Agreements]]], World Trade Organization, _The WTO Agreements Series Technical Barriers to Trade_
+
+* [[[ISODIR1,ISO/IEC Directives, Part 1]]], _ISO/IEC Directives, Part 1, Procedures for the technical work_
+
+* [[[ISODIR2,ISO/IEC Directives, Part 2]]], _ISO/IEC Directives, Part 2, Principles and rules for the structure and drafting of ISO and IEC documents_
+
+* [[[ISODIR1C,ISO/IEC Directives, Part 1, Consolidated ISO Supplement]]], _ISO/IEC Directives, Part 1, Consolidated ISO Supplement, Procedures specific to ISO_

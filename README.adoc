@@ -1,0 +1,116 @@
+= EXPRESS Language Foundation Specifications
+
+image:https://github.com/expresslang/docs/workflows/generate/badge.svg["Build Status", link="https://github.com/expresslang/docs/actions?query=workflow%3Agenerate"]
+
+This document is available in its rendered forms here:
+
+* https://www.expresslang.org/[EXPRESS Language Foundation]
+
+== Introduction
+
+This repository contains official specifications and directives maintained by the
+EXPRESS Language Foundation (ELF). The EXPRESS Language Foundation facilitates the
+education, standardization, research, promotion, definition, and usage of
+information modelling and programming languages, with a focus on the EXPRESS
+language family.
+
+The specifications include:
+
+5001:: *Annotated EXPRESS* -- Specification for documenting EXPRESS models with structured annotations
+5002:: *EXPRESS language pretty print format* -- Specification for standardized formatting of EXPRESS language constructs
+5003:: *EXPRESS documentation migration* -- Specification for migrating EXPRESS documentation to the new format
+5004:: *EXPRESS schema manifest* -- Specification for creating a manifest of EXPRESS schemas
+5005:: *EXPRESS changes* -- Specification for documenting changes to the EXPRESS language and its specifications
+5006:: *EXPRESS mapping language* -- Specification for expressing reference paths amongst a set of EXPRESS schemas
+
+The directives include:
+
+101:: *Standardization and publication* -- Directive on the ELF standardization and publication processes
+102:: *Standard document requirements* -- Directive on requirements for ELF standard documents
+103:: *Patent policy* -- Directive on the ELF patent policy
+104:: *Guidelines for the implementation of the patent policy* -- Directive providing guidelines for the implementation of the ELF patent policy
+105:: *Intellectual property rights policy* -- Directive on the ELF intellectual property rights policy
+
+The specifications and directives are written in Metanorma to generate standardized
+documentation in multiple formats.
+
+== Structure
+
+`sources/`:: source files for EXPRESS specifications and ELF directives in Metanorma format.
+
+`sources/annotated-express/`:::
+Annotated EXPRESS specification
+
+`sources/express-pretty/`:::
+EXPRESS language pretty print format specification
+
+`sources/expressdocs-migration/`:::
+Migration of EXPRESS documentation to EXPRESSdocs
+
+`sources/express-schema-manifest/`:::
+EXPRESS schema manifest specification
+
+`sources/express-changes/`:::
+EXPRESS changes specification
+
+`sources/express-mapping/`:::
+EXPRESS mapping language specification
+
+`sources/directive-standardization/`:::
+ELF Directive 101: Standardization and publication
+
+`sources/directive-document-requirements/`:::
+ELF Directive 102: Standard document requirements
+
+`sources/directive-patent-policy/`:::
+ELF Directive 103: Patent policy
+
+`sources/directive-ipr-guidelines/`:::
+ELF Directive 104: Guidelines for the implementation of the patent policy
+
+`sources/directive-ipr-policy/`:::
+ELF Directive 105: Intellectual property rights policy
+
+== Building documentation
+
+This repository uses Metanorma to build standardized documentation.
+
+=== Installing build tools
+
+See https://www.metanorma.org/install/ for detailed installation instructions.
+
+
+=== Building locally
+
+If you have Metanorma installed locally, run:
+
+[source,sh]
+----
+metanorma site generate
+----
+
+=== Building with Docker
+
+If you prefer to use Docker, run:
+
+[source,sh]
+----
+docker run -v "$(pwd)":/metanorma -w /metanorma -it metanorma/mn metanorma site generate
+----
+
+== Generated Formats
+
+The build process generates documentation in multiple formats:
+
+* HTML -- Web-friendly format with navigation
+* PDF -- Print-ready format
+* XML -- Machine-readable format
+* RXL -- Relaton XML bibliographic format
+
+== License
+
+Copyright EXPRESS Language Foundation.
+
+ELF documents are made available under the Creative Commons Attribution
+4.0 International (CC BY 4.0) license. The full license text is available
+in the LICENSE file.

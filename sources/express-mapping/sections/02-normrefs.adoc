@@ -1,0 +1,7 @@
+
+[bibliography]
+== Normative references
+
+* [[[ISO10303-1,ISO 10303-1:2024]]]
+
+* [[[ISO10303-11,ISO 10303-11:2004]]]

@@ -1,0 +1,1512 @@
+@c -*- Mode: TexInfo -*-
+
+
+@c Appendix: Pretty Printer Notes
+
+@c ==================================================
+@node Pretty Printer Notes
+@appendix Pretty Printer Notes
+
+@c ==================================================
+@node Introduction to the Pretty Printer
+@appendixsec Introduction
+
+This will be either a reference to a section of the Supplementary
+Directives document TC 184/SC 4 N2412, a later version of that document, a reference to a part of a SC4 standard that formats
+a similar item, or a reference to one of those documents with a
+description of how that section is extrapolated.
+@footnote{@i{Express Engine} tries very hard to adhere to the specifications in
+the @i{SC4 Supplementary Directives}.  That document
+doesn't describe how to layout all EXPRESS constructs.
+To fill that void, this appendix explains how @i{Express Engine} will
+lay them out.  This will give ISO/TC 184/SC 4 members a reference for how
+@i{Express Engine} presents the layout in the case of interest. That layout can be used
+for initial input for future updates to the @i{SC4 Supplementary Directives} if desired.}
+
+This appendix contains the descriptions of how the Pretty Printer will
+format the SCHEMA and its contents for presentation.  It should provide
+references for why it is formatting a particular item a particular way.
+
+This will discuss the layout of three basic groups of objects:
+declarations, expressions, and statements.
+
+<<Give description of terminology used in this appendix>>
+
+@c ==================================================
+@node CL Pretty Print Facilities
+@appendixsec CL Pretty Print Facilities
+
+Here is a brief list with descriptions of the Common Lisp functions and
+macros that implement the CL Pretty Printer.
+
+@table @tt
+@item PPRINT-EXIT-IF-LIST-EXHAUSTED
+Exit a form that iterates over a list if the list is empty.
+
+@item PPRINT-FILL
+Print a list of items. Using @b{:fill} newline.
+
+@item PPRINT-INDENT
+Set the current indent position.
+Indent a block of text.
+
+@item PPRINT-LINEAR
+Print a list of items.  Using @b{:linear} newline.
+
+@item PPRINT-LOGICAL-BLOCK
+Delineates a block of text.  Specifies a block of text that should be
+considered to be together.  Also allows prefixing and suffixing the
+block with enclosing text: usually '(' and ')' but can be '[' and ']'.
+
+@item PPRINT-NEWLINE
+Conditionally outputs a newline.
+
+@item PPRINT-POP
+Pops the next value off of a list of values.
+
+@item PPRINT-TAB
+Print a table.
+
+@item PPRINT-TABULAR
+Print a table.
+@end table
+
+@c ==================================================
+@c Declarations
+@c ==================================================
+
+
+@c ==================================================
+@node Pretty Declarations
+@appendixsec Declarations
+
+Describe the layout of each declaration: FILE header, SCHEMA, interface, CONSTANT, TYPE, ENTITY,
+SUBTYPE_CONSTRAINT, FUNCTION, RULE, PROCEDURE.
+
+@c ==================================================
+@node Pretty FILE_header
+@appendixsubsec FILE header
+
+The EXPRESS comments that form the initial lines in the input file@footnote{
+This clause is intended to comply with SC4 and ISO agreements for managing headers for EXPRESS schemas
+that are publicly available, as well as provide provenance information for downstream applications.}
+, starting with the first line and ending with the
+line immediately before the line with the SCHEMA keyword
+shall be printed verbatim, followed by a new line, followed by an EXPRESS comment open symbol
+('(*'), followed by provenance information for the version of the @i{Express Engine}
+and command line parameters applied to the execution, followed on the next line by an EXPRESS close comment symbol ('*)').
+
+@c ==================================================
+@node Pretty SCHEMA
+@appendixsubsec SCHEMA
+
+Per @i{SC4 Supplementary Directives} Section 6.1.6 Layout of schema:
+
+The SCHEMA and END_SCHEMA keywords shall be flush with the left margin.
+Contained objects shall also have the begin and end keywords flush with
+the left margin.
+The SCHEMA keyword shall be on a line immediately after the File header content.
+
+Interface clauses begin flush with the left margin.
+
+@example{}
+SCHEMA schema_name;
+
+USE FROM schema2;
+
+TYPE type1;
+END_TYPE;
+
+ENTITY entity1;
+END_ENTITY;
+
+END_SCHEMA;
+@end example
+
+
+@c ==================================================
+@node Pretty Interface
+@appendixsubsubsec Interface
+
+Per @i{SC4 Supplementary Directives} Section 6.1.7 Layout of interface statements.
+
+An interface begins with the @b{USE FROM} or @b{REFERENCE FROM} keywords
+at the left margin. Followed by the name of the SCHEMA being interfaced.
+
+Optionally, there can be a list of object names that are interfaced from
+the specified schema.  If this list is present, it will begin on the
+following line with the open parenthesis positioned two characters to
+the right of the left margin. Each item in the list is written to a line
+by itself with the first one being written just after the open
+parenthesis. The items are separated by a comma.  Each subsequent item
+will be aligned with the one above it.  The final item will have the
+close parenthesis following immediately after it.
+
+Finally, the interface specification is terminated by a semicolon.
+
+The source document for the interface shall be provided as a trailing
+comment immediately after the name of the interfaced schema..  If the
+version of the schema is available in the source document, it shall be
+provided in the output.
+
+@example{}
+SCHEMA schema3 '{iso standard 10303 part(nn) version(yy) object(1)@* geometric_model_schema(3)}';
+USE FROM schema1  -- ISO 10303-42 schema1 version 10
+  (entity1,
+   entity2,
+   entity3);
+USE FROM schema2  -- ISO 10303-41 schema2 version 16
+  (entity1,
+   entity2,
+   entity3,
+   entity4);
+USE FROM schema3; -- ISO 10303-43 schema3 version 5
+...
+END_SCHEMA; -- schema3
+@end example
+
+
+@c ==================================================
+@node Pretty CONSTANT
+@appendixsubsec CONSTANT
+
+Per @i{SC4 Supplementary Directives} Section 6.1.8 Layout of constant
+declaration.
+
+The @b{CONSTANT} keyword is on a line by itself and flush with the left
+margin of the enclosing declaration.
+
+On each following line is a constant specification.  Indented two
+characters to the right of the start of the @b{CONSTANT} keyword is the
+name of the constant followed by a colon {:) followed by the declared
+type of the constant followed by an assignment operator (:=) followed by
+an expression which calculates the value for the constant followed by a
+semicolon (;) to terminate the constant definition.
+
+All of the colons separating the constant name from the constant type
+should be aligned.  There should be at least one space before and after
+this colon.
+
+All of the colons that are part of the assignment operator which
+separates the constant type from the initialization expression should be
+aligned.  There should be at least one space before and after the
+assignment operator.
+
+@example{}
+CONSTANT
+  schema_prefix         : STRING       := 'MATH_FUNCTIONS_SCHEMA.';
+  the_integers          : e_space      := mk_e_space(es_integers);
+  the_reals             : e_space      := mk_e_space(es_reals);
+  the_numbers           : e_space      := mk_e_space(es_numbers);
+  the_logicals          : e_space      := mk_e_space(es_logicals);
+  the_booleans          : e_space      := mk_e_space(es_booleans);
+  the_strings           : e_space      := mk_e_space(es_strings);
+  the_binarys           : e_space      := mk_e_space(es_binarys);
+  the_maths_spaces      : e_space      := mk_e_space(es_maths_spaces);
+  the_generics          : e_space      := mk_e_space(es_generics);
+  the_empty_space       : finite_space := mk_finite_space([]);
+  the_nonnegative_reals : real_interval_from_min@*           := make_real_interval_from_min(0.0, closed);
+  the_zero_one_interval : finite_real_interval  @*           := make_finite_real_interval(0.0, closed, 1.0, closed);
+  the_zero_pi_interval  : finite_real_interval  @*           := make_finite_real_interval(0.0, closed, pi, closed);
+  the_neg1_one_interval : finite_real_interval  @*           := make_finite_real_interval(-1.0, closed, 1.0, closed);
+END_CONSTANT;
+@end example
+
+
+@c ==================================================
+@node Pretty TYPE
+@appendixsubsec TYPE
+
+@i{SC4 Supplementary Directives} Section 6.1.9 TYPE Layout.
+
+The @b{TYPE} and @b{END_TYPE} keywords are flush with the left margin
+and each on its own line.
+
+Immediately after the @b{TYPE} keyword is the name of the type, an equal
+sign ('=') and the underlying type.  If the underlying type is either an
+ENUMERATION or a SELECT and all of the values will not fit on one line,
+then the list begins on the next line indented two characters and each
+value will be written on its own line.
+
+If present, the @b{WHERE} keyword is flush with the left margin.  The
+individual where rules are indented two characters to the right.
+@footnote{This specification is not in the Directives, but is consistent with the
+specification of WHERE clauses in the ENTITY declaration.}
+@example{}
+TYPE type1 = STRING;
+WHERE
+  WR1: <expression>;
+END_TYPE; -- type1
+
+TYPE enum_type1 = ENUMERATION OF (on, off, whatever);
+END_TYPE; -- enum_type1
+
+TYPE enum_type2 = ENUMERATION OF
+  (val1,
+   val2,
+   val3,
+   val4);
+END_TYPE; -- enum_type2
+
+TYPE sel_type1 = SELECT (ent1, ent2, ent3);
+END_TYPE; -- sel_type1
+
+TYPE sel_type2 = SELECT
+  (entity1,
+   entity2,
+   entity3,
+   type4,
+   entity5);
+END_TYPE; -- sel_type2
+@end example
+
+
+@c ==================================================
+@node Pretty ENTITY
+@appendixsubsec ENTITY
+
+@i{SC4 Supplementary Directives} Section 6.1.11 Entity data type declaration layout.
+
+The @b{ENTITY} and @b{END_ENTITY} keywords are flush with the left
+margin and each on its own line.
+
+Immediately after the @b{ENTITY} keyword is the name of the entity.  If
+there is a supertype specification it is specified next beginning on the
+next line, indented two characters to the right of the left margin.
+
+If there is a subtype specification, it is specified next beginning on
+the next line, indented two characters to the right of the left margin.
+
+Next is a semicolon to mark the end of the entity header.
+
+The attributes are next with each one on a line by itself, indented two
+characters to the right of the left margin.  The colons that separate
+the attribute name from the attribute type should be aligned with at
+least one space before and after the colon.
+
+If there are any derived attributes, they are written next.  The
+@b{DERIVE} keyword is written on a line by itself flush with the left
+margin.  Each attribute is written on a line by itself indented two
+characters to the right of the left margin.  The colons that separate
+the attribute name from the attribute type should be aligned and have at
+least one space before and after.  The colons in the assignment operator
+should be aligned with at least one space before and after the
+assignment operator.  Each attribute should end with a semicolon.
+
+If there are any inverse attributes, they are written next.  The
+@b{INVERSE} keyword is written on a line by itself, flush with the left
+margin.  Each attribute is written on a line by itself, indented two
+characters to the right of the left margin.
+
+An inverse attribute has a name followed by a colon and the type of the
+attribute.  The attribute type has an optional @b{SET} or @b{BAG}
+aggregate specification which consists of either the @b{SET} or @b{BAG}
+keyword followed by an optional bounds specification, followed by the
+@b{OF} keyword and then the name of an @b{ENTITY}, followed by the
+@b{FOR} keyword and the specification of the attribute being inverted.
+The colons between the attribute name and type should be aligned and
+have at least one space before and after.
+@footnote{The specification of the @b{INVERSE} keyword and block is not
+specifically called out in the Directives, but the specification
+is consistent with the specification of the @b{DERIVE},
+@b{UNIQUE}, and @b{WHERE} keywords and blocks.}
+
+If there are any unique rules, they are written next.  The @b{UNIQUE}
+keyword is written on a line by itself, flush with the left margin.
+Each unique rule is written on a line by itself, indented two characters
+to the right of the left margin.
+
+If there are any where rules, they are written next.  The @b{WHERE}
+keyword is written on a line by itself, flush with the left margin.
+Each where rule is written on a line by itself, indented two characters
+to the right of the left margin.
+
+@example{}
+ENTITY entity1
+  SUPERTYPE OF (entity2 ANDOR entity3)
+  SUBTYPE OF (entity5);
+  attr1 : type1;
+  attr2 : type2;
+DERIVE
+  der1 : type1 := <expression>;
+INVERSE
+  inv1 : entity1 FOR attr3;
+  inv2 : BAG OF entity2 FOR attr4;
+  inv3 : BAG [1:4] OF entity3 FOR entity2.attr3;
+UNIQUE
+  UR1: attr1;
+  UR2: attr1, attr2;
+WHERE
+  WR1: <expression>;
+  WR2: <expression>;
+END_ENTITY;
+@end example
+
+
+@c ==================================================
+@node Pretty SUBTYPE_CONSTRAINT
+@appendixsubsec SUBTYPE_CONSTRAINT
+
+Write the @b{SUBTYPE_CONSTRAINT} keyword followed by a space and the
+name of the subtype constraint declaration, followed by the @b{FOR}
+keyword, a space, the name of the ENTITY that this declaration applies
+to, and a semicolon.
+@footnote{The layout of SUBTYPE_CONSTRAINT is not specified in @i{SC4 Supplementary Directives}}.
+
+If this is an abstract declaration then on a new line, indented two
+characters to the right of the left margin, write the @b{ABSTRACT}
+keyword followed by the @b{SUPERTYPE} keyword, followed by a semicolon.
+
+If there is a SUPERTYPE OF specification, it is written next, starting
+on a new line and indented two characters to the right of the left
+margin.  After it is finished a semicolon is written.
+
+If there is a total over then on a new line, indented two characters to
+the right of the left margin, write the @b{TOTAL_OVER} keyword followed
+by an open parenthesis which marks the beginning of the list of entities
+to total over.
+
+If the list of entities will fit on one line then it is done that way,
+otherwise, each entity is placed on its own line aligned with the one
+above it.  The first entity is written just after the open parenthesis
+with no space between.  Between each entity is a comma and a space after
+the comma.  A close parenthesis follows immediately after the last entity.
+Finally, a semicolon end the total over clause.
+
+On a new line, flush with the left margin, write the
+@b{END_SUBTYPE_CONSTRAINT} keyword, followed by a semicolon;
+
+@example{}
+SUBTYPE_CONSTRAINT entity1_sub_con FOR entity1;
+  ABSTRACT SUPERTYPE;
+  TOTAL_OVER (entity3, entity4, entity5);
+  ONEOF(entity3, entity4, entity5);
+END_SUBTYPE_CONSTRAINT;
+@end example
+
+
+@c ==================================================
+@node Pretty FUNCTION
+@appendixsubsec FUNCTION
+
+@i{SC4 Supplementary Directives} Section 6.1.10 Algorithm layout.
+
+The @b{FUNCTION} and @b{END_FUNCTION} keywords are on separate lines and
+aligned with the left margin.  Immediately, following the @b{FUNCTION}
+keyword is a space followed by the name of the function.
+
+Immediately after the function name, without a space, is the open
+parenthesis that marks the beginning of the formal parameters.  Each
+parameter is written on a line by itself with the first one being
+written on the same line as the open parenthesis with no space between
+it and the parenthesis.
+
+A semicolon separates each of the formal parameters and is flush
+against the parameter that it comes after.
+
+After the final formal parameter, is a close parenthesis followed by a
+colon and then the type for the value that is returned from the function.
+The colon should have at least one space before and after it.  After the
+return type is a semicolon which marks the end of the function header.
+
+If there are any local ENTITY, SUBTYPE_CONSTRAINT, FUNCTION, RULE,
+PROCEDURE, or TYPE declarations, they are written next, indented two
+characters to the right of the left margin.
+
+If there are any CONSTANT declarations, they are written next.  The
+@b{CONSTANT} and @b{END_CONSTANT} keywords are written on separate
+lines, flush with the left margin.  Each constant is written on a
+separate line indented two characters to the right of the left margin.
+
+If there are any LOCAL declarations, they are written next.  The
+@b{LOCAL} and @b{END_LOCAL} keywords are written on separate lines, flush
+with the left margin.  Each local is written on a separate line indented
+two characters to the right of the left margin.
+
+Finally, we write any statements that are included in the FUNCTION,
+indented two characters to the right of the left margin.
+
+@example{}
+FUNCTION fun_name (a : INTEGER;
+                   b : STRING;
+                   c : REAL) : STRING;
+  ENTITY fun_sub_ent;
+    name : STRING;
+  END_ENTITY;
+
+  CONSTANT
+    ...
+  END_CONSTANT;
+
+  LOCAL
+    inst : fun_sub_ent;
+  END_LOCAL;
+  inst := fun_sub_ent(b);
+END_FUNCTION;
+@end example
+
+
+@c ==================================================
+@node Pretty RULE
+@appendixsubsec RULE
+
+@i{SC4 Supplementary Directives} Section 6.1.10 Algorithm layout.
+
+It starts with the @b{RULE} keyword written on a new line flush with the
+left margin.  Immediately following the @b{RULE} keyword is a space
+followed by the name of the rule, followed by the @b{FOR} keyword..
+
+Immediately after the @b{FOR} keyword is an open parenthesis that marks
+the beginning of the list of entities that this rule applies to.  Each
+entity name is placed on a line by itself with the first one being
+written on the same line as the open parenthesis with no space between
+it and the parenthesis.
+
+A comma separates each entity name and is positioned flush against the
+entity name it follows.
+
+After the final entity name is a close parenthesis followed by a semicolon.
+
+If there are any local ENTITY, SUBTYPE_CONSTRAINT, FUNCTION, RULE,
+PROCEDURE, or TYPE declarations, they are written next, indented two
+characters to the right of the left margin.
+
+IF there are any CONSTANT declarations, they are written next.  The
+@b{CONSTANT} and @b{END_CONSTANT} keywords are written on separate
+lines, flush with the left margin.  Each constant is written on a
+separate line indented two characters to the right of the left margin.
+
+If there are any LOCAL declarations, they are written next.  The
+@b{LOCAL} and @b{END_LOCAL} keywords are written on separate lines,
+flush with the left margin.  Each local is written on a separate line
+indented two characters to the right of the left margin.
+
+The statements that make up the body of the RULE are written next, with
+each one on a separate line and indented two characters to the right of
+the left margin.
+
+If there are any where rules, they come next.  The @b{WHERE} keyword is
+written on a separate line, flush with the left margin.  Each where is
+written on its own line, indented two characters to the right of the left
+margin.
+
+Finally comes the @b{END_RULE} keyword on its own line, flush with the
+left margin, followed by a semicolon.
+
+@example{}
+RULE rule_id FOR '(' entity_ref { ',' entity_ref } ')' ';'
+  ENTITY rule_sub_ent;
+    name : STRING;
+  END_ENTITY;
+
+  CONSTANT
+    my_pi : REAL := 3.1415926;
+  END_CONSTANT;
+  LOCAL
+    my_ent: rule_sub_ent;
+  END_LOCAL;
+  inst := rule_sub_ent('what');
+WHERE
+  WR1: expression;
+  ...
+END_RULE;
+@end example
+
+@c ==================================================
+@node Pretty PROCEDURE
+@appendixsubsec PROCEDURE
+
+@i{SC4 Supplementary Directives} Section 6.1.10 Algorithm layout.
+
+It starts with the @b{PROCEDURE} keyword written on a new line flush
+with the left margin.  Immediately following the @b{PROCEDURE} keyword
+is a space followed by the name of the procedure, followed by no space and an open
+parenthesis that marks the beginning of the formal parameters.
+
+Each formal parameter is written on its own line, aligned with the one
+above it.  The first formal parameter is written immediately after the
+open parenthesis with no space between it and the parenthesis.
+
+@example{}
+PROCEDURE proc_id (formal_parameter; formal_parameter);
+  declarations
+  CONSTANT
+    my_pi : REAL := 3.1415926;
+  END_CONSTANT;
+  LOCAL
+    my_inst : proc_sub_ent;
+  END_LOCAL;
+  my_inst := proc_sub_ent(23.0)
+END_PROCEDURE;
+@end example
+
+
+@c ==================================================
+@c Expressions
+@c ==================================================
+
+@c ==================================================
+@node Pretty Expressions
+@appendixsec Expressions
+
+The @i{SC4 Supplementary Directives} document does not provide any
+guidance for how to layout the various expressions in EXPRESS.  So we
+will specify our own.  We will endeavour to make our choices as
+consistent with the provided @i{Supplementary Directives} as we can.
+
+If the expression fits on one line then it is done that way.
+
+If it does not fit on one line then it will be written to multiple lines
+with each line aligned with the expression's start point on the first
+line and written with as many of the elements as possible on each line.
+
+@c eek::%expression
+@c   eek::%expr-single
+
+
+@c ==================================================
+@node Pretty Unary MINUS Expression
+@appendixsubsec Unary MINUS Expression
+
+Write a hyphen ('-') followed by either a parenthetical expression, a
+literal value, or a qualifiable factor.  There is no space between the
+hyphen and the following item.
+
+@example{}
+-42
+-(42 * 5 / 3)
+@end example
+
+
+@c ==================================================
+@node Pretty NOT Expression
+@appendixsubsec NOT Expression
+
+Write the @b{NOT} keyword, followed by either a parenthetical
+expression, a literal value, or a qualifiable factor.  There is no space
+between the hyphen and the following item.
+
+@example{}
+NOT(x + 5)
+NOT y
+@end example
+
+
+@c ==================================================
+@node Pretty Parenthetical Expression
+@appendixsubsec Parenthetical Expression
+
+Write a left parenthesis, followed by the expression, followed by a
+right parenthesis.  If the expression spans multiple lines, then each
+subsequent line is aligned so that its first non-white space character is
+in the column immediately following the left parenthesis that began the
+@i{Parenthetical Expression}.
+
+@example{}
+(5+3)
+
+(42 DIV 5 * 64 *
+ 23 + 15)
+@end example
+
+
+@c ==================================================
+@node Pretty Unary Plus Expression
+@appendixsubsec Unary Plus Expression
+
+Write a plus sign ('+') followed by either a parenthetical expression, a
+literal value, or a qualifiable factor.  There is no space between the
+plus sign and the following item.
+
+@example{}
++42
++(12 / 3)
+@end example
+
+
+@c   eek::%expr-dual
+
+
+@c ==================================================
+@node Pretty Equal Expression
+@appendixsubsec Equal Expression
+
+Write an expression followed by an equal sign ('=') followed by an
+expression.  There will be at least one space before and after the equal
+sign.
+
+@example{}
+x = y + 15
+@end example
+
+
+@c ==================================================
+@node Pretty Exponent Expression
+@appendixsubsec Exponent Expression
+
+Write an expression followed by a double asterisk ('**') followed by an
+expression.  There will be no space before or after the double asterisk
+symbol.
+
+@example{}
+x**2
+@end example
+
+
+@node Pretty Greater Than Expression
+@appendixsubsec Greater Than Expression
+
+Write an expression followed by a greater than symbol ('>') followed by
+an expression.  There will be at least one space before and after the
+greater than symbol.
+
+@example{}
+x > y
+@end example
+
+
+@c ==================================================
+@node Pretty Greater Than Equal Expression
+@appendixsubsec Greater Than Equal Expression
+
+Write an expression followed by a greater than or equal symbol ('>=')
+followed by an expression.  There will be at least one space before and
+after the greater than or equal symbol.
+
+@example{}
+x >= y
+@end example
+
+
+@c ==================================================
+@node Pretty IN Expression
+@appendixsubsec IN Expression
+
+Write an expression followed by the @b{IN} keyword followed by an
+expression.  There will be at least one space before and after the
+@b{IN} keyword.
+
+@example{}
+'this' IN ['some', 'that', 'this', 'other']
+@end example
+
+
+@c ==================================================
+@node Pretty Instance Equal Expression
+@appendixsubsec Instance Equal Expression
+
+Write an expression followed by the instance equal symbol (':=:')
+followed by an expression.  There will be at least one space before and
+after the instance equal symbol.
+
+@example{}
+x :=: y
+@end example
+
+
+@c ==================================================
+@node Pretty Less Than Expression
+@appendixsubsec Less Than Expression
+
+Write an expression followed by the less than symbol ('<') followed by
+an expression.  There will be at least one space between the less than
+symbol.
+
+@example{}
+x < y
+@end example
+
+
+@c ==================================================
+@node Pretty Less Than or Equal Expression
+@appendixsubsec Less Than or Equal Expression
+
+Write an expression followed by the less than or equal symbol ('<=')
+followed by an expression.  There will be at least one space before and
+after the less than or equal symbol.
+
+@example{}
+x <= y
+@end example
+
+
+@c ==================================================
+@node Pretty Like Expression
+@appendixsubsec Like Expression
+
+Write an expression followed by the @b{LIKE} keyword followed by an
+expression.  There will be at least one space before and after the
+@b{LIKE} keyword.
+
+@example{}
+x LIKE y
+@end example
+
+
+@c ==================================================
+@node Pretty Not Equal Expression
+@appendixsubsec Not Equal Expression
+
+Write an expression followed by the not equal symbol ('<>') followed by
+an expression.  There will be at least one space before and after the
+not equal symbol.
+
+@example{}
+x <> y
+@end example
+
+
+@c ==================================================
+@node Pretty Not Instance Equal Expression
+@appendixsubsec Not Instance Equal Expression
+
+Write an expression followed by the not instance equal symbol (':<>:')
+followed by an expression.  There will be at least one space before and
+after the not instance equal symbol.
+
+@example{}
+x :<>: y
+@end example
+
+
+@c   eek::%expr-multi
+
+
+@c ==================================================
+@node Pretty Multiply Expression
+@appendixsubsec Multiply Expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the multiply symbol ('*').  There
+will be at least one space before and after the multiply symbol.
+
+If all of the elements can't fit on one line then as many lines as
+necessary are used.  Each line contains as many elements as possible
+with line breaks occurring just after the multiply symbol and the
+subsequent lines aligned with the first expression element on the line
+above.
+
+@example{}
+x * y * z
+
+X * y *
+z * q
+@end example
+
+
+@c ==================================================
+@node Pretty Addition Expression
+@appendixsubsec Addition Expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the addition symbol ('+').  There
+will be at least one space before and after the addition symbol.
+
+If all of the elements can't fit on one line then as many lines as
+necessary are used.  Each line contains as many elements as possible
+with line breaks occurring just after the addition symbol and the
+subsequent lines aligned with the first expression element on the line
+above.
+
+@example{}
+x + y + z
+
+x + y +
+z + q
+@end example
+
+
+@c ==================================================
+@node Pretty Subtraction Expression
+@appendixsubsec Subtraction Expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the subtraction symbol ('-').  There
+will be at least one space before and after the subtraction symbol.
+
+If all of the elements can't fit on one line then as many lines as
+necessary are used.  Each line contains as many elements as possible
+with line breaks occurring just after the subtraction symbol and the
+subsequent lines aligned with the first expression element on the line
+above.
+
+@example{}
+x - y - z
+
+x - y -
+z - q
+@end example
+
+
+@c ==================================================
+@node Pretty Division Expression
+@appendixsubsec Division Expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the division symbol ('/').  There
+will be at least one space before and after the division symbol.
+
+If all of the elements can't fit on one line then as many lines as
+necessary are used.  Each line contains as many elements as possible
+with line breaks occurring just after the division symbol and the
+subsequent lines aligned with the first expression element on the line
+above.
+
+@example{}
+x / y / z
+
+x / y /
+z / q
+@end example
+
+
+@c ==================================================
+@node Pretty AND Expression
+@appendixsubsec AND Expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the @b{AND} keyword.  There will be
+at least on space before and after the @b{AND} keyword.
+
+If all of the elements can't fit on one line then as many lines as
+necessary are used.  Each line contains as many elements as possible
+with line breaks occurring just after the @b{AND} keyword and the
+subsequent lines aligned with the first expression element on the line
+above.
+
+@example{}
+x AND y AND z
+
+x AND y AND
+z AND q
+@end example
+
+
+@c ==================================================
+@node Pretty Compose Expression
+@appendixsubsec Compose Expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the compose symbol ('||').  There
+will be at least one space before and after the compose symbol.
+
+If all of the elements can't fit on one line then as many lines as
+necessary are used.  Each line contains as many elements as possible
+with line breaks occurring just after the compose symbol and the
+subsequent lines aligned with the first expression element on the line
+above.
+
+@example{}
+x || y || z
+
+x || y ||
+z || q
+@end example
+
+
+@c ==================================================
+@node Pretty DIV Expression
+@appendixsubsec DIV Expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the @b{DIV} keyword.  There will be
+at least one space before and after the @b{DIV} keyword.
+
+If all of the elements can't fit on one line then as many lines as
+necessary are used.  Each line contains as many elements as possible
+with line breaks occurring just after the @b{DIV} keyword and the
+subsequent lines aligned with the first expression element on the line
+above.
+
+@example{}
+x DIV y DIV z
+
+x DIV y DIV
+z DIV q
+@end example
+
+
+@c ==================================================
+@node Pretty MOD Expression
+@appendixsubsec MOD Expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the @b{MOD} keyword.  There will be
+at least one space before and after the @b{MOD} keyword.
+
+If all of the elements can't fit on one line then as many lines as
+necessary are used.  Each line contains as many elements as possible
+with line breaks occurring just after the @b{MOD} keyword and the
+subsequent lines aligned with the first expression element on the line
+above.
+
+@example{}
+x MOD y MOD z
+
+x MOD y MOD
+z MOD q
+@end example
+
+
+@c ==================================================
+@node Pretty OR Expression
+@appendixsubsec OR Expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the @b{OR} keyword.  There will be
+at least one space before and after the @b{OR} keyword.
+
+If all of the elements can't fit on one line then as many lines as
+necessary are used.  Each line contains as many elements as possible
+with line breaks occurring just after the @b{OR} keyword and the
+subsequent lines aligned with the first expression element on the line
+above.
+
+@example{}
+x OR y OR z
+
+x OR y OR
+z OR q
+@end example
+
+
+@c ==================================================
+@node Pretty XOR Expression
+@appendixsubsec XOR Expression
+
+This expression object can have more than two elements.
+
+Write each expression separated by the @b{XOR} keyword.  There will be
+at least one space before and after the @b{XOR} keyword.
+
+If all of the elements can't fit on one line then as many lines as
+necessary are used.  Each line contains as many elements as possible
+with line breaks occurring just after the @b{XOR} keyword and the
+subsequent lines aligned with the first expression element on the line
+above.
+
+@example{}
+x XOR y XOR z
+
+x XOR y XOR
+z XOR q
+@end example
+
+
+@c ==================================================
+@node Pretty Aggregate Initializer Expression
+@appendixsubsec Aggregate Initializer Expression
+
+This is a sequence of expressions each separated by a comma and enclosed
+in square brackets.
+
+Each expression is written with a comma separating any two adjacent
+expressions. At least one space is written after the comma with no space
+before the comma.  The first expression starts just after the left
+square bracket and the right square bracket occurs just after the last
+expression.
+
+If the aggregate initializer expression can't fit on one line then line
+breaks are placed just after the comma.  Each element is written to a
+separate line aligned with the expression above it.
+
+@example{}
+[42, x + y, 'this', .that.]
+
+[15,
+ a + very + long + expression,
+ 'this string',
+ .enum_val.]
+@end example
+
+
+@c ==================================================
+@node Pretty Call Function Expression
+@appendixsubsec Call Function Expression
+
+Write the name of the FUNCTION.  If there are any parameters to the
+function, then the parameter expressions are enclosed in parentheses and
+separated by commas.
+
+If there are parameters then the left parenthesis is written just after
+the function name with no space separating it from the function name.
+Each expression is written with a comma separating any two adjacent
+expressions.  There will be at least one space after the comma and no
+space before the comma.
+
+If more than one line is needed then the expressions are written one to
+a line with the line break occurring just after the comma.  Each
+expression is aligned with the expression above it.  The first
+expression starts just after the left parenthesis and the right
+parenthesis is written just after the final expression.
+
+@example{}
+fun1(42, .t., 'this')
+
+fun1(42,
+     .t.,
+     'this')
+@end example
+
+
+@c ==================================================
+@c   P14 eek::expr-call-map
+@c   P14 eek::expr-call-map-qualified
+@c   P14 eek::expr-call-view
+@c   P14 eek::expr-case {eek::case-expr-action}
+
+
+@c ==================================================
+@node Pretty ENTITY Constructor Expression
+@appendixsubsec ENTITY Constructor Expression
+
+Write the name of the ENTITY to be constructed.
+
+If there are values needed to initialize any attributes, then the list
+of expressions is written just after the entity name and enclosed in
+parentheses and separated by commas.
+
+This list begins with a left parenthesis just after the ENTITY name with
+no space between the parenthesis and the entity name.  Each expression
+is written with a comma separating them.  There is at least one space
+after the comma and no space before the comma.  The right parenthesis
+follows immediately after the last expression.
+
+If all of the expressions won't fit on one line then each expression is
+placed on its own line with line breaks occurring just after the comma.
+The first expression occurs just after the left parenthesis and on the
+same line.  Each subsequent expression is aligned with the one above it.
+
+@example{}
+entity1('this', 42, (1,2,4,6), .enum_val1.)
+
+entity1('this',
+        42,
+        (1,2,4,6),
+        .enum_val1.)
+@end example
+
+
+@c ==================================================
+@node Pretty Enumeration Reference Expression
+@appendixsubsec Enumeration Reference Expression
+
+If the name of the TYPE declaration is provided, write the name of the TYPE declaration followed by a period
+('.').
+
+Write the enumeration value.
+
+@example{}
+enum1
+
+type1.enum2
+@end example
+
+
+@c ==================================================
+@c   P14 eek::expr-foreach
+@c   P14 eek::expr-forloop
+@c   P14 eek::expr-if {elsif}
+
+
+@c ==================================================
+@node Pretty Interval Expression
+@appendixsubsec Interval Expression
+
+Write an open curly brace @{ .
+Write the low value expression.
+Write the first operator.
+Write the item value expression.
+Write the second operator.
+Write the hi value expression.
+Write a close curly brace @} .
+
+If the expression can't fit on one line, then write the low value
+expression on the line with the left curly brace followed by the first
+operator.  Write the item value expression on the next line followed by
+the second operator.  The item value expression will be aligned with the
+low value expression on the line above.  Finally, on the next line write
+the hi value expression followed by the right curly brace.  The hi value
+expression will be aligned with the item value expression on the line
+above.
+
+@example{}
+@{1 < x < 10@}
+
+@{1 <
+ x <
+ 10@}
+@end example
+
+
+@c ==================================================
+@node Pretty Qualifiable Factor Expression
+@appendixsubsec Qualifiable Factor Expression
+
+This qualifiable-factor object contains both the factor and the qualifiers.
+
+Write the factor.
+For each qualifier, write the qualifier.
+
+If they need more than one line, put as many qualified on each line as
+possible and align each subsequent line with the first qualifier on the
+line above.
+
+@example{}
+var1\ENTITY1.attr1[23]
+
+var1\ENTITY1
+    .attr1[23]
+@end example
+
+
+@c ==================================================
+@node Pretty QUERY Expression
+@appendixsubsec QUERY Expression
+
+Write the @b{QUERY} keyword followed by an open parenthesis.
+
+Next write the query variable id followed by the @b{<*} symbol.
+
+Next write the source expression followed by the @b{|} symbol.
+
+Next write the query expression followed by the close parenthesis.
+
+If the query expression can't fit on one line then put line breaks just
+after the @b{<*} and @b{|} symbols.  The source expression will be
+aligned with the query variable id.  The query expression will be
+aligned with the source expression.
+
+@example{}
+QUERY(var1 <* [1,2,3,4,5] | var1 < 3)
+
+QUERY(var1 <*
+      [1,2,3,4,5] |
+      var1 < 3)
+@end example
+
+
+@c ==================================================
+@c   P14 eek::expr-wild
+
+@c ==================================================
+@c Statements
+@c ==================================================
+
+
+@c ==================================================
+@node Pretty Statements
+@appendixsec Statements
+
+The @i{SC4 Supplementary Directives} document does not provide any
+guidance for how to layout the various statements in EXPRESS.  So we
+will specify our own.  We will endeavour to make our choices as consistent
+with the provided @i{Supplementary Directives} as we can.
+
+If the statement fits on one line then it is done that way.
+
+If it does not fit on one line then it will use as many lines as
+necessary and will be formatted appropriately for the specific statement.
+
+@c eek::%stmt
+@c   p11:alias
+@c   eek::stmt-assignment
+@c   eek::stmt-call-procedure
+@c   p11:case
+@c     eek::case-action
+@c   eek::stmt-compound
+@c   p11:escape
+@c   p11:if
+@c   p11:null
+@c   p11:repeat
+@c     eek::increment-control
+@c     p11:until
+@c     p11:while
+@c   p11:return
+@c   p11:skip
+
+
+@c ==================================================
+@node Pretty ALIAS Statement
+@appendixsubsec ALIAS Statement
+
+Write the keyword @b{ALIAS} followed by the variable id followed by the
+keyword @b{FOR} followed by a general reference and set of qualifiers for
+the thing being aliased.  Finish up with a ';' (semicolon) to end it.
+
+@example{}
+ALIAS var_id FOR ent1\attr1;
+@end example
+
+
+@c ==================================================
+@node Pretty Assignment Statement
+@appendixsubsec Assignment Statement
+
+Write a pretty version of the general_ref followed by the assignment
+keyword ':=' followed by a pretty version of the expression followed by
+a ';' (semicolon).  At least one space should be included before and
+after the assignment keyword ':='.
+
+Multiple lines will be used depending on the expression itself.
+
+@example{}
+i := 23 * 42 + x;
+@end example
+
+
+@c ==================================================
+@node Pretty Call PROCEDURE Statement
+@appendixsubsec Call PROCEDURE Statement
+
+Write the name of the procedure.
+
+If there are parameters to be passed to the procedure then write an open
+parenthesis followed by a list of the parameter expressions each
+separated by a comma.  Finally write a close parenthesis.
+
+Finish up with a semicolon.
+
+If the expressions won't fit on a single line then place line breaks just
+after the comma.  Each expression will be placed on its own line aligned
+with the expression on the line above.  The first expression is placed
+on the line with the left parenthesis and just after the parenthesis.
+
+@example{}
+proc_name(42,'this',.T.,.THAT.);
+
+proc_name(42,
+          'this',
+          .T.,
+          .THAT.);
+@end example
+
+
+@c ==================================================
+@node Pretty CASE Statement
+@appendixsubsec CASE Statement
+
+Write the keyword @b{CASE} followed by the expression that is the
+<selector> followed by the keyword @b{OF}.
+
+Write each of the case actions starting on a separate line indented two
+characters to the right from the left edge of the @b{CASE} keyword.
+
+After the CASE Actions, if there is an otherwise clause, write the
+keyword @b{OTHERWISE} on a separate line, indented two characters to the
+right of the left edge of the @b{CASE} keyword.  Follow the
+@b{OTHERWISE} keyword with a colon and the statement that is the
+otherwise clause.  The colon should be right next to the @b{OTHERWISE}
+keyword with one or more spaces after the colon.
+
+Finally, on a new line write the keyword @b{END_CASE} aligned with the
+@b{CASE} keyword.  Follow the @b{END_CASE} keyword with a semicolon.
+
+@example{}
+CASE <selector> OF
+  label1: <stmt>
+  label2, label3:
+    <stmt>
+  OTHERWISE: <stmt>
+END_CASE;
+@end example
+
+
+@c ==================================================
+@node Pretty CASE Action
+@appendixsubsubsec CASE Action
+
+Each CASE Action begins on its own line, indented two characters to the
+right of the left edge of the @b{CASE} keyword.
+
+Write each specified label separated by a comma.
+
+Next write a colon next to the last label.  The colon should have at
+least one space after it.
+
+Next pretty print the statement that is the body.  If the statement
+can't fit on the line with the label(s), then start it on the next line
+indented two characters to the right of the left edge of the first label.
+
+@example{}
+label1, label2: <stmt>
+
+label3, label4, label5:
+  <stmt>
+@end example
+
+
+@c ==================================================
+@node Pretty Compound Statement
+@appendixsubsec Compound Statement
+
+The compound statement begins with the @b{BEGIN} keyword and ends with
+the @b{END} keyword.  Each of these keywords should be on its own line
+and aligned with each other.  Following the @b{END} keyword there should
+be a semicolon.
+
+Each of the enclosed statements should be written on a separate line
+indented two characters to the right of the left edge of the @b{BEGIN}
+keyword.
+
+@example{}
+BEGIN
+  a := 42 * i;
+  RETURN(a);
+END
+@end example
+
+
+@c ==================================================
+@node Pretty ESCAPE Statement
+@appendixsubsec ESCAPE Statement
+
+The ESCAPE statement is self contained and consists of just the
+@b{ESCAPE} keyword followed by a semicolon.
+
+@example{}
+ESCAPE;
+@end example
+
+
+@c ==================================================
+@node Pretty IF Statement
+@appendixsubsec IF Statement
+
+The @b{IF} statement consists of the keyword @b{IF} followed by the
+expression that is the condition.  Next follows the @b{THEN} keyword and
+the statements that constitute the then portion..  If there is an else
+part of the if then the @b{ELSE} keyword is written followed by the else
+statements.  The @b{THEN} and @b{ELSE} keywords each have their own line
+and are aligned with the @b{IF} keyword.  The @b{THEN} and @b{ELSE} statements are
+indented two characters to the right of the left edge of the associated keyword.
+
+Finally, on a new line, aligned with the @b{IF} keyword we write the
+@b{END_IF} keyword followed by a semicolon.
+
+@example{}
+IF <condition>
+THEN
+  a := 42 * i;
+  RETURN(a);
+ELSE
+  a := x / 15;
+  RETURN(a);
+END_IF;
+@end example
+
+
+@c ==================================================
+@node Pretty NULL Statement
+@appendixsubsec NULL Statement
+
+The NULL statement is self contained and consists of only a semicolon.
+
+@example{}
+;
+@end example
+
+
+@c ==================================================
+@node Pretty REPEAT Statement
+@appendixsubsec REPEAT Statement
+
+The REPEAT Statement consists of the @b{REPEAT} keyword followed by the
+Increment Controls, followed by any While Controls, followed by any Until
+Controls, followed by a semicolon, followed by the statements that
+should be executed during each loop. Finally, there is a @b{END_REPEAT}
+keyword written on its own line aligned with the @b{REPEAT} keyword and
+followed by a semicolon.
+
+The Increment Controls, While Controls, and Until Controls should be
+indented four characters to the right of the left edge of the @b{REPEAT}
+keyword.
+@footnote{The @i{Supplementary Directives} require the Increment Controls to be on
+a separate line after the REPEAT keyword but SC4 practice is to include the
+Increment Controls on the same line as the REPEAT keyword and separated from
+the REPEAT keyword by a single space}
+@example{}
+REPEAT i := 0 TO 15 BY 1
+    WHILE x > 20
+    UNTIL y < 50;
+  a := 42 * x / y;
+  b := x * i DIV y;
+END_REPEAT;
+@end example
+
+
+@c ==================================================
+@node Pretty Increment Control
+@appendixsubsubsec Increment Control
+
+An Increment Control consists of a variable id followed by an assignment
+operator followed by an expression that calculates the initial value of
+the variable followed by the @b{TO} keyword, followed by an expression
+that calculates the end value of the variable, optionally, followed by
+the @b{BY} keyword and an expression the calculates the increment value.
+
+@example{}
+a := 1 TO 5
+a := 1 TO 5 BY 0.5
+@end example
+
+
+@c ==================================================
+@node Pretty While Control
+@appendixsubsubsec While Control
+
+A While Control consists of the keyword @b{WHILE} followed by an expression
+that returns false when the @b{REPEAT} should stop.
+
+@example{}
+WHILE a < 5
+@end example
+
+
+@c ==================================================
+@node Pretty Until Control
+@appendixsubsubsec Until Control
+
+An Until Control consists of the keyword @b{UNTIL} followed by an
+expression that returns true when the @b{REPEAT} should stop.
+
+@example{}
+UNTIL x > 50
+@end example
+
+
+@c ==================================================
+@node Pretty RETURN Statement
+@appendixsubsec RETURN Statement
+
+The RETURN statement is fairly simple and consists of the keyword
+@b{RETURN} optionally followed by an open parenthesis, an expression
+which calculates the value to be returned, a close parenthesis.
+
+Finally, it is terminated with a semicolon.
+
+@example{}
+RETURN;
+RETURN(42);
+@end example
+
+
+@c ==================================================
+@node Pretty SKIP Statement
+@appendixsubsec SKIP Statement
+
+The SKIP statement is self contained and consists of the keyword
+@b{SKIP} followed by a semicolon.
+
+@example{}
+SKIP;
+@end example

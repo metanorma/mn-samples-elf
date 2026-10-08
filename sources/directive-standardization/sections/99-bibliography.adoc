@@ -1,0 +1,10 @@
+[bibliography]
+== Bibliography
+
+* [[[WTOTBT,WTO Technical Barriers To Trade Agreements]]], World Trade Organization, _The WTO Agreements Series Technical Barriers to Trade_
+
+* [[[DIR102,ELF 102:2026]]], _ELF Directive: Standard document requirements_
+
+* [[[ISODIR1,ISO/IEC Directives, Part 1]]], _ISO/IEC Directives, Part 1, Procedures for the technical work_
+
+* [[[ISODIR1C,ISO/IEC Directives, Part 1, Consolidated ISO Supplement]]], _ISO/IEC Directives, Part 1, Consolidated ISO Supplement, Procedures specific to ISO_

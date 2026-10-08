@@ -1,0 +1,73 @@
+
+[[patent-disclosure]]
+== Patent disclosure
+
+
+=== General
+
+This clause describes the principles of disclosure of patents
+that may affect ELF standardization deliverables produced
+by ELF.
+
+This clause applies to any patent disclosed or drawn
+to the attention of ELF during the development
+of and subsequent to the approval of deliverables.
+
+=== Requirements
+
+==== Participation obligation
+
+All parties participating in the standardization activities of ELF
+are obligated to inform ELF of
+any known patent or to any known pending patent application,
+either its own or that of other entities,
+as mandated by <<DIR103,clause=4>>,
+where such parties include recipients of a draft ELF standardization deliverable at any stage.
+
+==== Early disclosure
+
+Patent information should be disclosed as early as possible during the development of the deliverable.
+
+Such patent information should be provided in good faith and on a best effort basis. There is no requirement for patent searches.
+At times, this might not be possible when the first draft text appears, for example, because the text might be still too vague.
+
+////
+Lore Unt (Apple):
+I suggest generally not breaking out the text from the ITU guidelines as “NOTES,” since the status of the notes is somewhat confusing.  The deleted text of note 1 could be kept in the text, or ideally could be modified as follows “At times, this might not be possible when the first draft text appears, for example, because the text might be still too vague.”
+
+NOTE: This might not be possible when the first draft text appears since at this time, the text might be still too vague or subject to subsequent major modifications.
+////
+
+==== External-originating disclosure
+
+Parties not participating in the standardization activities of ELF may also inform ELF to any known patent, either their own and/or of any third-party, that may cover an ELF deliverable.
+
+
+=== Method of disclosure
+
+==== Declaration form
+
+When disclosing their own patents, patent holders shall fill in the "`Patent Statement and Licensing Declaration Form`" (referred to as the "`declaration form`") as stated in <<patent-form>>.
+
+==== Third-party patent disclosure
+
+Any communication drawing the attention to any third-party patent
+should be addressed to ELF in writing.
+
+The Executive Director of ELF will then request the potential
+patent holder to submit a declaration form, if applicable.
+
+
+=== Resolution to unwillingness to license
+
+Whether the identification of the patent took place before or after
+the approval of a deliverable,
+if a patent holder is unwilling to license under <<DIR103,clause=5.2>> or <<DIR103,clause=5.3>>, ELF will promptly advise the project owner(s) responsible for the affected deliverable so that appropriate action can be taken.
+
+Such action shall include, but may not be limited to:
+
+* a review of the ELF standardization deliverable or its draft in order to remove the potential conflict; or
+
+* to further examine and clarify the technical considerations causing the conflict.
+
+These guidelines also apply to any Patent disclosed or drawn to the attention of ELF subsequent to the approval of a deliverable.

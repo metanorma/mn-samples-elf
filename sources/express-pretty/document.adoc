@@ -1,0 +1,41 @@
+= EXPRESS language pretty print format
+:docnumber: 5002
+:edition: 1
+:copyright-year: 2025
+:revdate: 2025-05-01
+:language: en
+:title-main-en: EXPRESS language pretty print format
+:doctype: standard
+:technical-committee: EXPRESS
+:mn-document-class: elf
+:mn-output-extensions: xml,html,doc,pdf,rxl
+:imagesdir: images
+:fullname: Thomas Thurman
+:surname: Thurman
+:givenname: Thomas
+:affiliation: EXPRESS Language Foundation
+:docidentifier: ELF 5002:2025
+:data-uri-image:
+:local-cache-only:
+
+include::sections/00-foreword.adoc[]
+
+include::sections/00-introduction.adoc[]
+
+include::sections/01-scope.adoc[]
+
+include::sections/02-normrefs.adoc[]
+
+include::sections/03-terms.adoc[]
+
+include::sections/04-principles.adoc[]
+
+include::sections/05-parameters.adoc[]
+
+include::sections/06-declarations.adoc[]
+
+include::sections/07-expressions.adoc[]
+
+include::sections/08-statements.adoc[]
+
+include::sections/az-bibliography.adoc[]

@@ -1,0 +1,17 @@
+[bibliography]
+== Bibliography
+
+* [[[iso10303-all,ISO 10303]]], _Industrial automation systems and integration —
+Product data representation and exchange_
+
+* [[[stepmod,STEPmod]]], STEP Modules Library —
+https://www.stepmod.org
+
+* [[[expressdocs-repo,EXPRESSdocs Repository]]], EXPRESSdocs implementation —
+https://github.com/expresslang/expressdocs
+
+* [[[yaml-spec,YAML Specification]]], YAML Specification —
+https://yaml.org/spec/
+
+* [[[iso-tc184-sc4,ISO/TC 184/SC 4]]], _Industrial data — Technical committee
+for industrial data_

@@ -1,0 +1,366 @@
+[[validation]]
+== Validation rules
+
+=== General
+
+Validation ensures that reference paths are correct and navigate valid
+relationships in the EXPRESS schema repository.
+
+All validation rules shall be applied to verify path correctness.
+
+=== Entity validation
+
+==== Entity existence
+
+All entities referenced in a path must exist in the EXPRESS schema repository.
+
+Rule:
+
+* For each entity name in the path, the validator shall verify that an entity
+  with that exact name exists in the repository
+
+Error condition:
+
+* If an entity does not exist, the path is invalid
+
+Error message shall include:
+
+* The entity name that was not found
+* The location in the path where the entity appears
+* The source file and line number if available
+
+[example]
+====
+For the path:
+
+[source]
+----
+non_existent_entity <=
+product_definition
+----
+
+If `non_existent_entity` does not exist in the schema, the validator shall
+report: "Entity 'non_existent_entity' not found in repository".
+====
+
+==== Entity name case sensitivity
+
+Entity names in EXPRESS are case-insensitive, but the validator should use
+canonical case matching.
+
+Rule:
+
+* Entity name matching shall be case-insensitive
+* The validator may optionally warn if case does not match the schema definition
+
+=== Relationship validation
+
+==== Subtype relationship validation
+
+For subtype operator `\<=`, the left entity must be a declared subtype of the
+right entity.
+
+Rule:
+
+* The validator shall verify that the left entity's definition includes the
+  right entity in its SUBTYPE OF clause, either directly or through transitive
+  subtype relationships
+
+Error condition:
+
+* If the subtype relationship does not exist, the path is invalid
+
+Error message shall include:
+
+* The two entity names involved
+* Whether the relationship should be direct or transitive
+* A suggestion to verify the entity hierarchy
+
+[example]
+====
+For the path:
+
+[source]
+----
+land <=
+product_definition
+----
+
+The validator shall verify that `land` is a subtype of `product_definition`,
+either directly or through intermediate entities.
+====
+
+==== Supertype relationship validation
+
+For supertype operator `\=>`, the left entity must be a declared supertype of
+the right entity.
+
+Rule:
+
+* The validator shall verify that the right entity's definition includes the
+  left entity in its SUBTYPE OF clause, either directly or through transitive
+  relationships
+
+Error condition:
+
+* If the supertype relationship does not exist, the path is invalid
+
+=== Attribute validation
+
+==== Attribute existence
+
+All attributes referenced in navigation must exist on the specified entity.
+
+Rule:
+
+* For forward navigation `entity.attribute ->`, the validator shall verify that
+  `entity` has an attribute named `attribute`
+* For inverse navigation `<- entity.attribute`, the validator shall verify that
+  `entity` has an attribute named `attribute`
+
+Error condition:
+
+* If the attribute does not exist, the path is invalid
+
+Error message shall include:
+
+* The entity name
+* The attribute name that was not found
+* Available attributes on the entity (as suggestion)
+
+==== Attribute name case sensitivity
+
+Attribute names in EXPRESS are case-insensitive.
+
+Rule:
+
+* Attribute name matching shall be case-insensitive
+* The validator may optionally warn if case does not match the schema definition
+
+=== Navigation validation
+
+==== Forward navigation validation
+
+For forward navigation `entity_a.attribute -> entity_b`:
+
+Rules:
+
+* The attribute must exist on `entity_a`
+* The attribute type must be `entity_b` or a type that can reference `entity_b`
+* If the attribute type is a SELECT, `entity_b` must be one of the SELECT options
+
+Error conditions:
+
+* Attribute does not exist on `entity_a`
+* Attribute type is not compatible with `entity_b`
+* Attribute type is a basic type (STRING, INTEGER, etc.) and cannot reference
+  an entity
+
+==== Inverse navigation validation
+
+For inverse navigation `entity_b <- entity_a.attribute`:
+
+Rules:
+
+* The attribute must exist on `entity_a`
+* The attribute type must be `entity_b` or a type that can reference `entity_b`
+* The path is following the relationship backwards from `entity_b` to `entity_a`
+
+Error conditions:
+
+* Attribute does not exist on `entity_a`
+* Attribute does not reference `entity_b`
+
+==== Navigation continuity
+
+The validator shall verify that each navigation step properly connects to the
+next step.
+
+Rule:
+
+* The ending entity of one step must match or be compatible with the starting
+  entity of the next step
+* For subtype/supertype chains, entities must be properly related
+* For attribute navigation, the referenced entity must match the next entity in
+  the path
+
+Error condition:
+
+* If navigation continuity is broken, the path is invalid
+
+=== Constraint validation
+
+==== Constraint entity validation
+
+For each constraint, the constrained entity must:
+
+* Exist in the schema
+* Appear in the path at or before the constraint location
+
+Rule:
+
+* The validator shall verify that the entity specified in the constraint block
+  exists and is part of the current path context
+
+==== Constraint attribute validation
+
+For each constraint, the constrained attribute must:
+
+* Exist on the specified entity
+* Be accessible (not DERIVED or INVERSE unless explicitly allowed)
+
+Rule:
+
+* The validator shall verify that the attribute exists on the entity and can be
+  constrained
+
+Error condition:
+
+* If the attribute does not exist or cannot be constrained, the constraint is
+  invalid
+
+==== Constraint value type validation
+
+For each constraint value, the type must be compatible with the attribute type.
+
+Rules for type compatibility:
+
+[cols="1,1,2",options="header"]
+|===
+|Attribute type |Required value syntax |Validation rule
+
+|STRING
+|Single-quoted string
+|Value must be a valid string literal
+
+|INTEGER
+|Unquoted integer
+|Value must be a valid integer
+
+|REAL
+|Unquoted decimal
+|Value must be a valid real number
+
+|NUMBER
+|Unquoted number
+|Value must be a valid number
+
+|BOOLEAN
+|TRUE or FALSE
+|Value must be TRUE or FALSE
+
+|LOGICAL
+|TRUE, FALSE, or UNKNOWN
+|Value must be TRUE, FALSE, or UNKNOWN
+
+|ENUMERATION
+|Unquoted identifier
+|Value must be a valid enumeration item
+
+|SELECT
+|Depends on selected type
+|Value must match one of the SELECT options
+
+|===
+
+Error condition:
+
+* If value type does not match attribute type, the constraint is invalid
+
+Error message shall include:
+
+* The attribute name and its type
+* The provided value and its inferred type
+* Expected value format
+
+[example]
+====
+For a STRING attribute:
+
+[source]
+----
+{entity.string_attr = 'valid'}    -- Valid
+{entity.string_attr = invalid}    -- Invalid: missing quotes
+{entity.string_attr = 123}        -- Invalid: wrong type
+----
+====
+
+=== Path completeness validation
+
+==== Start entity validation
+
+The path should start with a valid entity from the ARM entity being mapped.
+
+Rule:
+
+* The first entity in the refpath should match or be compatible with the ARM
+  entity specified in the mapping
+
+Note: This rule may be relaxed for attribute mappings where the path starts
+from a different context.
+
+==== End entity validation
+
+The path should end with a valid MIM entity.
+
+Rule:
+
+* The final entity in the path should be a valid MIM entity that can represent
+  the ARM concept
+
+Note: The specific MIM entity expected may be specified in the mapping's
+`aimelt` field.
+
+=== Error collection
+
+The validator shall collect all errors rather than stopping at the first error.
+
+Rule:
+
+* The validator shall continue processing the entire path
+* All errors shall be collected and reported together
+* Each error shall include sufficient context for diagnosis
+
+=== Warning conditions
+
+The validator may issue warnings for conditions that are not strictly invalid
+but may indicate problems:
+
+* Case mismatches between path and schema definitions
+* Deprecated entities or attributes
+* Excessively long paths that may indicate design issues
+* Redundant navigation steps
+* Constraints that are always true or always false
+
+=== Validation output
+
+==== Success output
+
+For valid paths, the validator shall report:
+
+* Path validation status: VALID
+* Starting entity
+* Ending entity
+* Number of navigation steps
+* List of entities traversed
+
+==== Error output
+
+For invalid paths, the validator shall report:
+
+* Path validation status: INVALID
+* List of all errors found
+* For each error:
+** Error type (entity not found, invalid relationship, etc.)
+** Error message
+** Location in path (entity name, line number if available)
+** Relevant path context
+** Suggestion for correction if available
+
+==== Output formats
+
+The validator should support multiple output formats:
+
+* Text format for human reading
+* JSON format for programmatic processing
+* YAML format for integration with other tools

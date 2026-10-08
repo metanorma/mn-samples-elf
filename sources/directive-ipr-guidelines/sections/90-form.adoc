@@ -1,0 +1,193 @@
+
+[[patent-form]]
+[appendix,obligation="normative"]
+== Patent statement and licensing declaration for ELF deliverables
+
+_This declaration does not represent an actual grant of a license._
+
+_Definitions of terms used in this declaration are in accordance with ELF {docnumber}._
+
+Please submit this form to:
+
+Executive Director +
+EXPRESS Language Foundation +
+2093 Philadelphia Pike Ste 3311 +
+Claymont, Delaware 19703 +
+United States of America +
+Email: patents@expresslang.org
+
+=== Terms and definitions
+
+free of charge::
+patent holder will not seek any monetary compensation as part of the licensing arrangement (whether such compensation is called a royalty, a one-time licensing fee, etc.); patent holder is still entitled to require that the implementer of the relevant ELF standardization deliverable sign a license agreement that contains other reasonable terms and conditions (such as those relating to governing law, field of use, warranties, etc.); does not indicate that the patent holder is waiving all of its rights with respect to a patent, but only on the issue of monetary compensation
+
+patent::
+claims contained in and identified by patents, utility models and other similar statutory rights based on inventions (including applications for any of these) solely to the extent that any such claims are essential to the implementation of an ELF standardization deliverable
+
+essential patent::
+patent is essential to implement a specific ELF standardization deliverable
+
+patent holder::
+person or entity that owns, controls and/or has the ability to license patents
+
+reciprocity::
+patent holder shall only be required to license any prospective licensee if such prospective licensee will commit to license its patent(s) for implementation of the same relevant ELF standardization deliverable free of charge or under reasonable terms and conditions
+
+assignment/transfer of patent rights::
+licensing declarations made pursuant to
+<<DIR103,clause="5.2">> or <<DIR103,clause="5.3">>
+shall be interpreted as encumbrances that bind all
+successors-in-interest as to the transferred patents.
+Recognizing that this interpretation may not apply in all
+jurisdictions, any patent holder who has submitted a licensing
+declaration according to <<DIR103>> --
+be it selected as <<option-1,a)>> or <<option-2,b)>> on the
+"`Patent statement and licensing declaration for ELF deliverables`" --
+who transfers ownership of a patent that is subject to
+such licensing declaration shall include appropriate
+provisions in the relevant transfer documents to ensure
+that, as to such transferred patent, the licensing
+declaration is binding on the transferee and that the
+transferee will similarly include appropriate provisions
+in the event of future transfers with the goal of binding
+all successors-in-interest
+
+
+////
+Lore Unt (Apple):
+
+Highly suggest adding definitions from the ITU form to this form, since the form is the operative legal document.
+////
+
+=== Patent Holder
+
+Legal Name::
+pass:[__________________________]
+
+
+=== Contact for license application
+
+Name & Department::
+pass:[__________________________]
+
+Address::
+pass:[__________________________]
+
+Tel.::
+pass:[__________________________]
+
+Fax::
+pass:[__________________________]
+
+E-mail::
+pass:[__________________________]
+
+URL (optional)::
+pass:[__________________________]
+
+
+=== Document type
+
+. [ ] ELF Standardization Deliverable
+
+. [ ] ELF co-published Standardization Deliverable
+(please return this form to ELF and the appropriate
+form to the co-publishing parties)
+
+
+=== Patent information
+
+Number::
+pass:[__________________________]
+
+Title::
+pass:[__________________________]
+
+
+
+=== Licensing declaration
+
+The patent holder believes that it holds granted and/or pending applications for patents, the use of which would be required to implement the above document and hereby declares, in accordance with the ELF patent policy (see <<DIR103>>), that (check one option only):
+
+. [[option-1]] [ ] The patent holder is prepared to grant a free of charge license to an unrestricted number of applicants on a worldwide, non-discriminatory basis and under other reasonable terms and conditions to make, use, and sell implementations of the above document.
+
+.. [[option-1a]] [ ] Also mark here -- if the patent holder's willingness to license is conditioned on reciprocity for the above document.
+
+.. [[option-1b]] [ ] Also mark here -- if the patent holder reserves the right to license on reasonable terms and conditions (but not free of charge) to applicants who are only willing to license their patent, whose use would be required to implement the above document, on reasonable terms and conditions (but not free of charge).
+
+
+. [[option-2]] [ ] The patent holder is prepared to grant a license to an unrestricted number of applicants on a worldwide, non-discriminatory basis and on reasonable terms and conditions to make, use and sell implementations of the above document.
+
+.. [[option-2a]] [ ] Also mark here -- if the patent holder's willingness to license is conditioned on reciprocity for the above document.
+
+
+. [[option-3]] [ ] The patent holder is unwilling to grant licenses in accordance with provisions of either options <<option-1>> or <<option-2>> above.
++
+In this case, the following information must be provided to ELF as part of this declaration: +
++
+--
+* granted patent number or patent application number (if pending);
+* an indication of which portions of the above document are affected;
+* a description of the patents covering the above document.
+--
+////
+Lore Unt (Apple):
+
+Suggest that the “licensing negotiations” text below be as it is in the ITU guidelines, rather than in the form.
+////
+
+////
+Free of Charge:: The words "Free of Charge" do not mean that the Patent Holder is waiving all of its rights with respect to the Patent. Rather, "Free of Charge" refers to the issue of monetary compensation; i.e., that the Patent Holder will not seek any monetary compensation as part of the licensing arrangement (whether such compensation is called a royalty, a one-time licensing fee, etc.). However, while the Patent Holder in this situation is committing to not charging any monetary amount, the Patent Holder is still entitled to require that the implementer of the same above document sign a license agreement that contains other reasonable terms and conditions such as those relating to governing law, field of use, warranties, etc.
+
+Reciprocity:: The word "Reciprocity" means that the Patent Holder shall only be required to license any prospective licensee if such prospective licensee will commit to license its Patent(s) for implementation of the same above document Free of Charge or under reasonable terms and conditions.
+
+Patent:: The word "Patent" means those claims contained in and identified by patents, utility models and other similar statutory rights based on inventions (including applications for any of these) solely to the extent that any such claims are essential to the implementation of the same above document. Essential patents are patents that would be required to implement a specific deliverable.
+
+Assignment/transfer of Patent rights:: Licensing declarations made pursuant to Clause 2.1 or 2.2 of the Common Patent Policy for ITU-T/ITU-R/ISO/IEC shall be interpreted as encumbrances that bind all successors-in-interest as to the transferred Patents. Recognizing that this interpretation may not apply in all jurisdictions, any Patent Holder who has submitted a licensing declaration according to the Common Patent Policy - be it selected as option 1 or 2 on the Patent Declaration form - who transfers ownership of a Patent that is subject to such licensing declaration shall include appropriate provisions in the relevant transfer documents to ensure that, as to such transferred Patent, the licensing declaration is binding on the transferee and that the transferee will similarly include appropriate provisions in the event of future transfers with the goal of binding all successors-in-interest.
+////
+
+=== Patent Information
+
+Preferred but not required for options <<option-1,a)>> and <<option-2,b)>>. Required for <<option-3,c)>>.
+
+.Patent information form
+[cols="1,1,1,1,1",options="header"]
+|===
+|No.
+|Status [granted/ pending]
+|Country
+|Granted patent number or application number (if pending)
+|Title
+
+|1||||
+|2||||
+|3||||
+|4||||
+|5||||
+|6||||
+|7||||
+|8||||
+|9||||
+|10||||
+
+|===
+
+[ ] Check here if additional patent information is provided on additional pages.
+
+NOTE: For option <<option-3,c)>>, the additional minimum information that shall also be provided is listed in that option.
+
+=== Signature (include on final page only)
+
+Patent Holder::
+pass:[__________________________]
+
+Name of authorized person::
+pass:[__________________________]
+
+Title of authorized person::
+pass:[__________________________]
+
+Signature, Place, Date::
+pass:[__________________________]
+
+
